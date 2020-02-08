@@ -24,6 +24,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   flutter_keynote: ^0.1.2
+  google_fonts: ^0.3.7
+  font_awesome_flutter:
+  url_launcher: ^5.4.1
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +47,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/google_fonts/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
