@@ -12,8 +12,7 @@ class TwoSidesSlide extends StatelessWidget {
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
-          print(constraints);
-          return Column(children: getTwoSlides(context),);
+          return Row(children: getTwoSlides(context),);
         })
     );
   }
