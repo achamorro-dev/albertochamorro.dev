@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-ThemeData lightTheme(BuildContext context) => 
+ThemeData lightTheme(BuildContext context, double textScaleFactor) => 
   ThemeData(
     backgroundColor: Colors.white,
     primaryColor: Color(0xff0175c2),
@@ -28,7 +28,7 @@ ThemeData lightTheme(BuildContext context) =>
     )
   );
 
-ThemeData darkTheme(BuildContext context) => 
+ThemeData darkTheme(BuildContext context, double textScaleFactor) => 
   ThemeData(
     backgroundColor: Color(0xff1b262c),
     primaryColor: Color(0xff02569b),

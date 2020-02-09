@@ -14,7 +14,7 @@ class SkillsSlide extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              Text('👨🏻‍💻', style: TextStyle(fontSize: 60)),
+              Text('💁🏻‍♂️', style: TextStyle(fontSize: 60)),
               SizedBox(width: 10),
               Text('skills', style: Theme.of(context).textTheme.headline1)
             ],
@@ -25,58 +25,58 @@ class SkillsSlide extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Technical', style: Theme.of(context).textTheme.headline2),
+            Text('technical', style: Theme.of(context).textTheme.headline2),
             SizedBox(height: 10,),
             Row(
               children: <Widget>[
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    GridListItem(text: 'Flutter'),
-                    GridListItem(text: 'HTML5 / CSS3'),
-                    GridListItem(text: 'Node.js'),
-                    GridListItem(text: 'Polymer'),
+                    GridListItem(text: 'Flutter', columnMode: true),
+                    GridListItem(text: 'HTML5 / CSS3', columnMode: true),
+                    GridListItem(text: 'NodeJS', columnMode: true),
+                    GridListItem(text: 'Polymer', columnMode: true),
                   ]
                 ),
                 SizedBox(width: 30,),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    GridListItem(text: 'JavaScript'),
-                    GridListItem(text: 'Angular'),
-                    GridListItem(text: 'VueJS'),
-                    GridListItem(text: 'Agile methodologies'),
+                    GridListItem(text: 'JavaScript', columnMode: true),
+                    GridListItem(text: 'Angular', columnMode: true),
+                    GridListItem(text: 'VueJS', columnMode: true),
+                    GridListItem(text: 'Agile methodologies', columnMode: true),
                   ],
                 )
               ],
             ),
             SizedBox(height: 30,),
-            Text('Tools', style: Theme.of(context).textTheme.headline2),
+            Text('tools', style: Theme.of(context).textTheme.headline2),
             SizedBox(height: 10,),
             Row(
               children: <Widget>[
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    GridListItem(text: 'Git / Github'),
-                    GridListItem(text: 'Visual Studio Code'),
-                    GridListItem(text: 'Adobe XD'),
-                    GridListItem(text: 'Inkscape'),
+                    GridListItem(text: 'Git / Github', columnMode: true),
+                    GridListItem(text: 'Visual Studio Code', columnMode: true),
+                    GridListItem(text: 'Adobe XD', columnMode: true),
+                    GridListItem(text: 'Inkscape', columnMode: true),
                   ]
                 ),
                 SizedBox(width: 30,),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    GridListItem(text: 'Attlasian tools'),
-                    GridListItem(text: 'Windows / Mac OS / Linux'),
-                    GridListItem(text: 'Terminal'),
+                    GridListItem(text: 'Attlasian tools', columnMode: true),
+                    GridListItem(text: 'Windows / Mac OS / Linux', columnMode: true),
+                    GridListItem(text: 'Terminal', columnMode: true),
                   ],
                 )
               ],
             ),
             SizedBox(height: 30,),
-            Text('Soft', style: Theme.of(context).textTheme.headline2),
+            Text('soft', style: Theme.of(context).textTheme.headline2),
             Wrap(
               spacing: 8,
               children: <Widget>[

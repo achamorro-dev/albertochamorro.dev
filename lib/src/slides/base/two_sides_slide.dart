@@ -10,28 +10,31 @@ class TwoSidesSlide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
-      children: <Widget>[
-        // Left side
-        Flexible(
-          flex: 2,
-          fit: FlexFit.tight,
-          child: Container(
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          print(constraints);
+          return Column(children: getTwoSlides(context),);
+        })
+    );
+  }
+
+  List<Widget> getTwoSlides(BuildContext context) {
+    return [
+      Flexible(
+        flex: 2,
+        fit: FlexFit.tight,
+        child: Container(
             color: Theme.of(context).backgroundColor,
             padding: EdgeInsets.only(right: 30),
-            child: leftChild
-          ),
-        ),
-        Flexible(
+            child: leftChild),
+      ),
+      Flexible(
           flex: 3,
           fit: FlexFit.tight,
           child: Container(
-            color: Theme.of(context).backgroundColor,
-            padding: EdgeInsets.only(left: 30),
-            child: rightChild
-          )
-        )
-      ],
-    ));
+              color: Theme.of(context).backgroundColor,
+              padding: EdgeInsets.only(left: 30, right: 20),
+              child: rightChild))
+    ];
   }
 }

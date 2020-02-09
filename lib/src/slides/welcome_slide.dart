@@ -2,8 +2,24 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class WelcomeSlide extends StatelessWidget {
+class WelcomeSlide extends StatefulWidget {
   const WelcomeSlide({Key key}) : super(key: key);
+
+  @override
+  _WelcomeSlideState createState() => _WelcomeSlideState();
+}
+
+class _WelcomeSlideState extends State<WelcomeSlide> {
+
+  bool _textVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      _textVisible = true;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +48,18 @@ class WelcomeSlide extends StatelessWidget {
                       TextSpan(text: 'Alberto Chamorro', style: Theme.of(context).textTheme.headline1)
                     ]
                   ),
-                )
-            ],),
-          )
+                ),
+                AnimatedOpacity(
+                  opacity: _textVisible ? 0.7 : 0.0,
+                  duration: Duration(seconds: 2),
+                  curve: Curves.easeInOut,
+                  child: Text('swipe or press ➡️ to continue', style: Theme.of(context).textTheme.display1.copyWith(
+                    fontSize: 18
+                  ))
+                ),
+              ],
+            ),
+          ),
         ],
       )
     );
