@@ -11,7 +11,7 @@ class WorkExperienceData {
 List<WorkExperienceData> workExperienceData = [
   WorkExperienceData(
     year: 2019,
-    title: '2019-2020',
+    title: '2019 - 2020',
     location: 'BBVA Garanti (Turkey)',
     information: [
       'Frontend Specialist in architecture project working with frontend team at Turkey',
@@ -23,7 +23,7 @@ List<WorkExperienceData> workExperienceData = [
   ),
   WorkExperienceData(
     year: 2018,
-    title: '2018-2019',
+    title: '2018 - 2019',
     location: 'BBVA Compass (USA)',
     information: [
       'Full stack development of the office application for the digital signature of documents working with iPads',

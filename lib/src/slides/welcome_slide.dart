@@ -1,6 +1,9 @@
 import 'dart:ui';
 
+import 'package:albertochamorro/src/themes/theme_provider.dart';
+import 'package:albertochamorro/src/widgets/theme_switch_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class WelcomeSlide extends StatefulWidget {
   const WelcomeSlide({Key key}) : super(key: key);
@@ -10,7 +13,6 @@ class WelcomeSlide extends StatefulWidget {
 }
 
 class _WelcomeSlideState extends State<WelcomeSlide> {
-
   bool _textVisible = false;
 
   @override
@@ -24,44 +26,45 @@ class _WelcomeSlideState extends State<WelcomeSlide> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: Image(
-              image: AssetImage('assets/images/ey.png')
+        backgroundColor: Theme.of(context).backgroundColor,
+        body: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            Positioned(
+              bottom: 0,
+              right: 0,
+              child: Image(image: AssetImage('assets/images/ey.png')),
             ),
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('hey!', style: Theme.of(context).textTheme.headline2),
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(text: 'i\'m ', style: Theme.of(context).textTheme.headline2),
-                      TextSpan(text: 'Alberto Chamorro', style: Theme.of(context).textTheme.headline1)
-                    ]
+            ThemeSwitch(),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('hey!', style: Theme.of(context).textTheme.headline2),
+                  RichText(
+                    text: TextSpan(children: [
+                      TextSpan(
+                          text: 'i\'m ',
+                          style: Theme.of(context).textTheme.headline2),
+                      TextSpan(
+                          text: 'Alberto Chamorro',
+                          style: Theme.of(context).textTheme.headline1)
+                    ]),
                   ),
-                ),
-                AnimatedOpacity(
-                  opacity: _textVisible ? 0.7 : 0.0,
-                  duration: Duration(seconds: 2),
-                  curve: Curves.easeInOut,
-                  child: Text('swipe or press ➡️ to continue', style: Theme.of(context).textTheme.display1.copyWith(
-                    fontSize: 18
-                  ))
-                ),
-              ],
+                  AnimatedOpacity(
+                      opacity: _textVisible ? 0.7 : 0.0,
+                      duration: Duration(seconds: 2),
+                      curve: Curves.easeInOut,
+                      child: Text('swipe or press ➡️ to continue',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline4
+                              .copyWith(fontSize: 18))),
+                ],
+              ),
             ),
-          ),
-        ],
-      )
-    );
+          ],
+        ));
   }
 }

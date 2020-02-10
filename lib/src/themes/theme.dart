@@ -19,6 +19,9 @@ ThemeData lightTheme(BuildContext context, double textScaleFactor) =>
         color: Color(0xff0175c2),
         fontWeight: FontWeight.w700
       ),
+      headline4: GoogleFonts.montserrat().copyWith(
+        color: Color(0xff60646b)
+      ),
       bodyText1: GoogleFonts.lato().copyWith(
         fontSize: 30.0,
       ),
@@ -46,6 +49,9 @@ ThemeData darkTheme(BuildContext context, double textScaleFactor) =>
         fontSize: 40.0,
         color: Color(0xff02569b),
         fontWeight: FontWeight.w700
+      ),
+      headline4: GoogleFonts.montserrat().copyWith(
+        color: Color(0xffffffff)
       ),
       bodyText1: GoogleFonts.lato().copyWith(
         fontSize: 30.0,
