@@ -29,20 +29,26 @@ class TwoSidesSlide extends StatelessWidget {
   List<Widget> getTwoSlides(BuildContext context, bool columnMode) {
     return [
       Flexible(
-        flex: 2,
+        flex: columnMode ? 1 : 2,
         fit: FlexFit.tight,
         child: Container(
             color: Theme.of(context).backgroundColor,
             padding: !columnMode ? EdgeInsets.only(right: 30) : null,
-            child: columnMode ? Center(child: leftChild) : leftChild),
+            child: leftChild
+        ),
       ),
       Flexible(
-          flex: 3,
-          fit: FlexFit.tight,
+        flex: 3,
+        fit: FlexFit.tight,
+        child: SingleChildScrollView(
           child: Container(
-              color: Theme.of(context).backgroundColor,
-              padding: EdgeInsets.only(left: 30, right: 20),
-              child: rightChild))
+            color: Theme.of(context).backgroundColor,
+            padding: 
+              !columnMode ?
+                EdgeInsets.only(left: 30, right: 20) :
+                EdgeInsets.symmetric(horizontal: 8, vertical: 20),
+            child: rightChild),
+        ))
     ];
   }
 }

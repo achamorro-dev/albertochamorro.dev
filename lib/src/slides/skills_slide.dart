@@ -10,15 +10,18 @@ class SkillsSlide extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mobileWidth = MediaQuery.of(context).size.width <= 1024;
+
     return TwoSidesSlide(
         stackedChild: ThemeSwitch(),
         leftChild: Stack(fit: StackFit.expand, children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: mobileWidth ? MainAxisAlignment.center : MainAxisAlignment.end,
+            crossAxisAlignment: mobileWidth ? CrossAxisAlignment.center : null,
             children: <Widget>[
-              Text('💁🏻‍♂️', style: TextStyle(fontSize: 60)),
+              Text('💁🏻‍♂️', style: TextStyle(fontSize: mobileWidth ? 40 : 60)),
               SizedBox(width: 10),
-              Text('skills', style: Theme.of(context).textTheme.headline1)
+              Text('skills', style: Theme.of(context).textTheme.headline1.copyWith(fontSize: mobileWidth ? 50 : 60))
             ],
           ),
         ]),
@@ -75,7 +78,9 @@ class SkillsSlide extends StatelessWidget {
                   children: <Widget>[
                     GridListItem(text: 'Attlasian tools', columnMode: true),
                     GridListItem(
-                        text: 'Windows / Mac OS / Linux', columnMode: true),
+                        text: mobileWidth ?
+                          'Windows\nMac OS\nLinux' :
+                          'Windows / Mac OS / Linux', columnMode: true),
                     GridListItem(text: 'Terminal', columnMode: true),
                   ],
                 )

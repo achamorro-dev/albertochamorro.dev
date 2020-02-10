@@ -20,6 +20,9 @@ class ContactIconInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final mobileWidth = MediaQuery.of(context).size.width <= 1024;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
@@ -33,9 +36,13 @@ class ContactIconInfo extends StatelessWidget {
           onTap: () => {
             launch(link)
           },
-          child: Text(text, style: Theme.of(context).textTheme.bodyText2.copyWith(
-            color: color
-          ),)
+          child: Text(
+            text,
+            style: Theme.of(context).textTheme.bodyText2.copyWith(
+              color: color,
+              fontSize: mobileWidth ? 18 : 24
+            )
+          )
         )
       ],
     );

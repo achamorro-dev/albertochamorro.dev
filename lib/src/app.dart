@@ -1,3 +1,4 @@
+import 'package:albertochamorro/src/slides/thanks_slide.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keynote/flutter_keynote.dart';
 import 'package:provider/provider.dart';
@@ -20,8 +21,8 @@ List<Widget> slides = [
   WorkExperienceSlide(experienceData: workExperienceData[1],),
   WorkExperienceSlide(experienceData: workExperienceData[2],),
   ProjectsInterestsSlide(),
+  ThanksSlide(),
 ];
-
 
 class AlbertoApp extends StatelessWidget {
 
@@ -30,9 +31,9 @@ class AlbertoApp extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return KeynoteApp(
-      darkTheme: darkTheme(context, 0),
+      darkTheme: darkTheme(context),
       slides: slides,
-      theme: lightTheme(context, 0),
+      theme: lightTheme(context),
       title: 'Alberto Chamorro',
       themeMode: themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
       transition: KeynoteTransition.fade,

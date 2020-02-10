@@ -10,22 +10,29 @@ class ContactSlide extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final mobileWidth = MediaQuery.of(context).size.width <= 1024;
+
     return TwoSidesSlide(
       stackedChild: ThemeSwitch(),
       leftChild: Stack(fit: StackFit.expand, children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: mobileWidth ? MainAxisAlignment.center : MainAxisAlignment.end,
+          crossAxisAlignment: mobileWidth ? CrossAxisAlignment.end : null,
           children: <Widget>[
             ClipRRect(
-              borderRadius: BorderRadius.circular(125),
+              borderRadius: BorderRadius.circular(mobileWidth ? 100 : 125),
               child: Image(
-                  image: AssetImage('assets/images/alberto.png'), height: 250),
+                  image: AssetImage(
+                    'assets/images/alberto.png'), 
+                    height: mobileWidth ? 200 : 250
+                  ),
             )
           ],
         ),
       ]),
       rightChild: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: mobileWidth ? MainAxisAlignment.start : MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text('Alberto Chamorro Ruiz',
@@ -33,9 +40,12 @@ class ContactSlide extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          Text(
-              'Enthusiast of technology, specialized in frontend development and highly motivated with mobile development using Flutter. Organizer of Flutter Developer Group in Madrid',
-              style: Theme.of(context).textTheme.bodyText2),
+          Padding(
+            padding: mobileWidth ? EdgeInsets.all(8.0) : null,
+            child: Text(
+                'Enthusiast of technology, specialized in frontend development and highly motivated with mobile development using Flutter. Organizer of Flutter Developer Group in Madrid',
+                style: Theme.of(context).textTheme.bodyText2),
+          ),
           SizedBox(
             height: 20,
           ),
@@ -50,7 +60,7 @@ class ContactSlide extends StatelessWidget {
           ContactIconInfo(
             icon: FontAwesomeIcons.linkedin,
             color: Color(0xff0e76a8),
-            text: 'https://www.linkedin.com/in/alberto-chamorro/',
+            text: 'https://linkedin.com/in/alberto-chamorro/',
             link: 'https://www.linkedin.com/in/alberto-chamorro/',
           ),
           SizedBox(

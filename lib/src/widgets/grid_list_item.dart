@@ -10,6 +10,9 @@ class GridListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final mobileWidth = MediaQuery.of(context).size.width <= 1024;
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
@@ -17,19 +20,23 @@ class GridListItem extends StatelessWidget {
           children: <Widget>[
             Icon(
               FontAwesomeIcons.plus,
-              size: 20,
+              size: mobileWidth ? 16 : 20,
               color: Theme.of(context).primaryColor,
             ),
             columnMode ?
               Text(
                 text,
-                style: Theme.of(context).textTheme.bodyText2
+                style: Theme.of(context).textTheme.bodyText2.copyWith(
+                  fontSize: mobileWidth ? 18 : 24
+                )
               ) :
               Flexible(
                 fit: FlexFit.tight,
                 child: Text(
                   text,
-                  style: Theme.of(context).textTheme.bodyText2
+                  style: Theme.of(context).textTheme.bodyText2.copyWith(
+                    fontSize: mobileWidth ? 18 : 24
+                  )
                 ),
               )
           ],
