@@ -18,7 +18,7 @@ class ContactSlide extends StatelessWidget {
       leftChild: Stack(fit: StackFit.expand, children: [
         Row(
           mainAxisAlignment: mobileWidth ? MainAxisAlignment.center : MainAxisAlignment.end,
-          crossAxisAlignment: mobileWidth ? CrossAxisAlignment.end : null,
+          crossAxisAlignment: mobileWidth ? CrossAxisAlignment.end : CrossAxisAlignment.center,
           children: <Widget>[
             ClipRRect(
               borderRadius: BorderRadius.circular(mobileWidth ? 100 : 125),
@@ -41,7 +41,7 @@ class ContactSlide extends StatelessWidget {
             height: 10,
           ),
           Padding(
-            padding: mobileWidth ? EdgeInsets.all(8.0) : null,
+            padding: mobileWidth ? EdgeInsets.all(8.0) : EdgeInsets.all(0),
             child: Text(
                 'Enthusiast of technology, specialized in frontend development and highly motivated with mobile development using Flutter. Organizer of Flutter Developer Group in Madrid',
                 style: Theme.of(context).textTheme.bodyText2),

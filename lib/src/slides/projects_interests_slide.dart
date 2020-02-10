@@ -17,7 +17,7 @@ class ProjectsInterestsSlide extends StatelessWidget {
         leftChild: Stack(fit: StackFit.expand, children: [
           Row(
             mainAxisAlignment: mobileWidth ? MainAxisAlignment.center : MainAxisAlignment.end,
-            crossAxisAlignment: mobileWidth ? CrossAxisAlignment.center : null,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text('👨🏻‍💻', style: TextStyle(fontSize: mobileWidth ? 40 : 60)),
               SizedBox(width: 10),

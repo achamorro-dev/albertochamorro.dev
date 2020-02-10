@@ -27,6 +27,8 @@ dependencies:
   google_fonts: ^0.3.7
   font_awesome_flutter:
   url_launcher: ^5.4.1
+  flare_flutter: ^2.0.1
+
 
 dev_dependencies:
   flutter_test:
