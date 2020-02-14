@@ -12,7 +12,6 @@ class ThanksSlide extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          ThemeSwitch(),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

@@ -27,7 +27,6 @@ class ProjectsInterestsSlide extends StatelessWidget {
           ),
         ]),
         rightChild: Container(
-          width: MediaQuery.of(context).size.width * 0.8,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,

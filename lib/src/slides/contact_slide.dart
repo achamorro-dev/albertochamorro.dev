@@ -21,11 +21,11 @@ class ContactSlide extends StatelessWidget {
           crossAxisAlignment: mobileWidth ? CrossAxisAlignment.end : CrossAxisAlignment.center,
           children: <Widget>[
             ClipRRect(
-              borderRadius: BorderRadius.circular(mobileWidth ? 100 : 125),
+              borderRadius: BorderRadius.circular(mobileWidth ? 75 : 125),
               child: Image(
                   image: AssetImage(
                     'assets/images/alberto.png'), 
-                    height: mobileWidth ? 200 : 250
+                    height: mobileWidth ? 150 : 250
                   ),
             )
           ],
@@ -60,7 +60,7 @@ class ContactSlide extends StatelessWidget {
           ContactIconInfo(
             icon: FontAwesomeIcons.linkedin,
             color: Color(0xff0e76a8),
-            text: 'https://linkedin.com/in/alberto-chamorro/',
+            text: 'linkedin.com/in/alberto-chamorro/',
             link: 'https://www.linkedin.com/in/alberto-chamorro/',
           ),
           SizedBox(

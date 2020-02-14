@@ -12,21 +12,32 @@ class TwoSidesSlide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(children: [
-      LayoutBuilder(builder: (context, constraints) {
-        return constraints.maxWidth <= 1024
-            ? Column(
-                children: getTwoSlides(context, true),
-              )
-            : Row(
-                children: getTwoSlides(context, false),
-              );
+      backgroundColor: Theme.of(context).backgroundColor,
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          LayoutBuilder(builder: (context, constraints) {
+            return constraints.maxWidth < 1020
+              ? Column(
+                  children: getTwoSlides(context, true, constraints),
+                )
+              : Row(
+                  children: getTwoSlides(context, false, constraints),
+                );
       }),
       stackedChild ?? Container(),
     ]));
   }
 
-  List<Widget> getTwoSlides(BuildContext context, bool columnMode) {
+  List<Widget> getTwoSlides(BuildContext context, bool columnMode, BoxConstraints constraints) {
+    final Widget bottomChild = Container(
+      color: Theme.of(context).backgroundColor,
+      padding: 
+        !columnMode ?
+          EdgeInsets.only(left: 30, right: 20) :
+          EdgeInsets.symmetric(horizontal: 8, vertical: 20),
+      child: rightChild
+    );
     return [
       Flexible(
         flex: columnMode ? 1 : 2,
@@ -40,15 +51,12 @@ class TwoSidesSlide extends StatelessWidget {
       Flexible(
         flex: 3,
         fit: FlexFit.tight,
-        child: SingleChildScrollView(
-          child: Container(
-            color: Theme.of(context).backgroundColor,
-            padding: 
-              !columnMode ?
-                EdgeInsets.only(left: 30, right: 20) :
-                EdgeInsets.symmetric(horizontal: 8, vertical: 20),
-            child: rightChild),
-        ))
+        child: columnMode ?
+          SingleChildScrollView(
+            child: bottomChild
+          ) :
+          bottomChild
+      )
     ];
   }
 }
