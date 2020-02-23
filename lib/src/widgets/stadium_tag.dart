@@ -9,11 +9,10 @@ class StadiumTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      shape: StadiumBorder(),
-      color: Theme.of(context).primaryColor,
-      onPressed: () {},
-      child: Text(text, style: TextStyle(color: Colors.white))
+    return Chip(
+      backgroundColor: Theme.of(context).primaryColor,
+      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 6),
+      label: Text(text, style: TextStyle(color: Colors.white, fontSize: 16)),
     );
   }
 }
