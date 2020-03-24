@@ -1,9 +1,7 @@
 import 'dart:ui';
 
-import 'package:albertochamorro/src/themes/theme_provider.dart';
 import 'package:albertochamorro/src/widgets/theme_switch_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class WelcomeSlide extends StatefulWidget {
   const WelcomeSlide({Key key}) : super(key: key);

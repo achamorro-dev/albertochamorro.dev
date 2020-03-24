@@ -85,7 +85,7 @@ class ContactSlide extends StatelessWidget {
           ),
           ContactIconInfo(
               icon: FontAwesomeIcons.github,
-              color: Color(0xff24292e),
+              color: Theme.of(context).colorScheme.primary,
               text: 'https://github.com/ach4m0/',
               link: 'https://github.com/ach4m0/'),
         ],

@@ -33,8 +33,8 @@ class ContactIconInfo extends StatelessWidget {
         ),
         SizedBox(width: 10,),
         InkWell(
-          onTap: () => {
-            launch(link)
+          onTap: () {
+            launch(link);
           },
           child: Text(
             text,

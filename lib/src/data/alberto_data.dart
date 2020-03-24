@@ -12,7 +12,7 @@ List<WorkExperienceData> workExperienceData = [
   WorkExperienceData(
     year: 2019,
     title: '2019 - 2020',
-    location: 'BBVA Garanti (Turkey)',
+    location: 'Accenture - BBVA Garanti (Turkey)',
     information: [
       'Frontend Specialist in architecture project working with frontend team at Turkey',
       'Development of reusable UI and technical components and modules working with WebComponents, LitElement library and NodeJS to use in the other applications of the company',
@@ -24,7 +24,7 @@ List<WorkExperienceData> workExperienceData = [
   WorkExperienceData(
     year: 2018,
     title: '2018 - 2019',
-    location: 'BBVA Compass (USA)',
+    location: 'Accenture - BBVA Compass (USA)',
     information: [
       'Full stack development of the office application for the digital signature of documents working with iPads',
       'Technologies: Angular at front side and Java Spring for services and business logic with Oracle database',
@@ -37,7 +37,7 @@ List<WorkExperienceData> workExperienceData = [
   WorkExperienceData(
     year: 2017,
     title: '2008 - 2017',
-    location: 'Communications industry',
+    location: 'Accenture - Communications industry',
     information: [
       'Development of Java applications deployed on Unix machines, Weblogic servers with Oracle and Sybase databases',
       'Development of web tool for promotion management: architecture design, choice of technologies based on those used by the client (Java Spring, Oracle DB, HP / UX servers), technical design, coding, unit testing and E2E, implementation and corrective and evolutionary support. Creation of integrations with external systems both offline via batch and online via SOAP Service',
