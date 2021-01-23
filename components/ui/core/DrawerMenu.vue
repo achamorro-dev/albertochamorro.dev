@@ -1,10 +1,10 @@
 <template>
   <div class="drawer-menu" :class="activeClass">
     <div class="absolute left-0 top-0 w-full flex justify-between align-middle">
-      <a class="cursor-pointer p-4"
+      <ThemeSwitch class="p-4" />
+      <a class="cursor-pointer p-4" @click="closeClicked"
         ><fa :icon="['fas', 'times']" class="text-4xl"
       /></a>
-      <ThemeSwitch class="p-4" />
     </div>
 
     <nav>
@@ -45,7 +45,7 @@ export default {
 <style scoped>
 .drawer-menu {
   @apply h-screen w-screen fixed top-0 left-0 bg-custom-green text-white;
-  transition: all 0.5s ease-out;
+  transition: all 0.25s ease-out;
   transform: translateX(100vh);
   opacity: 0;
 }

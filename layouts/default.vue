@@ -1,10 +1,31 @@
 <template>
   <div>
-    <Header />
-    <DrawerMenu />
+    <Header @hamburger-menu-clicked="onHamburgerMenuClicked" />
+    <DrawerMenu
+      :active="drawerMenuActive"
+      @drawer-menu-close-event="onDrawerMenuClose"
+    />
     <Nuxt />
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      drawerMenuActive: false,
+    }
+  },
+  methods: {
+    onHamburgerMenuClicked() {
+      this.drawerMenuActive = true
+    },
+    onDrawerMenuClose() {
+      this.drawerMenuActive = false
+    },
+  },
+}
+</script>
 
 <style>
 html {

@@ -1,8 +1,11 @@
 <template>
   <header class="p-4 flex justify-between align-middle">
-    <Logo />
+    <nuxt-link to="/"><Logo /></nuxt-link>
     <NavBarMenu />
-    <HamburgerIcon class="w-8 h-8 cursor-pointer md:hidden" />
+    <HamburgerIcon
+      class="w-8 h-8 cursor-pointer md:hidden"
+      @click="$emit('hamburger-menu-clicked')"
+    />
   </header>
 </template>
 
