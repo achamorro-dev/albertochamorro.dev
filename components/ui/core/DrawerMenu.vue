@@ -46,8 +46,8 @@ export default {
 .drawer-menu {
   @apply h-screen w-screen fixed top-0 left-0 bg-custom-green text-white;
   transition: all 0.5s ease-out;
-  transform: translateX(0vh);
-  opacity: 1;
+  transform: translateX(100vh);
+  opacity: 0;
 }
 
 .drawer-menu__active {
@@ -57,5 +57,11 @@ export default {
 
 .drawer-menu-link {
   @apply text-4xl font-display py-2;
+}
+
+@media (min-width: 768px) {
+  .drawer-menu {
+    display: none;
+  }
 }
 </style>

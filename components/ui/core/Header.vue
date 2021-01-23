@@ -1,7 +1,8 @@
 <template>
   <header class="p-4 flex justify-between align-middle">
     <Logo />
-    <HamburgerIcon class="w-8 h-8 md:hidden" />
+    <NavBarMenu />
+    <HamburgerIcon class="w-8 h-8 cursor-pointer md:hidden" />
   </header>
 </template>
 
