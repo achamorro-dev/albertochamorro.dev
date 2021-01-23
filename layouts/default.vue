@@ -1,5 +1,7 @@
 <template>
   <div>
+    <Header />
+    <DrawerMenu />
     <Nuxt />
   </div>
 </template>
@@ -24,32 +26,22 @@ html {
   margin: 0;
 }
 
+h1 {
+  @apply font-display text-custom-gray;
+}
+
 .button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+  @apply bg-white;
 }
 
 .button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+  @apply bg-black;
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.custom-path-bg {
+  background: url('~assets/images/custom_path.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 </style>
