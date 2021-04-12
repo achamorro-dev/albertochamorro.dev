@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       backgroundColor: (theme) => ({
         light: theme('colors.white'),
-        dark: theme('colors.gray-main.700'),
+        dark: theme('colors.gray.700'),
       }),
       colors: {
         'custom-blue': '#31B0FC',

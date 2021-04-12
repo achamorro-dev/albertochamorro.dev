@@ -40,6 +40,10 @@ html {
   box-sizing: border-box;
 }
 
+html.dark {
+  @apply bg-gray-700;
+}
+
 *,
 *::before,
 *::after {
@@ -49,6 +53,10 @@ html {
 
 h1 {
   @apply font-display text-custom-gray;
+}
+
+.dark h1 {
+  @apply text-gray-100;
 }
 
 .button--green {
