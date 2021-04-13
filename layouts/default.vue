@@ -73,4 +73,12 @@ h1 {
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+.primary-gradient {
+  @apply bg-gradient-to-l from-custom-green to-custom-blue;
+}
+
+.xl-container {
+  @apply max-w-6xl;
+}
 </style>
