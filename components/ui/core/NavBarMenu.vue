@@ -2,21 +2,21 @@
   <div class="hidden md:flex justify-around">
     <nav>
       <ul class="flex align-middle justify-end text-center">
-        <li
-          class="text-2xl text-custom-gray font-display px-4 dark:text-gray-100"
+        <nuxt-link to="/blog"
+          ><li class="text-2xl text-custom-gray font-display px-4">
+            blog
+          </li></nuxt-link
         >
-          blog
-        </li>
-        <li
-          class="text-2xl text-custom-gray font-display px-4 dark:text-gray-100"
+        <nuxt-link to="/portfolio"
+          ><li class="text-2xl text-custom-gray font-display px-4">
+            portfolio
+          </li></nuxt-link
         >
-          portfolio
-        </li>
-        <li
-          class="text-2xl text-custom-gray font-display px-4 dark:text-gray-100"
+        <nuxt-link to="/about-me"
+          ><li class="text-2xl text-custom-gray font-display px-4">
+            sobre mí
+          </li></nuxt-link
         >
-          sobre mí
-        </li>
       </ul>
     </nav>
     <ThemeSwitch class="mx-4" />
