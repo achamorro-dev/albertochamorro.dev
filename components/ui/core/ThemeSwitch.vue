@@ -23,6 +23,7 @@ export default {
   methods: {
     changeTheme(theme) {
       this.$colorMode.preference = theme
+      this.$emit('click')
     },
   },
 }

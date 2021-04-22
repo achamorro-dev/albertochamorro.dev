@@ -1,6 +1,8 @@
 <template>
   <header class="p-4 flex justify-between align-middle">
-    <nuxt-link to="/"><Logo /></nuxt-link>
+    <nuxt-link to="/" class="hover:no-underline focus:no-underline">
+      <Logo />
+    </nuxt-link>
     <NavBarMenu />
     <HamburgerIcon
       class="w-8 h-8 cursor-pointer md:hidden"

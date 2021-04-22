@@ -1,7 +1,7 @@
 <template>
   <div class="drawer-menu" :class="activeClass">
     <div class="absolute left-0 top-0 w-full flex justify-between align-middle">
-      <ThemeSwitch class="p-4" />
+      <ThemeSwitch class="p-4" @click="closeClicked" />
       <a class="cursor-pointer p-4" @click="closeClicked"
         ><fa :icon="['fas', 'times']" class="text-4xl"
       /></a>

@@ -1,5 +1,5 @@
 <template>
-  <div class="avatar-bg primary-gradient">
+  <div class="avatar-bg bg-custom-green">
     <img
       src="../../../assets/images/avatar_home.png"
       class="w-56 h-56 rounded-full"
@@ -15,8 +15,9 @@ export default {
 
 <style>
 .avatar-bg {
-  @apply rounded-full w-64 h-64 flex justify-center items-center;
-  animation: avatar-appear 0.3s ease-out;
+  @apply rounded-full w-64 h-64 mx-4 flex justify-center items-center;
+  min-width: 16rem;
+  animation: avatar-appear 0.2s ease-out;
 }
 
 @keyframes avatar-appear {

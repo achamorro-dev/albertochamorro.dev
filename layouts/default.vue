@@ -29,7 +29,7 @@ export default {
 
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
@@ -55,8 +55,22 @@ h1 {
   @apply font-display text-custom-gray;
 }
 
-.dark h1 {
+p {
+  @apply font-body text-custom-gray my-4;
+}
+
+.dark h1,
+.dark p {
   @apply text-gray-100;
+}
+
+a {
+  @apply text-custom-blue;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
 }
 
 .button--green {
@@ -74,11 +88,13 @@ h1 {
   background-repeat: no-repeat;
 }
 
-.primary-gradient {
-  @apply bg-gradient-to-l from-custom-green to-custom-blue;
+.xl-container {
+  max-width: 120rem;
+  margin: 0 auto;
 }
 
-.xl-container {
-  @apply max-w-6xl;
+.text-container {
+  max-width: 50rem;
+  padding: 3rem;
 }
 </style>

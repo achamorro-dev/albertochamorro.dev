@@ -16,6 +16,7 @@ module.exports = {
       },
       fontFamily: {
         display: ['Poppins', 'sans-serif'],
+        body: ['Open Sans', 'sans-serif'],
       },
     },
   },
