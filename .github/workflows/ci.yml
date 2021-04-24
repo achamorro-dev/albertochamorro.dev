@@ -1,0 +1,62 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ci:
+    name: Build Web
+    env:
+      my_secret: ${{secrets.commit_secret}}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@main
+
+      - name: Setup node env 🏗
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: 14
+
+      - name: Get yarn cache directory path 🛠
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache node_modules 📦
+        uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies 👨🏻‍💻
+        run: yarn
+
+      - name: Run linter 👀
+        run: yarn lint
+
+      - name: Build dist
+        run: yarn generate
+
+      - name: Deploy gh-pages 📡
+        run: |
+          cd dist
+          git init
+          git config --global user.email a.chamorro.ruiz@gmail.com
+          git config --global user.name "Alberto Chamorro"
+          git status
+          git remote add origin "https://${{secrets.commit_secret}}@github.com/achamorro-dev/albertochamorro.dev.git"
+          git checkout -b gh-pages
+          echo "albertochamorro.dev" > CNAME
+          git add --all
+          git commit -m "Roll master - Deploy website"
+          git push origin gh-pages -f
