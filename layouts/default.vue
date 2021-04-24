@@ -6,6 +6,7 @@
       @drawer-menu-close-event="onDrawerMenuClose"
     />
     <Nuxt />
+    <Footer />
   </div>
 </template>
 
@@ -49,6 +50,7 @@ html.dark {
 *::after {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -89,12 +91,12 @@ a:focus {
 }
 
 .xl-container {
-  max-width: 120rem;
+  max-width: 75rem;
   margin: 0 auto;
 }
 
 .text-container {
   max-width: 50rem;
-  padding: 3rem;
+  padding: 2rem;
 }
 </style>

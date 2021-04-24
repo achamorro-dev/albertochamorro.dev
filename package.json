@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt --open",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -16,8 +16,8 @@
     "nuxt": "^2.14.6"
   },
   "devDependencies": {
-    "@fortawesome/free-brands-svg-icons": "^5.15.2",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@nuxtjs/color-mode": "^2.0.2",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
