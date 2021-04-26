@@ -11,9 +11,22 @@
       <ul
         class="h-screen flex align-middle justify-center flex-col text-center"
       >
-        <li class="drawer-menu-link">blog</li>
-        <li class="drawer-menu-link">portfolio</li>
-        <li class="drawer-menu-link">sobre mí</li>
+        <nuxt-link to="/blog" class="text-gray-100 text-xl"
+          ><li class="drawer-menu-link" @click="closeClicked">
+            blog
+          </li></nuxt-link
+        >
+        <!-- <li class="drawer-menu-link">portfolio</li> -->
+        <nuxt-link to="/about-me" class="text-gray-100 text-xl"
+          ><li class="drawer-menu-link" @click="closeClicked">
+            sobre mí
+          </li></nuxt-link
+        >
+        <nuxt-link to="/contact" class="text-gray-100 text-xl"
+          ><li class="drawer-menu-link" @click="closeClicked">
+            contacto
+          </li></nuxt-link
+        >
       </ul>
     </nav>
   </div>

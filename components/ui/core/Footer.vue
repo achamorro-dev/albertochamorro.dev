@@ -11,11 +11,14 @@
           <nuxt-link to="/blog" class="text-gray-100 text-xl"
             ><li class="text-md font-display">blog</li></nuxt-link
           >
-          <nuxt-link to="/portfolio" class="text-gray-100 text-xl"
+          <!-- <nuxt-link to="/portfolio" class="text-gray-100 text-xl"
             ><li class="text-md font-display">portfolio</li></nuxt-link
-          >
+          > -->
           <nuxt-link to="/about-me" class="text-gray-100 text-xl"
             ><li class="text-md font-display">sobre mí</li></nuxt-link
+          >
+          <nuxt-link to="/contact" class="text-gray-100 text-xl"
+            ><li class="text-md font-display">contacto</li></nuxt-link
           >
         </ul>
       </div>
@@ -23,7 +26,7 @@
       <div
         class="w-full md:w-1/3 text-center flex flex-col justify-center align-start mt-4 md:mt-0 footer-section"
       >
-        <Logo />
+        <Logo class="mb-3" />
         <ul class="flex justify-center">
           <SocialLink
             type="twitter"

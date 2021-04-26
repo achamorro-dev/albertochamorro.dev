@@ -16,12 +16,34 @@
         multiplataforma con <b>#Flutter</b>.
       </p>
       <div class="flex justify-start">
-        <Button icon="chevron-right">contacto</Button>
-        <Button icon="coffee" type="secondary" class="ml-3">¿café?</Button>
+        <Button icon="chevron-right" @btn-clicked="goToContact"
+          >contacto</Button
+        >
+        <Button
+          icon="coffee"
+          type="secondary"
+          class="ml-3"
+          @btn-clicked="goToCoffee"
+          >¿café?</Button
+        >
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Greetings',
+  methods: {
+    goToContact() {
+      this.$router.push('/contact')
+    },
+    goToCoffee() {
+      window.open('https://www.buymeacoffee.com/albertochamorro', '_blank')
+    },
+  },
+}
+</script>
 
 <style scoped>
 .home-container {
