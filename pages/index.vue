@@ -1,6 +1,7 @@
 <template>
   <div>
     <Greetings />
+    <LastRepositories />
   </div>
 </template>
 

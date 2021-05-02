@@ -15,7 +15,7 @@ export default {
 
 <style>
 .avatar-bg {
-  @apply rounded-full w-64 h-64 mx-4 flex justify-center items-center;
+  @apply rounded-full w-64 h-64 mx-4 flex justify-center items-center shadow-lg;
   min-width: 16rem;
   animation: avatar-appear 0.2s ease-out;
 }

@@ -53,7 +53,9 @@ html.dark {
   padding: 0;
 }
 
-h1 {
+h1,
+h2,
+h3 {
   @apply font-display text-custom-gray;
 }
 
@@ -62,6 +64,8 @@ p {
 }
 
 .dark h1,
+.dark h2,
+.dark h3,
 .dark p {
   @apply text-gray-100;
 }
