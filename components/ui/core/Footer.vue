@@ -54,7 +54,7 @@
 
 <style scoped>
 .footer {
-  @apply w-screen bg-custom-green;
+  @apply bg-custom-green;
   min-height: 12.5rem;
 }
 .dark .footer {
