@@ -2,13 +2,13 @@
   <a
     :href="href"
     target="_blank"
-    class="p-4 flex flex-col rounded border border-gray-300 hover:no-underline hover:shadow-lg"
+    class="repository-card hover:no-underline hover:shadow-lg"
   >
     <div class="flex items-center">
       <OcticonRepo class="mr-1" />
       <h3>{{ name }}</h3>
     </div>
-    <p>
+    <p class="flex-grow">
       {{ description }}
     </p>
     <div class="flex items-center">
@@ -54,3 +54,13 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.repository-card {
+  @apply p-4 flex flex-col rounded border border-gray-300;
+  transition: all 0.3s ease;
+}
+.repository-card:hover {
+  transform: translateY(-0.75rem);
+}
+</style>
