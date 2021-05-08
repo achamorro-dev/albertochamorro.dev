@@ -1,7 +1,7 @@
 <template>
   <div>
     <Greetings />
-    <LastRepositories />
+    <GithubRepositories />
   </div>
 </template>
 

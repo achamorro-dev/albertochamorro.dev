@@ -67,7 +67,8 @@ p {
 .dark h1,
 .dark h2,
 .dark h3,
-.dark p {
+.dark p,
+.dark small {
   @apply text-gray-100;
 }
 

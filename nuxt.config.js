@@ -1,3 +1,13 @@
+import path from 'path'
+import fs from 'fs'
+
+function getDynamicPaths(type) {
+  return fs
+    .readdirSync(path.resolve(__dirname, 'content', type))
+    .filter((filename) => path.extname(filename) === '.md')
+    .map((filename) => `/blog/${path.parse(filename).name}`)
+}
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -131,8 +141,14 @@ export default {
   modules: [
     // https://www.npmjs.com/package/@nuxtjs/svg
     '@nuxtjs/svg',
+    // https://content.nuxtjs.org/
+    '@nuxt/content',
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+
+  generate: {
+    routes: [].concat(getDynamicPaths('articles')),
+  },
 }

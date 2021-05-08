@@ -1,5 +1,5 @@
 <template>
-  <div>
-    <h1>Contacto</h1>
+  <div class="h-screen xl-container">
+    <Heading type="h2" text="contacto" />
   </div>
 </template>

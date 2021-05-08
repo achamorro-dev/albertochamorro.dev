@@ -1,6 +1,6 @@
 <template>
-  <div class="xl-container py-8">
-    <Heading type="h2" text="últimos repositorios" class="mb-4 xl:mb-8" />
+  <div class="xl-container p-8">
+    <Heading type="h2" text="repos en github" class="mb-4 xl:mb-8" />
     <div class="flex flex-col justify-between xl:flex-row">
       <RepositoryCard
         class="w-75 m-3 xl:w-1/3"
