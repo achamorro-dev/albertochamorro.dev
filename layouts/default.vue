@@ -81,6 +81,16 @@ a:focus {
   text-decoration: underline;
 }
 
+input,
+textarea {
+  @apply rounded border border-gray-700 py-2 px-3;
+}
+
+input:focus,
+textarea:focus {
+  @apply outline-none border border-custom-blue;
+}
+
 .button--green {
   @apply bg-white;
 }

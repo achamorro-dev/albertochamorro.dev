@@ -1,10 +1,15 @@
 <template>
-  <NuxtLink
-    :to="{ name: 'blog-tag', params: { tag: text } }"
-    class="py-2 px-4 custom-path-bg text-gray-100 hover:no-underline"
-  >
-    <span class="text-sm font-display">{{ text }}</span>
-  </NuxtLink>
+  <a href="#" class="hover:no-underline" @click.prevent="$emit('tag-clicked')">
+    <span
+      class="py-1 px-4 rounded-full border border-custom-green text-sm font-display"
+      :class="{
+        'bg-custom-green': selected,
+        'text-gray-100': selected,
+        'text-custom-gray': !selected,
+      }"
+      >{{ text }}
+    </span>
+  </a>
 </template>
 
 <script>
@@ -14,6 +19,17 @@ export default {
       type: String,
       required: true,
     },
+    selected: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
 }
 </script>
+
+<style scoped>
+.dark span {
+  @apply text-gray-100;
+}
+</style>

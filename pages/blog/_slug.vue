@@ -4,9 +4,9 @@
     <small class="block xl:text-center">
       {{ article.updatedAt | formatDate }}
     </small>
-    <ul class="flex justify-center">
+    <ul class="flex justify-center mt-4">
       <li v-for="(tag, index) in article.tags" :key="index" class="mr-3">
-        <Tag :text="tag" />
+        <Tag :text="tag" @tag-clicked="onTagClicked(tag)" />
       </li>
     </ul>
     <img :src="article.img" :alt="article.alt" class="mt-4 rounded" />
@@ -15,23 +15,20 @@
 </template>
 
 <script>
+import { formatDate } from '@/components/helpers/filters'
+
 export default {
+  filters: {
+    formatDate,
+  },
   async asyncData({ params, $content }) {
     const article = await $content('articles', params.slug).fetch()
 
     return { article }
   },
-  filters: {
-    formatDate(utcDate) {
-      const date = new Date(utcDate)
-      const options = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      }
-
-      return date.toLocaleDateString('es', options)
+  methods: {
+    onTagClicked(tag) {
+      this.$router.push({ name: 'blog', query: { tag } })
     },
   },
 }

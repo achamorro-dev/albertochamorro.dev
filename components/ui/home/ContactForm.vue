@@ -1,0 +1,95 @@
+<template>
+  <div id="contacto" class="xl-container p-8">
+    <Heading type="h2" text="contacto" class="mb-4 xl:mb-8" />
+    <form v-if="!formSent" ref="contactForm" @submit.prevent="sendForm">
+      <h3 class="text-lg mb-2">nombre</h3>
+      <input
+        v-model="nameValue"
+        name="name"
+        type="text"
+        required
+        class="w-full lg:w-1/3"
+      />
+
+      <h3 class="text-lg mt-6 mb-2">correo electrónico</h3>
+      <input
+        v-model="emailValue"
+        name="_replyto"
+        type="email"
+        required
+        class="w-full lg:w-1/3"
+      />
+
+      <h3 class="text-lg mt-6 mb-2">mensaje</h3>
+      <textarea
+        v-model="messageValue"
+        name="message"
+        required
+        class="w-full xl:w-1/2"
+      ></textarea>
+
+      <Button
+        class="mt-6"
+        :type="inProgress ? 'outline' : 'primary'"
+        @btn-clicked="sendForm"
+      >
+        {{ inProgress ? 'enviando' : 'enviar' }}
+      </Button>
+      <span v-if="hasError" class="text-sm text-red-600"
+        >Lo siento, no he podido enviar el formulario. Inténtalo otra vez.</span
+      >
+    </form>
+    <h3 v-else>👌 Muchas gracias por contactar conmigo.</h3>
+  </div>
+</template>
+
+<script>
+const actionForm = 'https://formspree.io/f/mnqlpdwk'
+
+export default {
+  name: 'ContactForm',
+  data() {
+    return {
+      nameValue: '',
+      emailValue: '',
+      messageValue: '',
+      formSent: false,
+      inProgress: false,
+      hasError: false,
+    }
+  },
+  methods: {
+    async sendForm() {
+      if (this.inProgress) return
+      if (!this.emailValue || !this.messageValue) {
+        this.hasError = true
+        return
+      }
+
+      this.hasError = false
+      this.inProgress = true
+      try {
+        const response = await fetch(actionForm, {
+          method: 'POST',
+          body: JSON.stringify({
+            name: this.nameValue,
+            _replyto: this.emailValue,
+            message: this.messageValue,
+          }),
+          headers: {
+            Accept: 'application/json',
+          },
+        })
+
+        if (response.ok) {
+          this.inProgress = false
+          this.formSent = true
+        }
+      } catch (error) {
+        this.inProgress = false
+        this.hasError = true
+      }
+    },
+  },
+}
+</script>

@@ -1,7 +1,7 @@
 <template>
   <button :class="`btn ${type}`" @click.prevent="$emit('btn-clicked')">
     <span v-if="$slots.default"><slot></slot></span>
-    <fa :icon="['fas', icon]" class="icon" />
+    <fa v-if="icon" :icon="['fas', icon]" class="icon" />
   </button>
 </template>
 
@@ -13,7 +13,7 @@ export default {
       type: String,
       required: false,
       default: 'primary',
-      validator: (value) => ['primary', 'secondary'].includes(value),
+      validator: (value) => ['primary', 'secondary', 'outline'].includes(value),
     },
     icon: {
       type: String,
@@ -27,6 +27,7 @@ export default {
 <style scoped>
 .btn {
   @apply py-2 px-4 text-gray-100 font-body font-bold rounded-3xl flex justify-center items-center text-lg;
+  transition: all 0.3s ease;
 }
 .btn:hover {
   @apply shadow-md;
@@ -42,6 +43,9 @@ export default {
 }
 .secondary {
   @apply bg-custom-blue;
+}
+.outline {
+  @apply border border-custom-green bg-white text-custom-gray;
 }
 @keyframes shake {
   20%,
