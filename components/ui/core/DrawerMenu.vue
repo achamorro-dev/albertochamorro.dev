@@ -22,11 +22,6 @@
             sobre mí
           </li></nuxt-link
         >
-        <nuxt-link to="/contact" class="text-gray-100 text-xl"
-          ><li class="drawer-menu-link" @click="closeClicked">
-            contacto
-          </li></nuxt-link
-        >
       </ul>
     </nav>
   </div>

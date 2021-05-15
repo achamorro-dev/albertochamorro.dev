@@ -67,7 +67,8 @@ p {
 .dark h1,
 .dark h2,
 .dark h3,
-.dark p {
+.dark p,
+.dark small {
   @apply text-gray-100;
 }
 
@@ -78,6 +79,16 @@ a {
 a:hover,
 a:focus {
   text-decoration: underline;
+}
+
+input,
+textarea {
+  @apply rounded border border-gray-700 py-2 px-3;
+}
+
+input:focus,
+textarea:focus {
+  @apply outline-none border border-custom-blue;
 }
 
 .button--green {

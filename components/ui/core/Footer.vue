@@ -17,9 +17,7 @@
           <nuxt-link to="/about-me" class="text-gray-100 text-xl"
             ><li class="text-md font-display">sobre mí</li></nuxt-link
           >
-          <nuxt-link to="/contact" class="text-gray-100 text-xl"
-            ><li class="text-md font-display">contacto</li></nuxt-link
-          >
+          <li class="text-md font-display">contacto</li>
         </ul>
       </div>
       <div class="w-full md:w-1/3 footer-section"></div>

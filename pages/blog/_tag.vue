@@ -1,5 +1,5 @@
 <template>
   <div>
-    <h1>Contacto</h1>
+    {{ params.tag }}
   </div>
 </template>

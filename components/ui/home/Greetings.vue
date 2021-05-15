@@ -17,8 +17,8 @@
       </p>
       <div class="flex justify-start">
         <Button icon="chevron-right" @btn-clicked="goToContact"
-          >contacto</Button
-        >
+          >contacto
+        </Button>
         <Button
           icon="coffee"
           type="secondary"
@@ -35,11 +35,13 @@
 export default {
   name: 'Greetings',
   methods: {
-    goToContact() {
-      this.$router.push('/contact')
-    },
     goToCoffee() {
       window.open('https://www.buymeacoffee.com/albertochamorro', '_blank')
+    },
+    goToContact() {
+      const contact = document.getElementById('contacto')
+
+      contact && contact.scrollIntoView()
     },
   },
 }
