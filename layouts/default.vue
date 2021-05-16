@@ -115,4 +115,28 @@ textarea:focus {
   max-width: 50rem;
   padding: 2rem;
 }
+
+.nuxt-content h2 {
+  @apply text-2xl mt-6 mb-2;
+}
+.nuxt-content h3 {
+  @apply text-xl mt-6 mb-1;
+}
+.nuxt-content p {
+  @apply font-body text-lg my-6;
+}
+.nuxt-content img {
+  @apply m-auto max-w-screen-sm my-6;
+}
+.nuxt-content ul {
+  list-style: initial;
+  @apply font-body text-lg my-6 text-custom-gray;
+}
+.nuxt-content blockquote {
+  @apply p-4 border-l-4 border-custom-blue font-body text-custom-gray;
+}
+.dark .nuxt-content ul,
+.dark .nuxt-content blockquote {
+  @apply text-gray-100;
+}
 </style>

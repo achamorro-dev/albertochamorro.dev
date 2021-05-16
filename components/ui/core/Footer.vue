@@ -1,11 +1,27 @@
 <template>
   <footer class="footer">
     <div
-      class="xl-container p-6 flex flex-col justify-center align-middle md:flex-row md:p-0"
+      class="
+        xl-container
+        p-6
+        flex flex-col
+        justify-center
+        align-middle
+        md:flex-row
+        md:p-0
+      "
     >
       <div class="w-full md:w-1/3">
         <ul
-          class="flex flex-col justify-center align-middle footer-section m-auto text-center md:text-left"
+          class="
+            flex flex-col
+            justify-center
+            align-middle
+            footer-section
+            m-auto
+            text-center
+            md:text-left
+          "
           style="width: fit-content"
         >
           <nuxt-link to="/blog" class="text-gray-100 text-xl"
@@ -17,12 +33,21 @@
           <nuxt-link to="/about-me" class="text-gray-100 text-xl"
             ><li class="text-md font-display">sobre mí</li></nuxt-link
           >
-          <li class="text-md font-display">contacto</li>
         </ul>
       </div>
       <div class="w-full md:w-1/3 footer-section"></div>
       <div
-        class="w-full md:w-1/3 text-center flex flex-col justify-center align-start mt-4 md:mt-0 footer-section"
+        class="
+          w-full
+          md:w-1/3
+          text-center
+          flex flex-col
+          justify-center
+          align-start
+          mt-4
+          md:mt-0
+          footer-section
+        "
       >
         <Logo class="mb-3" />
         <ul class="flex justify-center">

@@ -1,6 +1,6 @@
 <template>
   <article class="xl-container p-3">
-    <h1 class="text-2xl xl:text-center">{{ article.title }}</h1>
+    <h1 class="text-3xl xl:text-center">{{ article.title }}</h1>
     <small class="block xl:text-center">
       {{ article.updatedAt | formatDate }}
     </small>
@@ -33,3 +33,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+article {
+  max-width: 50rem;
+}
+</style>

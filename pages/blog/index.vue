@@ -1,7 +1,8 @@
 <template>
   <div class="xl-container">
     <h1 class="mb-4 text-4xl text-center">blog</h1>
-    <ul class="flex justify-center mt-2 mb-8">
+
+    <!-- <ul class="flex justify-center mt-2 mb-8">
       <li v-for="(tag, index) in availableTags" :key="index" class="mr-3">
         <Tag
           :text="tag"
@@ -9,7 +10,8 @@
           @tag-clicked="onTagClicked(tag)"
         />
       </li>
-    </ul>
+    </ul> -->
+
     <NuxtLink
       v-if="firstArticle"
       :to="{ name: 'blog-slug', params: { slug: firstArticle.slug } }"
@@ -34,7 +36,7 @@
 </template>
 
 <script>
-const availableTags = ['vue', 'web']
+const availableTags = ['vue', 'flutter', 'web', 'multiplataforma']
 
 export default {
   async asyncData({ $content, params }) {
@@ -51,7 +53,11 @@ export default {
   },
   computed: {
     filteredArticles() {
-      return this.articles
+      return !this.tagSelected
+        ? this.articles
+        : this.articles.filter((article) =>
+            article.tags.includes(this.tagSelected)
+          )
     },
     firstArticle() {
       return this.filteredArticles && this.filteredArticles.length > 0
