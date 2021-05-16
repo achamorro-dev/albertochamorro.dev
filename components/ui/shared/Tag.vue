@@ -1,7 +1,14 @@
 <template>
   <a href="#" class="hover:no-underline" @click.prevent="$emit('tag-clicked')">
     <span
-      class="py-1 px-4 rounded-full border border-custom-green text-sm font-display"
+      class="
+        py-1
+        px-4
+        rounded-full
+        border border-custom-green
+        text-sm
+        font-display
+      "
       :class="{
         'bg-custom-green': selected,
         'text-gray-100': selected,

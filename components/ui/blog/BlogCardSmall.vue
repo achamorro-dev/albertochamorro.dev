@@ -2,7 +2,15 @@
   <article class="flex flex-col justify-center items-center hover:shadow-xl">
     <img :src="article.img" :alt="article.tag" class="mt-4 rounded px-3" />
     <div
-      class="flex flex-col justify-items-start align-middle w-full mt-3 py-1 px-3"
+      class="
+        flex flex-col
+        justify-items-start
+        align-middle
+        w-full
+        mt-3
+        py-1
+        px-3
+      "
     >
       <small class="block text-custom-gray text-center md:text-left">
         {{ article.updatedAt | formatDate }}

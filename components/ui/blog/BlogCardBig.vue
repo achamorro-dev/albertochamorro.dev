@@ -1,10 +1,26 @@
 <template>
   <article
-    class="flex flex-col justify-center items-center rounded md:items-start md:flex-row hover:shadow-xl"
+    class="
+      flex flex-col
+      justify-center
+      items-center
+      rounded
+      md:items-start
+      md:flex-row
+      hover:shadow-xl
+    "
   >
     <img :src="article.img" :alt="article.tag" class="rounded px-3" />
     <div
-      class="flex flex-col justify-items-start align-middle mt-3 py-1 px-3 md:ml-4"
+      class="
+        flex flex-col
+        justify-items-start
+        align-middle
+        mt-3
+        py-1
+        px-3
+        md:ml-4
+      "
     >
       <small class="block text-custom-gray text-center md:text-left">
         {{ article.updatedAt | formatDate }}
