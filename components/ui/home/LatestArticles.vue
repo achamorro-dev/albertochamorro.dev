@@ -19,16 +19,17 @@
 
 <script>
 export default {
+  name: 'LatestArticles',
+  data() {
+    return {
+      latestArticles: [],
+    }
+  },
   async fetch() {
     this.latestArticles = await this.$content('articles')
       .only(['title', 'description', 'img', 'alt', 'slug', 'updatedAt'])
       .sortBy('createdAt', 'asc')
       .fetch()
-  },
-  data() {
-    return {
-      latestArticles: [],
-    }
   },
 }
 </script>

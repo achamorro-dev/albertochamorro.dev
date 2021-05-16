@@ -1,6 +1,13 @@
 <template>
   <div
-    class="xl-container flex flex-col justify-center items-center home-container lg:flex-row"
+    class="
+      xl-container
+      flex flex-col
+      justify-center
+      items-center
+      home-container
+      lg:flex-row
+    "
   >
     <Avatar />
     <div class="text-container">
