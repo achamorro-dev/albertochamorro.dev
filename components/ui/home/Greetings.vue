@@ -19,7 +19,7 @@
       </p>
       <p class="text-xl">
         Ahora mismo tengo mi corazón dividido por el lado del desarrollo web con
-        <b>#VueJs #Nuxt</b> y <b>#TailwindCSS</b> y por el lado del desarrollo
+        <b>#VueJs #NuxtJS</b> y <b>#TailwindCSS</b> y por el lado del desarrollo
         multiplataforma con <b>#Flutter</b>.
       </p>
       <div class="flex justify-start">

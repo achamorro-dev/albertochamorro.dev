@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import CONSTANTS from '@/helpers/constants'
 import { formatDate } from '@/components/helpers/filters'
 
 export default {
@@ -25,6 +26,53 @@ export default {
     const article = await $content('articles', params.slug).fetch()
 
     return { article }
+  },
+  head() {
+    return {
+      title: `${this.article.title} | ${CONSTANTS.WEB_TITLE}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.article.description,
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.article.title} | ${CONSTANTS.WEB_TITLE}`,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.article.description,
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.article.title} | ${CONSTANTS.WEB_TITLE}`,
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.article.description,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.article.image,
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image',
+          content: this.article.image,
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.article.title,
+        },
+      ],
+    }
   },
   methods: {
     onTagClicked(tag) {
