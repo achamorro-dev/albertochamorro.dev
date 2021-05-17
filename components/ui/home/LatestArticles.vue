@@ -10,7 +10,7 @@
           :to="{ name: 'blog-slug', params: { slug: article.slug } }"
           class="hover:no-underline"
         >
-          <BlogCardSmall :article="article" class="mb-6 px-8 xl:px-0" />
+          <BlogCardSmall :article="article" class="mb-6 px-0" />
         </NuxtLink>
       </li>
     </ul>

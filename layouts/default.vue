@@ -126,7 +126,7 @@ textarea:focus {
   @apply font-body text-lg my-6;
 }
 .nuxt-content img {
-  @apply m-auto max-w-screen-sm my-6;
+  @apply m-auto max-w-full my-6;
 }
 .nuxt-content ul {
   list-style: initial;
@@ -138,5 +138,11 @@ textarea:focus {
 .dark .nuxt-content ul,
 .dark .nuxt-content blockquote {
   @apply text-gray-100;
+}
+
+@media (min-width: 768px) {
+  .nuxt-content img {
+    @apply max-w-screen-sm;
+  }
 }
 </style>

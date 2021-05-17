@@ -56,6 +56,7 @@ export default {
   transition: all 0.25s ease-out;
   transform: translateX(100vh);
   opacity: 0;
+  z-index: 1000;
 }
 
 .drawer-menu__active {

@@ -1,5 +1,5 @@
 <template>
-  <article class="xl-container p-3">
+  <article class="xl-container p-8">
     <h1 class="text-3xl xl:text-center">{{ article.title }}</h1>
     <small class="block xl:text-center">
       {{ article.updatedAt | formatDate }}

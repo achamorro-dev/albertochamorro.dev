@@ -2,7 +2,7 @@
 title: Instalando Flutter 2 de manera segura con FVM
 description: Cada vez trabajamos en más proyectos y no todos ellos funcionan con la misma versión de Flutter. Por eso, usar herramientas como FVM es cada vez más recomendable.
 img: https://miro.medium.com/max/3840/1*1vi7IW148SJCSVkk6LSvww.png
-alt: Cártel del post instalando Flutter 2 con FVM
+alt: Cartel del post instalando Flutter 2 con FVM
 tags:
   - flutter
   - multiplataforma
@@ -63,18 +63,18 @@ Y si lanzamos el comando fvm podremos ver la ayuda del CLI:
 
 Vamos a revisar los comandos que podemos usar con el CLI y que hace cada uno:
 
-* config: podremos configurar el path donde FVM guardará las versiones de Flutter
-* flutter: podrás ejecutar el comando de Flutter a través de FVM
-* install: podrás instalar cualquier channel o versión de Flutter que le indiques a FVM
-* list: podrás listar todas las versiones de Flutter que ya tienes descargadas
+* **config**: podremos configurar el path donde FVM guardará las versiones de Flutter
+* **flutter**: podrás ejecutar el comando de Flutter a través de FVM
+* **install**: podrás instalar cualquier channel o versión de Flutter que le indiques a FVM
+* **list**: podrás listar todas las versiones de Flutter que ya tienes descargadas
 <img src="https://miro.medium.com/max/744/1*CRFZinI5o-faoqfgO4t56Q.png" alt="Ejemplo de salida de fvm list">
 
-* releases: se imprime un listado de todas las posibles versiones de Flutter disponibles para instalar/usar
+* **releases**: se imprime un listado de todas las posibles versiones de Flutter disponibles para instalar/usar
 <img src="https://miro.medium.com/max/792/1*E0aNe-XRSmvJom38zY73bg.png" alt="Ejemplo de salida de fvm releases">
 
-* remove: se eliminará de tu ordenador la versión que le indiques
-* use: cambiará a la versión de Flutter que le indiques
-* version: imprimirá la versión de FVM que tienes instalada
+* **remove**: se eliminará de tu ordenador la versión que le indiques
+* **use**: cambiará a la versión de Flutter que le indiques
+* **version**: imprimirá la versión de FVM que tienes instalada
 
 Lo más recomendable para no romper nada es ver que versión tienes del SDK instalado ahora mismo y hacer el cambio para que sólo FVM maneje Flutter, así que vamos a ello.
 
@@ -138,8 +138,8 @@ Para ello podemos ir al proyecto desde la terminal y ejecutar el comando ```fvm 
 
 Esto creará una carpeta llamada .fvm donde tendremos:
 
-* fvm_config.json: fichero donde se especifica la versión de Flutter a usar para el proyecto
-* flutter_sdk: carpeta con el SDK de Flutter en la versión especificada
+* **fvm_config.json**: fichero donde se especifica la versión de Flutter a usar para el proyecto
+* **flutter_sdk**: carpeta con el SDK de Flutter en la versión especificada
 
 <blockquote>En la carpeta .fvm/flutter_sdk está todo el SDK completo de Flutter y eso es algo que no queremos/debemos subir a nuestros repositorios por lo que hay que ignorar los cambios en esa ruta añadiéndola a nuestro fichero .gitignore si estáis usando git, por ejemplo.</blockquote>
 

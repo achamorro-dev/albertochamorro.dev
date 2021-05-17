@@ -1,5 +1,5 @@
 <template>
-  <header class="p-4 sticky top-0 bg-light dark:bg-dark">
+  <header class="p-4 sticky top-0 bg-light z-50">
     <div class="xl-container flex justify-between align-middle">
       <nuxt-link to="/" class="hover:no-underline focus:no-underline">
         <Logo />
@@ -21,3 +21,12 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+header {
+  transition: all 0.3s ease;
+}
+.dark header {
+  @apply bg-dark;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="xl-container">
+  <section class="xl-container">
     <h1 class="mb-4 text-4xl text-center">blog</h1>
 
     <!-- <ul class="flex justify-center mt-2 mb-8">
@@ -32,7 +32,7 @@
         </NuxtLink>
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -83,3 +83,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+section {
+  min-height: 80vh;
+}
+</style>
