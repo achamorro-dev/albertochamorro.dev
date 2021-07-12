@@ -10,7 +10,7 @@
       hover:shadow-xl
     "
   >
-    <img :src="article.img" :alt="article.tag" class="rounded md:px-3" />
+    <img :src="article.img" :alt="article.alt" class="rounded md:px-3" />
     <div
       class="
         flex flex-col

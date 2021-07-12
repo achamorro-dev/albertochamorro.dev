@@ -2,8 +2,9 @@
   <div id="contacto" class="xl-container p-8">
     <Heading type="h2" text="contacto" class="mb-4 xl:mb-8" />
     <form v-if="!formSent" ref="contactForm" @submit.prevent="sendForm">
-      <h3 class="text-lg mb-2">nombre</h3>
+      <label for="nameForm" class="text-lg mb-2">nombre</label>
       <input
+        id="nameForm"
         v-model="nameValue"
         name="name"
         type="text"
@@ -11,8 +12,11 @@
         class="w-full lg:w-1/3"
       />
 
-      <h3 class="text-lg mt-6 mb-2">correo electrónico</h3>
+      <label for="emailForm" class="text-lg mt-6 mb-2">
+        correo electrónico
+      </label>
       <input
+        id="emailForm"
         v-model="emailValue"
         name="_replyto"
         type="email"
@@ -20,8 +24,9 @@
         class="w-full lg:w-1/3"
       />
 
-      <h3 class="text-lg mt-6 mb-2">mensaje</h3>
+      <label for="messageForm" class="text-lg mt-6 mb-2">mensaje</label>
       <textarea
+        id="messageForm"
         v-model="messageValue"
         name="message"
         required
@@ -93,3 +98,9 @@ export default {
   },
 }
 </script>
+
+<style lang="css" scoped>
+label {
+  @apply block font-display text-custom-gray;
+}
+</style>

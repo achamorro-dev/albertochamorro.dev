@@ -2,6 +2,7 @@
   <div class="avatar-bg bg-custom-green">
     <img
       src="../../../assets/images/avatar_home.png"
+      alt="Avatar Alberto Chamorro"
       class="w-56 h-56 rounded-full"
     />
   </div>

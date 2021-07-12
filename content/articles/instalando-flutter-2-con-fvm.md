@@ -3,7 +3,7 @@ title: Instalando Flutter 2 de manera segura con FVM
 description: Cada vez trabajamos en más proyectos y no todos ellos funcionan con la misma versión de Flutter. Por eso, usar herramientas como FVM es cada vez más recomendable.
 img: https://res.cloudinary.com/dp1r5podd/image/upload/v1626071430/albertochamorro.dev/instalando_flutter_2_con_fvm_qaxvzk.webp
 thumbnail: https://res.cloudinary.com/dp1r5podd/image/upload/c_limit,h_180,w_360/v1626071430/albertochamorro.dev/instalando_flutter_2_con_fvm_qaxvzk.webp
-alt: Cartel del post instalando Flutter 2 con FVM
+alt: Cartel del artículo instalando Flutter 2 con FVM
 tags:
   - flutter
   - multiplataforma

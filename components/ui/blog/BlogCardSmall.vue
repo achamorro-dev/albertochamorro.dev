@@ -2,7 +2,7 @@
   <article class="flex flex-col justify-center items-center hover:shadow-xl">
     <img
       :src="article.thumbnail"
-      :alt="article.tag"
+      :alt="article.alt"
       class="mt-4 rounded px-3"
     />
     <div
