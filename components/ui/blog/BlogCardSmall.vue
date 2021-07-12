@@ -1,6 +1,10 @@
 <template>
   <article class="flex flex-col justify-center items-center hover:shadow-xl">
-    <img :src="article.img" :alt="article.tag" class="mt-4 rounded px-3" />
+    <img
+      :src="article.thumbnail"
+      :alt="article.tag"
+      class="mt-4 rounded px-3"
+    />
     <div
       class="
         flex flex-col

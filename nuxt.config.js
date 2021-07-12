@@ -18,6 +18,9 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
+    htmlAttrs: {
+      lang: 'es',
+    },
     title: CONSTANTS.WEB_TITLE,
     meta,
     link,
@@ -78,6 +81,12 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+
+  render: {
+    static: {
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    },
+  },
 
   generate: {
     routes: [].concat(getDynamicPaths('articles')),

@@ -10,8 +10,8 @@ module.exports = {
         dark: theme('colors.gray.700'),
       }),
       colors: {
-        'custom-blue': '#31B0FC',
-        'custom-green': '#40DCA5',
+        'custom-blue': '#067BC2',
+        'custom-green': '#24DCA5',
         'custom-gray': '#3e3e3e',
       },
       fontFamily: {
