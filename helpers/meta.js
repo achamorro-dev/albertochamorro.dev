@@ -73,7 +73,7 @@ export default [
   {
     hid: 'og:site_name',
     property: 'og:site_name',
-    content: 'pablosirera.com',
+    content: 'albertochamorro.dev',
   },
   {
     hid: 'og:image',

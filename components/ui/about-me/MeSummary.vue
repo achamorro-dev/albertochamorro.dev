@@ -16,11 +16,11 @@
         aplicaciones multiplataforma para iOS y Android.
       </p>
       <p class="text-lg">
-        Personalmente me considero una persona abierta, siempre dispuesto a
-        ayudar a quien lo necesite, sin ningún problema para trabajar en equipo.
-        Con muchas ganas de aprender y de avanzar en mi carrera profesional como
-        desarrollador probando nuevos avances o adoptando nuevas tecnologías
-        siempre con lógica.
+        Me considero alguien abierto y siempre dispuesto a ayudar a quien lo
+        necesite, sin ningún problema para trabajar en equipo. Con muchas ganas
+        de aprender y de avanzar en mi carrera profesional como desarrollador
+        probando nuevos avances o adoptando nuevas tecnologías siempre con
+        lógica.
       </p>
       <p class="text-lg">
         En mi blog escribo artículos para poder compartir lo que aprendo en mi
