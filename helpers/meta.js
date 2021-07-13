@@ -63,12 +63,12 @@ export default [
   {
     hid: 'og:title',
     property: 'og:title',
-    content: process.env.APP_TITLE,
+    content: CONSTANTS.WEB_TITLE,
   },
   {
     hid: 'og:description',
     property: 'og:description',
-    content: process.env.APP_DESC,
+    content: CONSTANTS.WEB_DESCRIPTION,
   },
   {
     hid: 'og:site_name',
