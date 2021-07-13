@@ -79,18 +79,18 @@ export default [
     hid: 'og:image',
     property: 'og:image',
     content:
-      'https://res.cloudinary.com/de5xzoviz/image/upload/v1592684920/pablosirera.jpg',
+      'https://res.cloudinary.com/dp1r5podd/image/upload/v1626099053/albertochamorro.dev/me_vm53jm.jpg',
   },
   {
     hid: 'og:image:secure_url',
     property: 'og:image',
     content:
-      'https://res.cloudinary.com/de5xzoviz/image/upload/v1592684920/pablosirera.jpg',
+      'https://res.cloudinary.com/dp1r5podd/image/upload/v1626099053/albertochamorro.dev/me_vm53jm.jpg',
   },
   {
     hid: 'og:image:alt',
     property: 'og:image:alt',
-    content: 'Pablo Sirera | Desarrollador Web en Valencia',
+    content: 'Alberto Chamorro - Frontend developer',
   },
   {
     hid: 'og:image:type',
@@ -100,6 +100,6 @@ export default [
   {
     hid: 'google-site-verification',
     name: 'google-site-verification',
-    content: 'stbDTm71faQjfZWQC6edmlVgwdw7EpBB0jWRhYsdRB8',
+    content: 'Mhc0TQJ8Fvcm1w2ne0KFk26r0uLM9HAXZBrEOrl6nqg',
   },
 ]
