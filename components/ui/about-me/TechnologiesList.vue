@@ -21,6 +21,16 @@
       <LogoImage type="nuxt" title="Nuxt.js" link="https://nuxtjs.org/" />
     </li>
     <li>
+      <LogoImage
+        type="storybook"
+        title="Storybook"
+        link="https://storybook.js.org/"
+      />
+    </li>
+    <li>
+      <LogoImage type="jest" title="Jest" link="https://jestjs.io/" />
+    </li>
+    <li>
       <LogoImage type="sass" title="Sass" link="https://sass-lang.com/" />
     </li>
     <li>
@@ -39,9 +49,6 @@
         title="Firebase"
         link="https://firebase.google.com/"
       />
-    </li>
-    <li>
-      <LogoImage type="jest" title="Jest" link="https://jestjs.io/" />
     </li>
   </ul>
 </template>

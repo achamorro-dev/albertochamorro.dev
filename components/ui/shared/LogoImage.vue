@@ -21,6 +21,7 @@ const LOGO_DEFINITIONS = [
   { key: 'flutter', component: 'FlutterImage' },
   { key: 'firebase', component: 'FirebaseImage' },
   { key: 'jest', component: 'JestImage' },
+  { key: 'storybook', component: 'StorybookImage' },
   { key: 'git', component: 'GitImage' },
   { key: 'github', component: 'GitHubImage' },
   { key: 'terminal', component: 'TerminalImage' },
@@ -51,6 +52,7 @@ export default {
     AtlassianImage: () => import('@/assets/logos/atlassian.svg?inline'),
     NotionImage: () => import('@/assets/logos/notion.svg?inline'),
     AdobeXDImage: () => import('@/assets/logos/adobexd.svg?inline'),
+    StorybookImage: () => import('@/assets/logos/storybook.svg?inline'),
   },
   props: {
     link: {
