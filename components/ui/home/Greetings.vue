@@ -1,5 +1,5 @@
 <template>
-  <div
+  <article
     class="
       xl-container
       flex flex-col
@@ -11,7 +11,8 @@
   >
     <Avatar />
     <div class="text-container">
-      <p class="text-xl">👋 ¡Hola!</p>
+      <span class="text-4xl">👋</span>
+      <span class="text-2xl"> ¡Hola!</span>
       <p class="text-xl">
         Soy <b>Alberto Chamorro</b>, Frontend Developer en
         <a href="https://www.vivelibre.es/" target="_blank">@vivelibre</a>. Me
@@ -19,7 +20,7 @@
       </p>
       <p class="text-xl">
         Ahora mismo tengo mi corazón dividido por el lado del desarrollo web con
-        <b>#VueJs #NuxtJS</b> y <b>#TailwindCSS</b> y por el lado del desarrollo
+        <b>#VueJS #NuxtJS</b> y <b>#TailwindCSS</b> y por el lado del desarrollo
         multiplataforma con <b>#Flutter</b>.
       </p>
       <div class="flex justify-start">
@@ -35,7 +36,7 @@
         >
       </div>
     </div>
-  </div>
+  </article>
 </template>
 
 <script>

@@ -26,14 +26,13 @@ export default {
 
 <style scoped>
 .btn {
-  @apply py-2 px-4 text-gray-100 font-body font-bold rounded-3xl flex justify-center items-center text-lg;
-  transition: all 0.3s ease;
+  @apply py-2 px-4 text-white font-body font-bold rounded-3xl flex justify-center items-center text-lg;
 }
 .btn:hover {
   @apply shadow-md;
 }
 .icon {
-  @apply ml-2 text-gray-100;
+  @apply ml-2 text-white;
 }
 .btn:hover .icon {
   animation: shake 0.5s ease-in-out;

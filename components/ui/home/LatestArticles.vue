@@ -1,5 +1,5 @@
 <template>
-  <div class="xl-container p-8">
+  <article class="xl-container p-8">
     <Heading type="h2" text="últimos artículos" class="mb-4 xl:mb-8" />
     <ul
       v-if="latestArticles && latestArticles.length > 0"
@@ -14,7 +14,7 @@
         </NuxtLink>
       </li>
     </ul>
-  </div>
+  </article>
 </template>
 
 <script>

@@ -8,11 +8,11 @@
     <small>Trabajando en 🏡 &nbsp;desde Madrid</small>
     <section class="flex flex-col align-middle text-left mt-5">
       <p class="text-lg">
-        ¡Hola! Mi nombre es <b>Alberto Chamorro</b> y actualmente soy Frontend
+        ¡Hola! Me llamo <b>Alberto Chamorro</b> y actualmente soy Frontend
         Developer en
         <a href="https://www.vivelibre.es/" target="_blank">@vivelibre</a>
         trabajando principalmente con tecnologías JavaScript como VueJS y
-        Typescript. También a nivel personal utilizo Flutter para crear
+        TypeScript. También a nivel personal utilizo Flutter para crear
         aplicaciones multiplataforma para iOS y Android.
       </p>
       <p class="text-lg">

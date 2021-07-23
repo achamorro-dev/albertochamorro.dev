@@ -1,5 +1,5 @@
 <template>
-  <div id="contacto" class="xl-container p-8">
+  <article id="contacto" class="xl-container p-8">
     <Heading type="h2" text="contacto" class="mb-4 xl:mb-8" />
     <form v-if="!formSent" ref="contactForm" @submit.prevent="sendForm">
       <label for="nameForm" class="text-lg mb-2">nombre</label>
@@ -45,7 +45,7 @@
       >
     </form>
     <h3 v-else>👌 Muchas gracias por contactar conmigo.</h3>
-  </div>
+  </article>
 </template>
 
 <script>
