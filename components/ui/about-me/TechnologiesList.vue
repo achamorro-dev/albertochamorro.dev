@@ -15,10 +15,10 @@
       />
     </li>
     <li>
-      <LogoImage type="vue" title="Vue.js" link="https://vuejs.org/" />
+      <LogoImage type="vue" title="VueJS" link="https://vuejs.org/" />
     </li>
     <li>
-      <LogoImage type="nuxt" title="Nuxt.js" link="https://nuxtjs.org/" />
+      <LogoImage type="nuxt" title="NuxtJS" link="https://nuxtjs.org/" />
     </li>
     <li>
       <LogoImage

@@ -2,6 +2,7 @@
   <a
     target="_blank"
     class="flex flex-col items-center font-medium"
+    rel="noopener noreferrer"
     :href="link"
     :class="color"
     :title="title"

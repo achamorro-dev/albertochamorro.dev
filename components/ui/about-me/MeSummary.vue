@@ -20,7 +20,7 @@
         necesite, sin ningún problema para trabajar en equipo. Con muchas ganas
         de aprender y de avanzar en mi carrera profesional como desarrollador
         probando nuevos avances o adoptando nuevas tecnologías siempre con
-        lógica.
+        sentido.
       </p>
       <p class="text-lg">
         En mi blog escribo artículos para poder compartir lo que aprendo en mi

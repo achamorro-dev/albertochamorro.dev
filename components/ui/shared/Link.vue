@@ -1,5 +1,7 @@
 <template>
-  <a :href="href" target="_blank" class="link">{{ text }}</a>
+  <a :href="href" target="_blank" class="link" rel="noopener noreferrer">
+    {{ text }}
+  </a>
 </template>
 
 <script>

@@ -5,9 +5,9 @@
       <RepositoryCard
         class="w-75 m-3 xl:m-0 xl:w-1/3"
         href="https://github.com/achamorro-dev/albertochamorro.dev"
-        description="Repositorio de mi página personal y mi blog hecha con Vue, Nuxt y Tailwind."
+        description="Repositorio de esta página desarrollada con JAMStack utilizando VueJS y NuxtJS con nuxt content."
         name="albertochamorro.dev"
-        language="Vue"
+        language="VueJS"
       />
       <RepositoryCard
         class="w-75 m-3 xl:m-0 xl:mx-3 xl:w-1/3"

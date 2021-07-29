@@ -56,7 +56,10 @@ html.dark {
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6 {
   @apply font-display text-custom-gray;
 }
 
@@ -67,6 +70,9 @@ p {
 .dark h1,
 .dark h2,
 .dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
 .dark p,
 .dark small {
   @apply text-gray-100;

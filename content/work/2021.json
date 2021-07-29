@@ -1,0 +1,12 @@
+{
+  "year": 2021,
+  "date": "2020 - 2021",
+  "items": [
+    {
+      "title": "Frontend Developer",
+      "location": "ViveLibre",
+      "information":
+        "Desarrollo de SPAs con VueJS y TypeScript.<br/><br/>Creación de librería de componentes en base al sistema de diseño con Storybook y testing de los componentes con Jest.<br/><br/>"
+    }
+  ]
+}
