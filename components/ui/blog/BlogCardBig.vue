@@ -55,9 +55,6 @@ img {
   max-height: 15rem;
 }
 @media (min-width: 768px) {
-  img {
-    max-height: 18.75rem;
-  }
   article {
     justify-content: stretch;
   }
