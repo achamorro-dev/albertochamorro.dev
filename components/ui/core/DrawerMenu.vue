@@ -56,7 +56,7 @@ export default {
 }
 
 .drawer-menu__active {
-  transform: translateX(0vh);
+  transform: initial;
   opacity: 1;
 }
 

@@ -8,6 +8,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
     "lint": "yarn lint:js"
   },
   "dependencies": {
@@ -23,6 +24,7 @@
     "@nuxtjs/eslint-config": "^6.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/fontawesome": "^1.1.2",
+    "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/tailwindcss": "^4.0.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.22.0",
@@ -31,6 +33,9 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.9.0",
     "postcss": "^8.2.8",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0"
   }
 }
