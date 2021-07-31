@@ -24,16 +24,17 @@
         multiplataforma con <b>#Flutter</b>.
       </p>
       <div class="flex justify-start">
-        <Button icon="chevron-right" @btn-clicked="goToContact"
-          >contacto
+        <Button icon="chevron-right" @btn-clicked="goToContact">
+          contacto
         </Button>
         <Button
           icon="coffee"
           type="secondary"
           class="ml-3"
           @btn-clicked="goToCoffee"
-          >¿café?</Button
         >
+          ¿café?
+        </Button>
       </div>
     </div>
   </article>

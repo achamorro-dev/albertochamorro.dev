@@ -7,8 +7,9 @@
       :href="link"
       :class="color"
     >
-      <fa :icon="['fab', type]" class="text-3xl mb-1" />{{ text }}</a
-    >
+      <fa :icon="['fab', type]" class="text-3xl mb-1" />
+      {{ text }}
+    </a>
   </li>
 </template>
 

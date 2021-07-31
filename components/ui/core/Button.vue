@@ -1,6 +1,8 @@
 <template>
   <button :class="`btn ${type}`" @click.prevent="$emit('btn-clicked')">
-    <span v-if="$slots.default"><slot></slot></span>
+    <span v-if="$slots.default">
+      <slot></slot>
+    </span>
     <fa v-if="icon" :icon="['fas', icon]" class="icon" />
   </button>
 </template>

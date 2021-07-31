@@ -14,7 +14,8 @@
         'text-gray-100': selected,
         'text-custom-gray': !selected,
       }"
-      >{{ text }}
+    >
+      {{ text }}
     </span>
   </a>
 </template>

@@ -40,9 +40,9 @@
       >
         {{ inProgress ? 'enviando' : 'enviar' }}
       </Button>
-      <span v-if="hasError" class="text-sm text-red-600"
-        >Lo siento, no he podido enviar el formulario. Inténtalo otra vez.</span
-      >
+      <span v-if="hasError" class="text-sm text-red-600">
+        Lo siento, no he podido enviar el formulario. Inténtalo otra vez.
+      </span>
     </form>
     <h3 v-else>👌 Muchas gracias por contactar conmigo.</h3>
   </article>

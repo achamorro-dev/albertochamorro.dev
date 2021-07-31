@@ -24,15 +24,15 @@
           "
           style="width: fit-content"
         >
-          <nuxt-link to="/blog" class="text-gray-100 text-xl"
-            ><li class="text-md font-display">blog</li></nuxt-link
-          >
+          <nuxt-link to="/blog" class="text-gray-100 text-xl">
+            <li class="text-md font-display">blog</li>
+          </nuxt-link>
           <!-- <nuxt-link to="/portfolio" class="text-gray-100 text-xl"
             ><li class="text-md font-display">portfolio</li></nuxt-link
           > -->
-          <nuxt-link to="/about-me" class="text-gray-100 text-xl"
-            ><li class="text-md font-display">sobre mí</li></nuxt-link
-          >
+          <nuxt-link to="/about-me" class="text-gray-100 text-xl">
+            <li class="text-md font-display">sobre mí</li>
+          </nuxt-link>
         </ul>
       </div>
       <div class="w-full md:w-1/3 footer-section"></div>

@@ -2,26 +2,22 @@
   <div class="drawer-menu" :class="activeClass">
     <div class="absolute left-0 top-0 w-full flex justify-between align-middle">
       <ThemeSwitch class="p-4" @click="closeClicked" />
-      <a class="cursor-pointer p-4" @click="closeClicked"
-        ><fa :icon="['fas', 'times']" class="text-3xl text-white"
-      /></a>
+      <a class="cursor-pointer p-4" @click="closeClicked">
+        <fa :icon="['fas', 'times']" class="text-3xl text-white" />
+      </a>
     </div>
 
     <nav>
       <ul
         class="h-screen flex align-middle justify-center flex-col text-center"
       >
-        <nuxt-link to="/blog" class="text-gray-100 text-xl"
-          ><li class="drawer-menu-link" @click="closeClicked">
-            blog
-          </li></nuxt-link
-        >
+        <nuxt-link to="/blog" class="text-gray-100 text-xl">
+          <li class="drawer-menu-link" @click="closeClicked">blog</li>
+        </nuxt-link>
         <!-- <li class="drawer-menu-link">portfolio</li> -->
-        <nuxt-link to="/about-me" class="text-gray-100 text-xl"
-          ><li class="drawer-menu-link" @click="closeClicked">
-            sobre mí
-          </li></nuxt-link
-        >
+        <nuxt-link to="/about-me" class="text-gray-100 text-xl">
+          <li class="drawer-menu-link" @click="closeClicked">sobre mí</li>
+        </nuxt-link>
       </ul>
     </nav>
   </div>
