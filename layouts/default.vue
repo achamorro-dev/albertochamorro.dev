@@ -74,6 +74,7 @@ p {
 .dark h5,
 .dark h6,
 .dark p,
+.dark span,
 .dark small {
   @apply text-gray-100;
 }

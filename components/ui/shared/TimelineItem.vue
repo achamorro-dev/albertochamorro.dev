@@ -1,7 +1,7 @@
 <template>
   <article class="timeline-item">
     <h3>{{ title }}</h3>
-    <h4 v-if="subtitle" class="text-sm text-gray-400">{{ subtitle }}</h4>
+    <h4 v-if="subtitle" class="timeline-item__subtitle">{{ subtitle }}</h4>
     <slot>Sin contenido</slot>
   </article>
 </template>
@@ -37,5 +37,13 @@ export default {
   border-radius: 100%;
   position: absolute;
   transform: translateX(-1.5rem) translateY(0.2rem);
+}
+
+.timeline-item__subtitle {
+  @apply text-sm text-gray-400;
+}
+
+.dark .timeline-item__subtitle {
+  @apply text-gray-300;
 }
 </style>
