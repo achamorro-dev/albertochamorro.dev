@@ -41,8 +41,8 @@ const availableTags = ['vue', 'flutter', 'web', 'multiplataforma']
 export default {
   async asyncData({ $content, params }) {
     const articles = await $content('articles')
-      .only(['title', 'description', 'img', 'alt', 'slug', 'updatedAt'])
-      .sortBy('createdAt', 'asc')
+      .only(['title', 'description', 'img', 'thumbnail', 'alt', 'slug', 'date'])
+      .sortBy('date', 'desc')
       .fetch()
 
     return {

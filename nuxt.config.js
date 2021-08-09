@@ -81,6 +81,14 @@ export default {
     cacheTime: 1000 * 60 * 15,
   },
 
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-material-oceanic.css',
+      },
+    },
+  },
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
 

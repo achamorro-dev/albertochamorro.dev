@@ -123,32 +123,57 @@ textarea:focus {
   padding: 2rem;
 }
 
-.nuxt-content h2 {
-  @apply text-2xl mt-6 mb-2;
+.nuxt-content > h2 {
+  @apply text-2xl mt-10 mb-1;
 }
-.nuxt-content h3 {
+
+.nuxt-content > h3 {
   @apply text-xl mt-6 mb-1;
 }
-.nuxt-content p {
+
+.nuxt-content > p {
   @apply font-body text-lg my-6;
 }
-.nuxt-content img {
+
+.nuxt-content > img {
   @apply m-auto max-w-full my-6;
 }
-.nuxt-content ul {
+
+.nuxt-content > ul {
   list-style: initial;
   @apply font-body text-lg my-6 text-custom-gray;
 }
-.nuxt-content blockquote {
+
+.nuxt-content > ol {
+  list-style-type: decimal;
+}
+
+.nuxt-content > blockquote {
   @apply p-4 border-l-4 border-custom-blue font-body text-custom-gray;
 }
-.dark .nuxt-content ul,
-.dark .nuxt-content blockquote {
+
+.nuxt-content > .nuxt-content-highlight > pre {
+  @apply rounded-lg;
+}
+
+.nuxt-content p > code,
+.nuxt-content li > code {
+  @apply p-1 rounded bg-gray-200 text-gray-800;
+}
+
+.nuxt-content > ul ul {
+  margin-top: 0.5rem;
+  margin-left: 2rem;
+}
+
+.dark .nuxt-content > ul,
+.dark .nuxt-content > ol,
+.dark .nuxt-content > blockquote {
   @apply text-gray-100;
 }
 
 @media (min-width: 768px) {
-  .nuxt-content img {
+  .nuxt-content > img {
     @apply max-w-screen-sm;
   }
 }

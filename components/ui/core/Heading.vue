@@ -1,21 +1,18 @@
 <template>
   <div>
     <h1 v-if="type === 'h1'" class="text-2xl text-left">
-      <span
-        :class="{ 'custom-path-bg': hasCustomPath, 'px-2': hasCustomPath }"
-        >{{ firstWord }}</span
+      <span :class="{ 'custom-path-bg': hasCustomPath, 'pl-2': hasCustomPath }"
+        >{{ firstWord }} </span
       >{{ restOfWords }}
     </h1>
     <h2 v-if="type === 'h2'" class="text-2xl text-left">
-      <span
-        :class="{ 'custom-path-bg': hasCustomPath, 'px-2': hasCustomPath }"
-        >{{ firstWord }}</span
+      <span :class="{ 'custom-path-bg': hasCustomPath, 'pl-2': hasCustomPath }"
+        >{{ firstWord }} </span
       >{{ restOfWords }}
     </h2>
     <h3 v-if="type === 'h3'" class="text-xl text-left">
-      <span
-        :class="{ 'custom-path-bg': hasCustomPath, 'px-2': hasCustomPath }"
-        >{{ firstWord }}</span
+      <span :class="{ 'custom-path-bg': hasCustomPath, 'pl-2': hasCustomPath }"
+        >{{ firstWord }} </span
       >{{ restOfWords }}
     </h3>
   </div>

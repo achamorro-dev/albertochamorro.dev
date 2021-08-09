@@ -1,0 +1,590 @@
+---
+title: Introducción a Astro, nuevo generador de sitios estáticos
+description: Astro se denomina así mismo como un generador de sitios estáticos moderno con menos JavaScript. Su soporte a diferentes frameworks y su velocidad lo convierte en una opción muy interesante para implementar el cada vez más extendido Jamstack.
+img: https://res.cloudinary.com/dp1r5podd/image/upload/v1628161077/albertochamorro.dev/introduccion-astro/introduccio%CC%81n_Astro_generador_sitios_esta%CC%81ticos_afj7nf.webp
+thumbnail: https://res.cloudinary.com/dp1r5podd/image/upload/c_scale,w_360/v1628161077/albertochamorro.dev/introduccion-astro/introduccio%CC%81n_Astro_generador_sitios_esta%CC%81ticos_afj7nf.webp
+alt: Cartel del artículo introducción a Astro, nuevo generador de sitios estáticos
+tags:
+  - web
+date: 2021-08-09
+---
+
+De los creadores de Snowpack llega Astro 🚀, el generador de sitios estáticos con un increíble rendimiento y soporte a los frameworks más populares actualmente del mundo front.
+
+Aunque tiene poco tiempo de vida (su primera versión en GitHub es del día 11 de Abril de 2021) no ha pasado para nada desapercibido al acelerar por completo el proceso de creación de webs estáticas.
+
+Vamos a darle un pequeño repaso 🧐
+
+## ¿Qué es Astro?
+
+Astro es un generador de webs estáticas moderno, o al menos así se definen ellos. Su eslogan es "Build faster websites with less client-side Javascript" o en español "Construye páginas web más rápidas con menos JavaScript del lado del cliente".
+
+Y te preguntarás ¿pero de estos hay muchos ya no? Pues sí, pero Astro trae nuevas características que lo hacen mucho más atractivo. Algunas de sus mejores funcionalidades son:
+
+* **Soporte multiframework** o, como ellos lo llaman, "Bring Your Own Framework (BYOF)". Puedes utilizar React, Svelte, Vue, Solid, Preact, web components o simplemente HTML + JavaScript.
+* **Exporta HTML puro** con el mínimo código JavaScript posible para funcionar.
+* **Componentes a demanda.** Podemos indicar a Astro cuando son visibles los componentes para cargarlos sólo cuando sean necesarios.
+* **Enfocado en el SEO.** Sitemap, RSS, paginación, colecciones.
+* **Soporte a las herramientas más populares.** TypeScript, Scoped CSS, CSS Modules, Sass, TailwindCSS, Markdown, MDX y más
+
+Suena bien ¿verdad? Pues vamos a probarlo.
+
+## Antes de empezar...
+
+Sólo necesitamos un par de cosas:
+
+* Tener [Node.js](https://nodejs.org/en/) a poder ser en su versión LTS. Yo actualmente estoy utilizando la versión 14.17.1.
+* Si utilizas [VS Code](https://code.visualstudio.com/) instala su [extensión oficial](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode) para el resaltado de sintaxis en sus componentes `.astro`.
+
+## Comenzando un proyecto con Astro
+
+La forma más fácil y rápida para empezar es ejecutar `npm init astro <nombre_proyecto>`. En mi caso el proyecto se llamará astro-pokedex por lo que he ejecutado lo siguiente:
+
+```bash
+npm init astro astro-pokedex
+```
+
+Con este comando ejecutaremos el paquete "create-astro" que es el asistente para crear nuestro proyecto. El asistente nos dará a elegir para crear la estructura de carpetas entre 4 opciones, en mi caso elegiré la primera opción "Starter Kit".
+
+```bash
+❯   Starter Kit (Generic)
+    Blog
+    Documentation
+    Portfolio
+```
+
+Después nos preguntará qué frameworks vamos a utilizar. Yo voy a elegir React y Vue 🤭 ¿por qué no?
+
+```bash
+? Which frameworks would you like to use? ›
+Instructions:
+    ↑/↓: Highlight option
+    ←/→/[space]: Toggle selection
+    a: Toggle all
+    enter/return: Complete answer
+◯   Preact
+◉   React
+◯   Solid
+◯   Svelte
+◉   Vue
+```
+
+Una vez termina el asistente nos indica los pasos que necesitamos seguir para instalar y arrancar el proyecto:
+
+```bash
+Next steps:
+  1: npm install (or pnpm install, yarn, etc)
+  2: git init && git add -A && git commit -m "Initial commit" (optional step)
+  3: npm start (or pnpm, yarn, etc)
+```
+
+## Estructura del proyecto
+
+Veamos el contenido de la carpeta que nos ha creado:
+
+* **public** - Assets como fuentes, íconos, imágenes, estilos, fichero robots, manifest, etc.
+* **src** - Carpeta dónde estará nuestro código. Aquí irán componentes, páginas y layouts.
+  * **src/pages** - Cada fichero `.astro` o `.md` Astro lo interpretará como una ruta de tu página.
+  * **src/components** - Aqui irán los componentes reutilizables tanto propios de Astro como de otros frameworks.
+* **astro.config.mjs** - Fichero de configuración de Astro. Puedes ver todas las opciones disponibles abriendo simplemente el fichero, las propiedades comentadas son los valores por defecto.
+
+
+## Componentes .astro
+
+Un fichero `.astro` representa un componente de Astro. Los componentes de Astro siguen el patrón **Single-File Component (SFC)** como ya hacen por ejemplo Vue y Svelte.
+
+Estos componentes se dividen en dos partes: la primera parte sería código JavaScript (o TypeScript) siguiendo el patrón Frontmatter y la segunda sería la template.
+
+Un ejemplo de componente `.astro`:
+
+```jsx
+---
+import VueCounter from './VueCounter.vue';
+
+const title = 'Hello world!'
+const { message } = Astro.props
+---
+<div class="example-1">
+  <h1>{ title }</h1>
+  <span>{ message }</span>
+  <VueCounter />
+</div>
+```
+
+Como podemos ver, el fichero comienza con código JavaScript (o TypeScript) en un bloque entre etiquetas `---`. Este código sólo será procesado en el momento de hacer el build del proyecto pero no será renderizado en el cliente. Las variables y métodos que se declaren en este bloque de código serán visibles desde el template.
+
+Un componente de Astro también puede recibir datos por propiedades. En cada componente Astro tendremos un objeto `Astro.props` dónde podremos extraer los valores de estas propiedades.
+
+El segundo bloque que encontramos en un componente Astro sería la template. Este bloque es simplemente HTML con soporte a [JSX](https://reactjs.org/docs/introducing-jsx.html) como sistema de templates dinámicos. Como se puede ver en el ejemplo anterior, para mostrar el valor de las variables escribimos sus nombres entre `{}`.
+
+### Fetch y top-level await
+
+Otra característica increíble a mencionar de los componentes de Astro es la carga de datos remotos para generar el contenido. Astro nos trae por defecto soporte a `fetch` para peticiones externas y `top-level await` que nos permite esperar la respuesta de una promesa sin tener que encapsularla en una función de un nivel superior.
+
+Esto nos permitiría hacer algo como esto:
+
+```jsx
+---
+const response = await fetch('http://example.com/movies.json');
+const data = await response.json();
+---
+<div>{JSON.stringify(data)}</div>
+```
+
+Si por ejemplo quisiéramos utilizar `fetch` fuera de componentes Astro tendríamos que utilizar la librería [`node-fetch`](https://github.com/node-fetch/node-fetch) incluida ya en el core de Astro.
+
+```js
+import fetch from 'node-fetch';
+```
+
+## Páginas en Astro
+
+Como he comentado en la sección estructura del proyecto, en la carpeta `src/pages` podemos incluir ficheros `.astro` y `.md` que Astro convertirá en rutas de nuestra web.
+
+Por lo tanto si yo creara un fichero `src/pages/about.astro` automáticamente podría ir al navegador y con la url `http://localhost:3000/about` veríamos el contenido de esa página. Esto también incluye directorios por lo que si creo el fichero `src/pages/about/me.astro` se crearía la url `http://localhost:3000/about/me`.
+
+<u>Una página siempre tiene la responsabilidad de devolver un template HTML completo</u>, es decir, con su etiqueta `<html>...</html>` y por supuesto incluyendo `<head>` y `<body>`. La etiqueta `<!doctype html>` es opcional porque Astro la añade automáticamente 😉.
+
+Un ejemplo de página podría ser:
+
+```jsx
+---
+// Component Import
+import Tour from '../components/Tour.astro';
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style/global.css">
+  <link rel="stylesheet" href="/style/home.css">
+</head>
+<body>
+  <main>
+    <Tour />
+  </main>
+</body>
+</html>
+```
+
+## Layouts
+
+Los layouts (o diseños en español) son un tipo de componente especial que nos ayudará a reutilizar el esqueleto y estilo en diferentes páginas del proyecto. Por convención, los layouts se crearían en la carpeta `src/layouts`.
+
+A través de slots y props hace que su reutilización sea muy sencilla.
+
+Un ejemplo de layout para, por ejemplo, añadir navegación en todas las páginas:
+
+```jsx{}[src/layouts/BaseLayout.astro]
+---
+const {title} = Astro.props;
+---
+<html>
+  <head>
+    <title>Example Layout: {title}</title>
+  </head>
+  <body>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Posts</a>
+      <a href="#">Contact</a>
+    </nav>
+    <slot />
+  </body>
+</html>
+```
+
+Después podríamos crear una página que utilice este layout y hacer uso del slot para cargar el contenido.
+
+```jsx{}[src/pages/index.astro]
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+<BaseLayout title="Homepage">
+  <h1>Hello, world!</h1>
+  <p>This is my page content. It will be nested inside a layout.</p>
+</BaseLayout>
+```
+
+Además podemos extender layouts en otros layouts en los que necesitemos por ejemplo más contenido o componer layouts con otros layouts, por ejemplo, separando el `<head>` en un fichero `src/layouts/BaseHead.astro` y utilizando ese layout en `src/layouts/BaseLayout.astro`. Patrón composite en acción 🤯
+
+## Colecciones
+
+Una colección es un tipo de página especial con la que poder crear diferentes URLs con la misma página. Este tipo de páginas son fáciles de reconocer porque el nombre del archivo comienza por `$` como por ejemplo `src/pages/$posts.astro`.
+
+¿Para qué podemos usar colecciones?
+
+* Crear múltiples páginas de información remota o local (como ficheros markdown por ejemplo)
+* Paginación
+
+Para crear una colección tendremos que:
+
+1. Crear un fichero dentro de `src/pages` que comience con `$` y el nombre de la ruta que agrupará la colección. Por ejemplo, `src/pages/$posts.astro` creará las URLS dinamicas a partir de `/posts/`.
+
+2. El fichero de la colección debe definir y exportar una función llamada `createCollection`. Esta función será la encargada de descargar la información y devolver un objeto con la definición de las rutas a crear.
+
+Más adelante mostraré un ejemplo de colección pero si quieres saber más acerca de las colecciones puedes ir [aquí](https://docs.astro.build/core-concepts/collections).
+
+## Proyecto de ejemplo
+
+Ahora llega el momento de escribir un poco de código. ¿Qué vamos a hacer? Utilizando la API de Pokémon [PokéApi](https://pokeapi.co/) y [Favware GraphQL Pokemon](https://favware.tech/graphql-pokemon) vamos a crear tres páginas:
+
+1. En la ruta inicial o index tendremos un listado con los posibles colores de los Pokémon
+
+2. Una vez seleccionemos un color listaremos los Pokémon de ese color. La ruta será /colors/<color_seleccionado>
+
+3. Y por último la página con el detalle del Pokémon. La ruta de esta página será /pokemons/<nombre_pokemon>
+
+Recordad que para ir desarrollando y viendo el resultado hay que lanzar el siguiente comando:
+
+```bash
+npm run start
+
+> astro-pokedex@0.0.1 start
+> astro dev
+
+[14:32:34] [snowpack] Hint: run "snowpack init" to create a project config file. Using defaults...
+[14:32:35] [snowpack] Ready!
+[14:32:35] [snowpack] watching for file changes...
+[dev server] Server started in 878ms.
+[dev server] Local: http://localhost:3000/
+```
+
+### Layout base
+
+Todas las páginas compartirán el mismo layout y tendrá 3 propiedades:
+
+* **title** - Título de la página
+* **description** - Descripción para SEO
+* **prevHref** - Ruta que ha abierto la página para mostrar un botón de volver a esa página
+
+El código:
+
+```jsx{}[src/layouts/BaseLayout.astro]
+---
+const {title, description, prevHref} = Astro.props
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/global.css">
+  </head>
+  <body>
+    <header class="header">
+      {prevHref &&
+        <a class="back-link" href="{prevHref}">👈</a>
+      }
+      <h1>Astro Pokedex</h1>
+    </header>
+    <main>
+      <slot></slot>
+    </main>
+  </body>
+</html>
+```
+
+### Listado de colores
+
+Esta va a ser la página más sencilla de todas.
+
+```jsx{}[src/pages/index.astro]
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import CategoryCard from '../components/CategoryCard.jsx'
+
+const response = await fetch('https://pokeapi.co/api/v2/pokemon-color')
+const colors = await response.json()
+---
+
+<BaseLayout title="Astro Pokedex - Inicio" description="Pokedex creada con Astro.build">
+  <div class="grid grid-cols-2">
+    {colors.results.map(color =>
+      <CategoryCard href={`/colors/${color.name}`} title={color.name} color={color.name} />
+    )}
+  </div>
+</BaseLayout>
+```
+
+Utilizo el método fetch para descargar el listado de Pokémons que guardaré en la variable `colors`.
+
+Dentro de `colors.results` tenemos el array con los colores por lo que uso la función `map` dentro de {} para crear un bucle de JSX y, por cada uno de los colores, devolver el componente `CategoryCard`.
+
+Este componente tiene 5 propiedades: 
+* **href** - URL a la que irá cuando se le haga click.
+* **title** - Texto que va a mostrar.
+* **color** - Fondo de la tarjeta.
+* **image** - URL de la imágen que va a mostrar si se informa.
+* **pill** - Propiedad true o false para indicar que queremos un estilo más reducido en formato píldora.
+
+El código:
+
+```jsx{}[src/components/CategoryCard.jsx]
+export default function CategoryCard({
+  href,
+  title,
+  color,
+  image,
+  pill,
+}) {
+  return (
+    <a
+      className={`card ${color} ${pill ? 'pill' : ''}`}
+      href={href}
+    >
+      <h2>{ title }</h2>
+      {
+        image && <img src={image} alt={title} loading="lazy" />
+      }
+    </a>
+  )
+}
+```
+
+Y este es el resultado:
+
+<a href="https://res.cloudinary.com/dp1r5podd/image/upload/v1628510706/albertochamorro.dev/introduccion-astro/astro-pokedex-listado-colores_xkzkzd.webp">
+  <img src="https://res.cloudinary.com/dp1r5podd/image/upload/v1628510706/albertochamorro.dev/introduccion-astro/astro-pokedex-listado-colores_xkzkzd.webp" alt="Captura de pantalla del listado de colores" />
+</a>
+
+### Listado de Pokémon por color
+
+La página anterior era una página con un listado simple. Para el siguiente ejemplo necesitamos crear una página llamada colección que, por cada uno de los colores, cree una ruta y una página con información diferente.
+
+```jsx{}[src/pages/$colors.astro]
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import CategoryCard from '../components/CategoryCard.jsx'
+
+export async function createCollection() {
+  const colors = [];
+  for (const index of Array(10).keys()) {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon-color/${index + 1}`)
+    const result = await response.json()
+    colors.push(result)
+  }
+
+  return {
+    route: '/colors/:color',
+    paths() {
+      return colors.map(color => ({params: {color: color.name}}))
+    },
+    async props({ params}) {
+      return {
+        color: colors.find(color => color.name === params.color),
+      }
+    }
+  }
+}
+
+const { color } = Astro.props
+const IMAGE_URL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/`
+
+const getPokemonImage = function (pokemon) {
+  const urlSplitted = pokemon.url.split('/')
+  const pokemonId = urlSplitted[urlSplitted.length - 2]
+
+  return `${IMAGE_URL}${pokemonId}.png`
+}
+---
+
+<BaseLayout title="{`Color ${color.name} - Astro Pokedex`}" description="{`Color ${color.name} - Astro Pokedex`}" prevHref="/">
+  <ul class="grid grid-cols-2">
+    {color.pokemon_species.map(pokemon =>
+      <li>
+        <CategoryCard
+          title={pokemon.name}
+          color={color.name}
+          href={`/pokemons/${pokemon.name}`}
+          image={getPokemonImage(pokemon)}
+        />
+      </li>
+    )}
+  </ul>
+</BaseLayout>
+```
+
+Al ser una colección, la página debe exportar una función `createCollection` que será la que Astro ejecutará al procesar la página. Esta función debe devolver un objeto con la definición de la ruta, los path para esa ruta y las props que se le van a pasar a la página de esas rutas.
+
+Al principio de la función hago 10 llamadas a la API de PokéApi, una por cada color que existe y guardamos todos los resultados en el array `colors`.
+
+<blockquote>Si revisáis el código podréis ver que espero a que termine una petición para empezar la siguiente. Claramente no es una forma óptima pero estas llamadas sólo se harán cuando se compile el proyecto una única vez por lo que no penalizará al cliente.</blockquote>
+
+El resultado:
+
+<a href="https://res.cloudinary.com/dp1r5podd/image/upload/v1628510785/albertochamorro.dev/introduccion-astro/astro-pokedex-listado-pokemons_q0zaff.webp">
+  <img src="https://res.cloudinary.com/dp1r5podd/image/upload/v1628510785/albertochamorro.dev/introduccion-astro/astro-pokedex-listado-pokemons_q0zaff.webp" alt="Captura de pantalla del listado de Pokémons" />
+</a>
+
+### Detalle de un Pokémon
+
+Por último, la página más complicada: el detalle de un Pokémon. Una vez más será una colección pero algo diferente. Por un lado sacamos el listado de los Pokémon, generamos un path para cada uno de ellos y, en el momento de definir las props de cada página, descargamos el detalle del Pokémon y se lo envíamos a la página en la variable `pokemon`.
+
+Esta se complicó más de lo esperado debido al límite de requests que tiene PokéApi por lo que tuve que buscar una solución para descargar el detalle de todos los Pokémon. Dado que algunos nombres no coincidían con la API de Favware, tuve que añadir como alternativa en estos casos la descarga del detalle con PokéApi. 🤯
+
+<blockquote>Hubiera estado genial no tener ese límite de requests y hubiera simplificado bastante las cosas pero me vino bien para mostrar un ejemplo algo más complejo 💪</blockquote>
+
+Primero el código:
+
+```jsx{}[src/pages/$pokemons.astro]
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import CategoryCard from '../components/CategoryCard.jsx'
+import CharacterCard from '../components/CharacterCard.vue'
+
+export async function createCollection() {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1200`)
+  const jsonResponse = await response.json()
+  const allPokemons = jsonResponse.results
+
+  return {
+    route: '/pokemons/:name',
+    paths() {
+      return allPokemons.map(pokemon => ({params: {name: pokemon.name}}))
+    },
+    async props({ params}) {
+      const response = await fetch('https://graphqlpokemon.favware.tech/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: `
+            {
+              pokemon: getPokemonDetailsByName(pokemon: ${params.name.replace(/-/g, '')}) {
+                num
+                name: species
+                abilities { first second hidden }
+                stats: baseStats { hp attack defense specialattack specialdefense speed }
+                gender { male female }
+                height
+                weight
+                color
+              }
+            }
+          `
+        }),
+      }).then(res => res.json())
+
+      let pokemon = {}
+
+      if (response.data?.pokemon) {
+        pokemon = {...response.data.pokemon}
+        pokemon.color = pokemon.color.toLowerCase()
+        pokemon.image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.num}.png`
+      } else {
+        const pokemonREST = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.name}`).then(res => res.json())
+        pokemon = {
+          name: pokemonREST.name,
+          height: pokemonREST.height,
+          weight: pokemonREST.weigh,
+          image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonREST.id}.png`,
+          stats: pokemonREST.stats.map(stat => [stat.stat.name, stat.base_stat]),
+          abilities: pokemonREST.abilities.map(({ability}) => ability.name),
+          color: '',
+        }
+      }
+
+      return {
+        pokemon,
+      }
+    }
+  }
+}
+
+const { pokemon } = Astro.props
+---
+<BaseLayout
+  title="{`${pokemon.name} - Astro Pokedex`}"
+  description="{`Pokémon ${pokemon.name} - Astro Pokedex`}"
+  prevHref="{`/colors/${pokemon.color}`}"
+>
+  <CategoryCard
+    class="m-auto"
+    pill
+    href={`/colors/${pokemon.color}`}
+    title={pokemon.color}
+    color={pokemon.color}
+  />
+
+  <CharacterCard pokemon={pokemon}
+  />
+</BaseLayout>
+```
+
+Y aquí el resultado:
+
+<a href="https://res.cloudinary.com/dp1r5podd/image/upload/v1628510706/albertochamorro.dev/introduccion-astro/astro-pokedex-detalle-pokemon_lu29mx.webp">
+  <img src="https://res.cloudinary.com/dp1r5podd/image/upload/v1628510706/albertochamorro.dev/introduccion-astro/astro-pokedex-detalle-pokemon_lu29mx.webp" alt="Captura de pantalla del detalle de un Pokémon" />
+</a>
+
+### Compilación y despliegue
+
+Para compilar nuestro proyecto y que Astro genere todas las páginas tenemos que lanzar:
+
+```bash
+npm run build
+> astro-pokedex@0.0.1 build
+> astro build
+
+[config] Set "buildOptions.site" to generate correct canonical URLs and sitemap
+[14:34:01] [snowpack] Hint: run "snowpack init" to create a project config file. Using defaults...
+[14:34:02] [snowpack] Ready!
+[build] ! building pages...
+[...]
+ ├ /pokemons/zygarde-10/index.html                           0.00 kB
+ ├ /pokemons/zygarde-50/index.html                           0.00 kB
+ ├ /pokemons/zygarde-complete/index.html                     0.00 kB
+ └ /pokemons/zygarde/index.html                              0.00 kB
+[build] ▶ Build Complete!
+```
+
+Dentro de la carpeta `dist` podréis ver todo lo que nos ha generado Astro.
+
+Se puede desplegar en cualquier hosting que puedas lanzar `npm` o desplegar ficheros estáticos. En la [documentación](https://docs.astro.build/guides/deploy) de Astro podéis ver ejemplos de los servicios más famosos que podéis utilizar.
+
+Yo he utilizado [Vercel](https://vercel.com/) por ser el más simple de todos, de hecho sólo tuve que cambiar el directorio de salida que desplegará el front:
+
+<a href="https://res.cloudinary.com/dp1r5podd/image/upload/v1628509707/albertochamorro.dev/introduccion-astro/configuracion-vercel_ntfr6d.webp">
+  <img src="https://res.cloudinary.com/dp1r5podd/image/upload/v1628509707/albertochamorro.dev/introduccion-astro/configuracion-vercel_ntfr6d.webp" alt="Configuración del proyecto en Vercel" />
+</a>
+
+## Conclusiones
+
+La verdad que me ha parecido un framework muy potente y muy rápido de conseguir resultados en pocas líneas y con cero configuración.
+
+Nos hemos dejado muchas cosas fuera como paginación, componentes a demanda, RSS, Markdown,... Puede que me anime con una segunda parte 😇
+
+Os dejo por aquí algunos enlaces de interés y el repositorio del ejemplo:
+
+[Astro.build](https://astro.build/)
+
+[Demo Astro Pokedex](https://astro-pokedex.vercel.app/)
+
+<RepositoryCard
+  href="https://github.com/achamorro-dev/astro-pokedex"
+  description="Ejemplo de Pokedex utilizando el framework Astro utilizando componentes de diferentes frameworks."
+  name="astro-pokedex"
+  language="Astro"
+/>
