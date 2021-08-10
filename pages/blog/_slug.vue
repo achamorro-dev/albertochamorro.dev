@@ -18,6 +18,8 @@
 import CONSTANTS from '@/helpers/constants'
 import { formatDate } from '@/components/helpers/filters'
 
+import link from '../../helpers/link'
+
 export default {
   filters: {
     formatDate,
@@ -30,6 +32,15 @@ export default {
   head() {
     return {
       title: `${this.article.title} | ${CONSTANTS.WEB_TITLE}`,
+      link: [
+        ...link,
+        {
+          rel: 'image_src',
+          href: this.article.metaImg
+            ? this.article.metaImg
+            : this.article.thumbnail,
+        },
+      ],
       meta: [
         {
           hid: 'description',
@@ -59,12 +70,16 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.article.thumbnail,
+          content: this.article.metaImg
+            ? this.article.metaImg
+            : this.article.thumbnail,
         },
         {
           hid: 'og:image:secure_url',
           property: 'og:image',
-          content: this.article.thumbnail,
+          content: this.article.metaImg
+            ? this.article.metaImg
+            : this.article.thumbnail,
         },
         {
           hid: 'og:image:alt',
