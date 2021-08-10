@@ -123,6 +123,10 @@ textarea:focus {
   padding: 2rem;
 }
 
+.nuxt-content {
+  overflow: auto;
+}
+
 .nuxt-content > h2 {
   @apply text-2xl mt-10 mb-1;
 }
@@ -132,7 +136,7 @@ textarea:focus {
 }
 
 .nuxt-content > p {
-  @apply font-body text-lg my-6;
+  @apply font-body my-6;
 }
 
 .nuxt-content > img {
@@ -141,7 +145,7 @@ textarea:focus {
 
 .nuxt-content > ul {
   list-style: initial;
-  @apply font-body text-lg my-6 text-custom-gray;
+  @apply font-body my-6 text-custom-gray;
 }
 
 .nuxt-content > ol {

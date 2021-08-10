@@ -1,9 +1,9 @@
 <template>
-  <article class="xl-container p-8">
-    <Heading type="h2" text="últimos artículos" class="mb-4 xl:mb-8" />
+  <article class="xl-container p-4">
+    <Heading type="h2" text="últimos artículos" class="mb-2 xl:mb-4" />
     <ul
       v-if="latestArticles && latestArticles.length > 0"
-      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:col-gap-6"
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-2"
     >
       <li v-for="(article, index) in latestArticles" :key="index">
         <NuxtLink

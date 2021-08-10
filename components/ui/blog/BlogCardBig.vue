@@ -4,24 +4,14 @@
       flex flex-col
       justify-center
       items-center
-      rounded
-      md:items-start
+      p-4
+      rounded-md
       md:flex-row
       hover:shadow-xl
     "
   >
-    <img :src="article.img" :alt="article.alt" class="rounded md:px-3" />
-    <div
-      class="
-        flex flex-col
-        justify-items-start
-        align-middle
-        mt-3
-        py-1
-        md:px-3
-        md:ml-4
-      "
-    >
+    <img :src="article.img" :alt="article.alt" class="rounded" />
+    <div class="flex flex-col justify-items-start align-middle mt-3 md:ml-4">
       <small class="block text-custom-gray text-center md:text-left">
         {{ article.date | formatDate }}
       </small>
@@ -52,7 +42,7 @@ article {
   transition: all 0.5s ease;
 }
 img {
-  max-height: 15rem;
+  max-height: 12rem;
 }
 @media (min-width: 768px) {
   article {

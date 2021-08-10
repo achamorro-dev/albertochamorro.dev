@@ -17,18 +17,18 @@
       :to="{ name: 'blog-slug', params: { slug: firstArticle.slug } }"
       class="hover:no-underline"
     >
-      <BlogCardBig :article="firstArticle" class="px-8 xl:px-0" />
+      <BlogCardBig :article="firstArticle" />
     </NuxtLink>
     <ul
       v-if="restOfArticles && restOfArticles.length > 0"
-      class="my-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:col-gap-6"
+      class="my-6 grid grid-cols-1 md:grid-cols-3 xl:gap-4"
     >
       <li v-for="(article, index) in restOfArticles" :key="index">
         <NuxtLink
           :to="{ name: 'blog-slug', params: { slug: article.slug } }"
           class="hover:no-underline"
         >
-          <BlogCardSmall :article="article" class="mb-6 px-8 xl:px-0" />
+          <BlogCardSmall :article="article" class="mb-6" />
         </NuxtLink>
       </li>
     </ul>
