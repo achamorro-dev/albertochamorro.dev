@@ -180,5 +180,11 @@ textarea:focus {
   .nuxt-content > img {
     @apply max-w-screen-sm;
   }
+
+  .nuxt-content p,
+  .nuxt-content ul,
+  .nuxt-content ol {
+    @apply text-lg;
+  }
 }
 </style>
