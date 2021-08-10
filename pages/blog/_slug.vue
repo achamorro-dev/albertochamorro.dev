@@ -59,12 +59,12 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.article.image,
+          content: this.article.thumbnail,
         },
         {
           hid: 'og:image:secure_url',
           property: 'og:image',
-          content: this.article.image,
+          content: this.article.thumbnail,
         },
         {
           hid: 'og:image:alt',
