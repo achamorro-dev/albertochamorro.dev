@@ -1,7 +1,7 @@
 <template>
   <article class="xl-container p-4">
     <Heading type="h2" text="repos en github" class="mb-2 xl:mb-4" />
-    <div class="flex flex-col justify-between xl:flex-row xl:gap-2">
+    <div class="flex flex-col justify-between xl:flex-row gap-2">
       <RepositoryCard
         class="w-75 xl:w-1/3"
         href="https://github.com/achamorro-dev/astro-pokedex"
