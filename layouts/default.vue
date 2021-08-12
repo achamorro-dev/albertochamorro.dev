@@ -145,7 +145,7 @@ textarea:focus {
 
 .nuxt-content > ul {
   list-style: initial;
-  @apply font-body my-6 text-custom-gray;
+  @apply font-body my-4 ml-5 text-custom-gray;
 }
 
 .nuxt-content > ol {
@@ -165,7 +165,14 @@ textarea:focus {
   @apply p-1 rounded bg-gray-200 text-gray-800;
 }
 
+.nuxt-content p,
+.nuxt-content ul,
+.nuxt-content ol {
+  @apply text-lg;
+}
+
 .nuxt-content > ul ul {
+  list-style-type: circle;
   margin-top: 0.5rem;
   margin-left: 2rem;
 }
@@ -179,12 +186,6 @@ textarea:focus {
 @media (min-width: 768px) {
   .nuxt-content > img {
     @apply max-w-screen-sm;
-  }
-
-  .nuxt-content p,
-  .nuxt-content ul,
-  .nuxt-content ol {
-    @apply text-lg;
   }
 }
 </style>
