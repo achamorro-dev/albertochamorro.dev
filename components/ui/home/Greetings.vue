@@ -16,7 +16,8 @@
       <p class="text-xl">
         Soy <b>Alberto Chamorro</b>, Frontend Developer en
         <a href="https://www.vivelibre.es/" target="_blank">@vivelibre</a>. Me
-        encanta el café, la Fórmula 1 y la tecnología en general.
+        encanta el café, la tecnología, la Fórmula 1 y el Universo
+        cinematográfico de Marvel.
       </p>
       <p class="text-xl">
         Ahora mismo tengo mi corazón dividido por el lado del desarrollo web con

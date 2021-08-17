@@ -177,6 +177,11 @@ textarea:focus {
   margin-left: 2rem;
 }
 
+.dark .nuxt-content > h2,
+.dark .nuxt-content > h3 {
+  @apply text-custom-green;
+}
+
 .dark .nuxt-content > ul,
 .dark .nuxt-content > ol,
 .dark .nuxt-content > blockquote {
