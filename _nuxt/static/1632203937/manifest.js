@@ -1,0 +1,1 @@
+__NUXT_JSONP__("manifest.js", {routes:["\u002F","\u002Fblog\u002Finstalando-flutter-2-con-fvm","\u002F404","\u002Fabout-me","\u002Fportfolio","\u002Fblog\u002Fintroducción-a-astro-generador-sitios-estáticos","\u002Fblog"]})
