@@ -20,8 +20,8 @@ export default {
   props: {
     workTimelineItems: {
       type: Array,
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 }
 </script>

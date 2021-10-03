@@ -18,13 +18,13 @@ export default {
   name: 'ThemeSwitch',
   components: {
     DarkIcon: () => import('@/assets/images/moon.svg?inline'),
-    LightIcon: () => import('@/assets/images/sun.svg?inline'),
+    LightIcon: () => import('@/assets/images/sun.svg?inline')
   },
   methods: {
-    changeTheme(theme) {
+    changeTheme (theme) {
       this.$colorMode.preference = theme
       this.$emit('click')
-    },
-  },
+    }
+  }
 }
 </script>

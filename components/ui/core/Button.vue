@@ -1,7 +1,7 @@
 <template>
   <button :class="`btn ${type}`" @click.prevent="$emit('btn-clicked')">
     <span v-if="$slots.default">
-      <slot></slot>
+      <slot />
     </span>
     <fa v-if="icon" :icon="['fas', icon]" class="icon" />
   </button>
@@ -15,14 +15,14 @@ export default {
       type: String,
       required: false,
       default: 'primary',
-      validator: (value) => ['primary', 'secondary', 'outline'].includes(value),
+      validator: value => ['primary', 'secondary', 'outline'].includes(value)
     },
     icon: {
       type: String,
       required: false,
-      default: '',
-    },
-  },
+      default: ''
+    }
+  }
 }
 </script>
 

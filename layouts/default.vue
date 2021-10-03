@@ -12,19 +12,19 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
-      drawerMenuActive: false,
+      drawerMenuActive: false
     }
   },
   methods: {
-    onHamburgerMenuClicked() {
+    onHamburgerMenuClicked () {
       this.drawerMenuActive = true
     },
-    onDrawerMenuClose() {
+    onDrawerMenuClose () {
       this.drawerMenuActive = false
-    },
-  },
+    }
+  }
 }
 </script>
 

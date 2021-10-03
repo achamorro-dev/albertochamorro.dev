@@ -10,7 +10,7 @@
         type="text"
         required
         class="w-full lg:w-1/3"
-      />
+      >
 
       <label for="emailForm" class="text-lg mt-6 mb-2">
         correo electrónico
@@ -22,7 +22,7 @@
         type="email"
         required
         class="w-full lg:w-1/3"
-      />
+      >
 
       <label for="messageForm" class="text-lg mt-6 mb-2">mensaje</label>
       <textarea
@@ -31,7 +31,7 @@
         name="message"
         required
         class="w-full xl:w-1/2"
-      ></textarea>
+      />
 
       <Button
         class="mt-6"
@@ -44,7 +44,9 @@
         Lo siento, no he podido enviar el formulario. Inténtalo otra vez.
       </span>
     </form>
-    <h3 v-else>👌 Muchas gracias por contactar conmigo.</h3>
+    <h3 v-else>
+      👌 Muchas gracias por contactar conmigo.
+    </h3>
   </article>
 </template>
 
@@ -53,19 +55,19 @@ const actionForm = 'https://formspree.io/f/mnqlpdwk'
 
 export default {
   name: 'ContactForm',
-  data() {
+  data () {
     return {
       nameValue: '',
       emailValue: '',
       messageValue: '',
       formSent: false,
       inProgress: false,
-      hasError: false,
+      hasError: false
     }
   },
   methods: {
-    async sendForm() {
-      if (this.inProgress) return
+    async sendForm () {
+      if (this.inProgress) { return }
       if (!this.emailValue || !this.messageValue) {
         this.hasError = true
         return
@@ -79,11 +81,11 @@ export default {
           body: JSON.stringify({
             name: this.nameValue,
             _replyto: this.emailValue,
-            message: this.messageValue,
+            message: this.messageValue
           }),
           headers: {
-            Accept: 'application/json',
-          },
+            Accept: 'application/json'
+          }
         })
 
         if (response.ok) {
@@ -94,8 +96,8 @@ export default {
         this.inProgress = false
         this.hasError = true
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

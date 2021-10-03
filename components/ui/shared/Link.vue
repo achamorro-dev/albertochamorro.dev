@@ -10,13 +10,13 @@ export default {
   props: {
     text: {
       type: String,
-      required: true,
+      required: true
     },
     href: {
       type: String,
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 }
 </script>
 

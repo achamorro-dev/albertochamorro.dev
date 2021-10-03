@@ -45,15 +45,15 @@
 export default {
   name: 'Greetings',
   methods: {
-    goToCoffee() {
+    goToCoffee () {
       window.open('https://www.buymeacoffee.com/albertochamorro', '_blank')
     },
-    goToContact() {
+    goToContact () {
       const contact = document.getElementById('contacto')
 
       contact && contact.scrollIntoView()
-    },
-  },
+    }
+  }
 }
 </script>
 

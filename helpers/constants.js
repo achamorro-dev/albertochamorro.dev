@@ -5,5 +5,5 @@ const WEB_DESCRIPTION =
 
 export default {
   WEB_TITLE,
-  WEB_DESCRIPTION,
+  WEB_DESCRIPTION
 }

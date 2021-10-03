@@ -12,11 +12,15 @@
         class="h-screen flex align-middle justify-center flex-col text-center"
       >
         <nuxt-link to="/blog" class="text-gray-100 text-xl">
-          <li class="drawer-menu-link" @click="closeClicked">blog</li>
+          <li class="drawer-menu-link" @click="closeClicked">
+            blog
+          </li>
         </nuxt-link>
         <!-- <li class="drawer-menu-link">portfolio</li> -->
         <nuxt-link to="/about-me" class="text-gray-100 text-xl">
-          <li class="drawer-menu-link" @click="closeClicked">sobre mí</li>
+          <li class="drawer-menu-link" @click="closeClicked">
+            sobre mí
+          </li>
         </nuxt-link>
       </ul>
     </nav>
@@ -30,19 +34,19 @@ export default {
     active: {
       type: Boolean,
       required: false,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
-    activeClass() {
+    activeClass () {
       return this.active ? 'drawer-menu__active' : ''
-    },
+    }
   },
   methods: {
-    closeClicked() {
+    closeClicked () {
       this.$emit('drawer-menu-close-event')
-    },
-  },
+    }
+  }
 }
 </script>
 

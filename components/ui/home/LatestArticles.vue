@@ -20,16 +20,16 @@
 <script>
 export default {
   name: 'LatestArticles',
-  data() {
+  data () {
     return {
-      latestArticles: [],
+      latestArticles: []
     }
   },
-  async fetch() {
+  async fetch () {
     this.latestArticles = await this.$content('articles')
       .only(['title', 'description', 'thumbnail', 'alt', 'slug', 'date'])
       .sortBy('date', 'desc')
       .fetch()
-  },
+  }
 }
 </script>

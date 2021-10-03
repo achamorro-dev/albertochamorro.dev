@@ -1,7 +1,9 @@
 <template>
   <article class="timeline-item">
     <h3>{{ title }}</h3>
-    <h4 v-if="subtitle" class="timeline-item__subtitle">{{ subtitle }}</h4>
+    <h4 v-if="subtitle" class="timeline-item__subtitle">
+      {{ subtitle }}
+    </h4>
     <slot>Sin contenido</slot>
   </article>
 </template>
@@ -12,14 +14,14 @@ export default {
   props: {
     title: {
       type: String,
-      required: true,
+      required: true
     },
     subtitle: {
       type: String,
       required: false,
-      default: null,
-    },
-  },
+      default: null
+    }
+  }
 }
 </script>
 

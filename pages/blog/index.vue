@@ -1,6 +1,8 @@
 <template>
   <section class="xl-container">
-    <h1 class="mb-4 text-4xl text-center">blog</h1>
+    <h1 class="mb-4 text-4xl text-center">
+      blog
+    </h1>
 
     <!-- <ul class="flex justify-center mt-2 mb-8">
       <li v-for="(tag, index) in availableTags" :key="index" class="mr-3">
@@ -39,7 +41,7 @@
 const availableTags = ['vue', 'flutter', 'web', 'multiplataforma']
 
 export default {
-  async asyncData({ $content, params }) {
+  async asyncData ({ $content, params }) {
     const articles = await $content('articles')
       .only(['title', 'description', 'img', 'thumbnail', 'alt', 'slug', 'date'])
       .sortBy('date', 'desc')
@@ -48,39 +50,39 @@ export default {
     return {
       articles,
       availableTags,
-      tagSelected: '',
+      tagSelected: ''
     }
   },
   computed: {
-    filteredArticles() {
+    filteredArticles () {
       return !this.tagSelected
         ? this.articles
-        : this.articles.filter((article) =>
-            article.tags.includes(this.tagSelected)
-          )
+        : this.articles.filter(article =>
+          article.tags.includes(this.tagSelected)
+        )
     },
-    firstArticle() {
+    firstArticle () {
       return this.filteredArticles && this.filteredArticles.length > 0
         ? this.filteredArticles[0]
         : null
     },
-    restOfArticles() {
+    restOfArticles () {
       return this.filteredArticles && this.filteredArticles.length > 1
         ? this.filteredArticles.slice(1)
         : null
-    },
+    }
   },
-  mounted() {
+  mounted () {
     if (this.$router.query?.tag) {
       this.tagSelected = this.$router.query?.tag
     }
   },
   methods: {
-    onTagClicked(tag) {
+    onTagClicked (tag) {
       this.tagSelected = this.tagSelected === tag ? '' : tag
       this.$router.replace({ query: { tag: this.tagSelected } })
-    },
-  },
+    }
+  }
 }
 </script>
 

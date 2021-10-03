@@ -1,6 +1,8 @@
 <template>
   <section class="xl-container text-center">
-    <h1 class="mb-4 text-4xl text-center">sobre mí</h1>
+    <h1 class="mb-4 text-4xl text-center">
+      sobre mí
+    </h1>
     <MeSummary />
     <SkillsAndTools />
     <WorkTimeline :work-timeline-items="workTimelineItems" />
@@ -9,16 +11,16 @@
 
 <script>
 export default {
-  async asyncData({ $content, params }) {
+  async asyncData ({ $content, params }) {
     const workTimelineItems = await $content('work')
       .only(['date', 'items'])
       .sortBy('year', 'desc')
       .fetch()
 
     return {
-      workTimelineItems,
+      workTimelineItems
     }
-  },
+  }
 }
 </script>
 

@@ -1,7 +1,9 @@
 <template>
   <article class="grid grid-cols-4 gap-2">
     <div>
-      <h2 class="text-2xl pt-3 pr-4 text-right">{{ date }}</h2>
+      <h2 class="text-2xl pt-3 pr-4 text-right">
+        {{ date }}
+      </h2>
     </div>
     <div class="col-span-3">
       <TimelineItem
@@ -22,12 +24,12 @@ export default {
   props: {
     date: {
       type: String,
-      required: true,
+      required: true
     },
     items: {
       type: Array,
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 }
 </script>

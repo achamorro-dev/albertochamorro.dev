@@ -12,7 +12,7 @@
       {{ description }}
     </p>
     <div class="flex items-center">
-      <div class="w-3 h-3 rounded-full mr-1" :class="circleColorClass"></div>
+      <div class="w-3 h-3 rounded-full mr-1" :class="circleColorClass" />
       <p class="text-xs m-0">{{ language }}</p>
     </div>
   </a>
@@ -22,37 +22,37 @@
 export default {
   name: 'RepositoryCard',
   components: {
-    OcticonRepo: () => import('@/assets/images/octicon-repo.svg?inline'),
+    OcticonRepo: () => import('@/assets/images/octicon-repo.svg?inline')
   },
   props: {
     href: {
       type: String,
-      required: true,
+      required: true
     },
     name: {
       type: String,
-      required: true,
+      required: true
     },
     description: {
       type: String,
       required: false,
-      default: '',
+      default: ''
     },
     language: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
-    circleColorClass() {
+    circleColorClass () {
       return {
         'bg-green-600': this.language.toLowerCase() === 'vuejs',
         'bg-blue-600': this.language.toLowerCase().startsWith('dart'),
         'bg-yellow-300': this.language.toLowerCase() === 'javascript',
-        'bg-yellow-500': this.language.toLowerCase() === 'astro',
+        'bg-yellow-500': this.language.toLowerCase() === 'astro'
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

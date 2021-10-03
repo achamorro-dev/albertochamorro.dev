@@ -17,8 +17,8 @@
 export default {
   name: 'Header',
   components: {
-    HamburgerIcon: () => import('@/assets/images/burger.svg?inline'),
-  },
+    HamburgerIcon: () => import('@/assets/images/burger.svg?inline')
+  }
 }
 </script>
 

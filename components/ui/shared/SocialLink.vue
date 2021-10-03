@@ -21,26 +21,26 @@ export default {
   props: {
     link: {
       type: String,
-      required: true,
+      required: true
     },
     type: {
       type: String,
       required: true,
       validator: (value) => {
         return SOCIAL_TYPES.includes(value)
-      },
+      }
     },
     text: {
       type: String,
       required: false,
-      default: '',
+      default: ''
     },
     color: {
       type: String,
       required: false,
-      default: 'text-custom-gray',
-    },
-  },
+      default: 'text-custom-gray'
+    }
+  }
 }
 </script>
 

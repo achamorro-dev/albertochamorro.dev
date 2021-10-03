@@ -1,19 +1,19 @@
 <template>
   <div>
     <h1 v-if="type === 'h1'" class="text-2xl text-left">
-      <span :class="{ 'custom-path-bg': hasCustomPath, 'pl-2': hasCustomPath }"
-        >{{ firstWord }} </span
-      >{{ restOfWords }}
+      <span
+        :class="{ 'custom-path-bg': hasCustomPath, 'pl-2': hasCustomPath }"
+      >{{ firstWord }} </span>{{ restOfWords }}
     </h1>
     <h2 v-if="type === 'h2'" class="text-2xl text-left">
-      <span :class="{ 'custom-path-bg': hasCustomPath, 'pl-2': hasCustomPath }"
-        >{{ firstWord }} </span
-      >{{ restOfWords }}
+      <span
+        :class="{ 'custom-path-bg': hasCustomPath, 'pl-2': hasCustomPath }"
+      >{{ firstWord }} </span>{{ restOfWords }}
     </h2>
     <h3 v-if="type === 'h3'" class="text-xl text-left">
-      <span :class="{ 'custom-path-bg': hasCustomPath, 'pl-2': hasCustomPath }"
-        >{{ firstWord }} </span
-      >{{ restOfWords }}
+      <span
+        :class="{ 'custom-path-bg': hasCustomPath, 'pl-2': hasCustomPath }"
+      >{{ firstWord }} </span>{{ restOfWords }}
     </h3>
   </div>
 </template>
@@ -26,30 +26,30 @@ export default {
       type: String,
       required: false,
       default: 'h1',
-      validator: (value) => ['h1', 'h2', 'h3'].includes(value),
+      validator: value => ['h1', 'h2', 'h3'].includes(value)
     },
     text: {
       type: String,
       required: false,
-      default: '',
+      default: ''
     },
     hasCustomPath: {
       type: Boolean,
       required: false,
-      default: true,
-    },
+      default: true
+    }
   },
-  data() {
+  data () {
     return {
-      textSplitted: this.text.split(' '),
+      textSplitted: this.text.split(' ')
     }
   },
   computed: {
-    firstWord() {
+    firstWord () {
       return this.textSplitted.length < 2 ? this.text : this.textSplitted[0]
     },
-    restOfWords() {
-      if (this.textSplitted.length < 2) return ''
+    restOfWords () {
+      if (this.textSplitted.length < 2) { return '' }
 
       return this.textSplitted.reduce((finalText, value, index) => {
         if (index !== 0) {
@@ -58,7 +58,7 @@ export default {
 
         return finalText
       }, '')
-    },
-  },
+    }
+  }
 }
 </script>

@@ -1,9 +1,13 @@
 <template>
   <div class="xl-container h-screen text-center">
-    <h2 class="text-2xl mt-12">Oops! Algo ha salido mal…</h2>
-    <img src="@/assets/images/error.png" class="m-auto" />
+    <h2 class="text-2xl mt-12">
+      Oops! Algo ha salido mal…
+    </h2>
+    <img src="@/assets/images/error.png" class="m-auto">
     <NuxtLink to="/" class="hover:no-underline">
-      <Button class="mt-4 mx-auto">llévame</Button>
+      <Button class="mt-4 mx-auto">
+        llévame
+      </Button>
     </NuxtLink>
   </div>
 </template>
@@ -11,9 +15,9 @@
 <script>
 export default {
   methods: {
-    goHome() {
+    goHome () {
       this.$router.push({ name: 'index' })
-    },
-  },
+    }
+  }
 }
 </script>

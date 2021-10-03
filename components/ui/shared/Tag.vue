@@ -15,7 +15,7 @@
         'text-custom-gray': !selected,
       }"
     >
-      {{ text }}
+      #{{ text }}
     </span>
   </a>
 </template>
@@ -25,14 +25,14 @@ export default {
   props: {
     text: {
       type: String,
-      required: true,
+      required: true
     },
     selected: {
       type: Boolean,
       required: false,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 }
 </script>
 

@@ -30,7 +30,7 @@ const LOGO_DEFINITIONS = [
   { key: 'vscode', component: 'VSCodeImage' },
   { key: 'atlassian', component: 'AtlassianImage' },
   { key: 'notion', component: 'NotionImage' },
-  { key: 'adobexd', component: 'AdobeXDImage' },
+  { key: 'adobexd', component: 'AdobeXDImage' }
 ]
 
 export default {
@@ -53,40 +53,40 @@ export default {
     AtlassianImage: () => import('@/assets/logos/atlassian.svg?inline'),
     NotionImage: () => import('@/assets/logos/notion.svg?inline'),
     AdobeXDImage: () => import('@/assets/logos/adobexd.svg?inline'),
-    StorybookImage: () => import('@/assets/logos/storybook.svg?inline'),
+    StorybookImage: () => import('@/assets/logos/storybook.svg?inline')
   },
   props: {
     link: {
       type: String,
-      required: true,
+      required: true
     },
     type: {
       type: String,
       required: true,
       validator: (value) => {
-        return LOGO_DEFINITIONS.map((def) => def.key).includes(value)
-      },
+        return LOGO_DEFINITIONS.map(def => def.key).includes(value)
+      }
     },
     title: {
       type: String,
       required: false,
-      default: '',
+      default: ''
     },
     text: {
       type: String,
       required: false,
-      default: '',
+      default: ''
     },
     color: {
       type: String,
       required: false,
-      default: '',
-    },
+      default: ''
+    }
   },
   computed: {
-    componentSelected() {
-      return LOGO_DEFINITIONS.find((logo) => logo.key === this.type).component
-    },
-  },
+    componentSelected () {
+      return LOGO_DEFINITIONS.find(logo => logo.key === this.type).component
+    }
+  }
 }
 </script>

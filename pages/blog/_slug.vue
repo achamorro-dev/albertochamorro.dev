@@ -1,6 +1,8 @@
 <template>
   <article class="xl-container p-4">
-    <h1 class="text-3xl xl:text-center">{{ article.title }}</h1>
+    <h1 class="text-3xl xl:text-center">
+      {{ article.title }}
+    </h1>
     <small class="block xl:text-center">
       {{ article.date | formatDate }}
     </small>
@@ -9,27 +11,26 @@
         <Tag :text="tag" @tag-clicked="onTagClicked(tag)" />
       </li>
     </ul>
-    <img :src="article.img" :alt="article.alt" class="mt-4 rounded" />
+    <img :src="article.img" :alt="article.alt" class="mt-4 rounded">
     <nuxt-content :document="article" />
   </article>
 </template>
 
 <script>
+import link from '../../helpers/link'
 import CONSTANTS from '@/helpers/constants'
 import { formatDate } from '@/components/helpers/filters'
 
-import link from '../../helpers/link'
-
 export default {
   filters: {
-    formatDate,
+    formatDate
   },
-  async asyncData({ params, $content }) {
+  async asyncData ({ params, $content }) {
     const article = await $content('articles', params.slug).fetch()
 
     return { article }
   },
-  head() {
+  head () {
     return {
       title: `${this.article.title} | ${CONSTANTS.WEB_TITLE}`,
       link: [
@@ -38,62 +39,62 @@ export default {
           rel: 'image_src',
           href: this.article.metaImg
             ? this.article.metaImg
-            : this.article.thumbnail,
-        },
+            : this.article.thumbnail
+        }
       ],
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.article.description,
+          content: this.article.description
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `${this.article.title} | ${CONSTANTS.WEB_TITLE}`,
+          content: `${this.article.title} | ${CONSTANTS.WEB_TITLE}`
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: this.article.description,
+          content: this.article.description
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `${this.article.title} | ${CONSTANTS.WEB_TITLE}`,
+          content: `${this.article.title} | ${CONSTANTS.WEB_TITLE}`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: this.article.description,
+          content: this.article.description
         },
         {
           hid: 'og:image',
           property: 'og:image',
           content: this.article.metaImg
             ? this.article.metaImg
-            : this.article.thumbnail,
+            : this.article.thumbnail
         },
         {
           hid: 'og:image:secure_url',
           property: 'og:image',
           content: this.article.metaImg
             ? this.article.metaImg
-            : this.article.thumbnail,
+            : this.article.thumbnail
         },
         {
           hid: 'og:image:alt',
           property: 'og:image:alt',
-          content: this.article.title,
-        },
-      ],
+          content: this.article.title
+        }
+      ]
     }
   },
   methods: {
-    onTagClicked(tag) {
+    onTagClicked (tag) {
       this.$router.push({ name: 'blog', query: { tag } })
-    },
-  },
+    }
+  }
 }
 </script>
 
