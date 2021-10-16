@@ -4,6 +4,13 @@
     <div class="flex flex-col justify-between xl:flex-row gap-2">
       <RepositoryCard
         class="w-75 xl:w-1/3"
+        href="https://github.com/achamorro-dev/upay-frontend"
+        description="Reto técnico en el que implemento una arquitectura por capas en el front con NPM workspaces."
+        name="upay-frontend"
+        language="Dart / Flutter"
+      />
+      <RepositoryCard
+        class="w-75 xl:w-1/3"
         href="https://github.com/achamorro-dev/astro-pokedex"
         description="Ejemplo de Pokedex utilizando el framework Astro utilizando componentes de diferentes frameworks."
         name="astro-pokedex"
@@ -15,13 +22,6 @@
         description="Repositorio de esta página desarrollada con JAMStack utilizando VueJS y NuxtJS con nuxt content."
         name="albertochamorro.dev"
         language="VueJS"
-      />
-      <RepositoryCard
-        class="w-75 xl:w-1/3"
-        href="https://github.com/achamorro-dev/flutter_glassmorphism"
-        description="Repositorio del ejemplo de Glassmorphism con Flutter que mostré en Twitch/YouTube de Flutter España."
-        name="flutter_glassmorphism"
-        language="Dart / Flutter"
       />
     </div>
   </article>
