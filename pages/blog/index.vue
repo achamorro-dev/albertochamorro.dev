@@ -38,7 +38,7 @@
 </template>
 
 <script>
-const availableTags = ['vue', 'flutter', 'web', 'multiplataforma']
+const availableTags = ['vue', 'reactjs', 'flutter', 'frontend', 'javascript', 'frontend', 'multiplataforma']
 
 export default {
   async asyncData ({ $content, params }) {
