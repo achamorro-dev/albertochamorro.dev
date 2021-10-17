@@ -7,6 +7,7 @@ metaImg: https://res.cloudinary.com/dp1r5podd/image/upload/v1628161077/albertoch
 alt: Cartel del artículo introducción a Astro, nuevo generador de sitios estáticos
 tags:
   - web
+  - frontend
 date: 2021-08-09
 ---
 
