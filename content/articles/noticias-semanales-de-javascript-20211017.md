@@ -74,12 +74,6 @@ Hoy Miriam González [@miriamgonp](https://twitter.com/miriamgonp), Frontend dev
 
 Os dejo [la entrada de Instagram](https://www.instagram.com/p/CVIcM1cDg7G/) dónde anuncia este directo y dónde además podéis dejar vuestras dudas para responderlas en directo.
 
-### MorcillaConf - Miércoles 20 de 9:15 a 14:30
-
-¿Quieres pasar una gran mañana hablando de desarrollo? MorcillaConf, el evento por excelencia de Castilla y León, vuelve a la carga con evento presencial y en remoto.
-
-Tenéis toda la info en [su web](http://www.morcillaconf.es/)
-
 ### Vue.JS Live 2021 - Miércoles 20 
 
 La comunidad de Vue.JS en Londres nos trae esta conferencia con 35 speakers y 9 workshops (para los que puedan disfrutarlo presencialmente). ¡Hasta Evan You, creador de Vite y Vue tiene charla! Si eres amante de Vue.JS o quieres estar informado de todas las novedades deberías ver este eventazo, os dejo [la web oficial](https://vuejslive.com/). 
