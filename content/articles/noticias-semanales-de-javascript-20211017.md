@@ -10,6 +10,7 @@ tags:
   - frontend
   - backend
 date: 2021-10-17
+articleUrl: https://albertochamorro.dev/blog/noticias-semanales-de-javascript-20211017
 ---
 ¿Quieres saber que ha sido lo más relevante del mundo JavaScript esta semana? Te cuento lo mejor que ha ocurrido en la semana del 11 al 17 de Octubre de 2021 y lo que está por llegar.
 

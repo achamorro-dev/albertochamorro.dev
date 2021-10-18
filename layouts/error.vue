@@ -6,7 +6,7 @@
     <img src="@/assets/images/error.png" class="m-auto">
     <NuxtLink to="/" class="hover:no-underline">
       <Button class="mt-4 mx-auto">
-        llévame
+        llévame a casa
       </Button>
     </NuxtLink>
   </div>

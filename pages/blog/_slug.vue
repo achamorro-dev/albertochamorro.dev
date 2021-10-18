@@ -12,7 +12,14 @@
       </li>
     </ul>
     <img :src="article.img" :alt="article.alt" class="mt-4 rounded">
+
     <nuxt-content :document="article" />
+    <div class="text-center">
+      <ShareOnTwitterLink
+        :article-title="article.title"
+        :article-url="article.articleUrl"
+      />
+    </div>
   </article>
 </template>
 
@@ -20,8 +27,10 @@
 import link from '../../helpers/link'
 import CONSTANTS from '@/helpers/constants'
 import { formatDate } from '@/components/helpers/filters'
+import ShareOnTwitterLink from '~/components/ui/shared/ShareOnTwitterLink'
 
 export default {
+  components: { ShareOnTwitterLink },
   filters: {
     formatDate
   },
@@ -86,6 +95,11 @@ export default {
           hid: 'og:image:alt',
           property: 'og:image:alt',
           content: this.article.title
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: this.article.articleUrl
         }
       ]
     }
@@ -101,5 +115,10 @@ export default {
 <style scoped>
 article {
   max-width: 50rem;
+}
+.article-twitter-link {
+  position: fixed;
+  left: 50%;
+  bottom: 3rem;
 }
 </style>

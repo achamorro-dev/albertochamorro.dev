@@ -9,6 +9,7 @@ tags:
   - flutter
   - multiplataforma
 date: 2021-05-15
+articleUrl: https://albertochamorro.dev/blog/instalando-flutter-2-con-fvm
 ---
 
 En Marzo de este año se presentó nueva versión de Flutter: Flutter 2. Esta versión trae bastantes funcionalidades nuevas a su versión estable, una de ellas el famoso “Null Safety”. Esto provoca que no todas las aplicaciones que funcionaban en la versión 1.x van a funcionar en su versión 2, más aún si tienes un número alto de dependencias y estas no han migrado su código todavía.

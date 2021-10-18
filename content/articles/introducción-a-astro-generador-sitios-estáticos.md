@@ -9,6 +9,7 @@ tags:
   - web
   - frontend
 date: 2021-08-09
+articleUrl: https://albertochamorro.dev/blog/introducci%C3%B3n-a-astro-generador-sitios-est%C3%A1ticos
 ---
 
 De los creadores de Snowpack llega Astro 🚀, el generador de sitios estáticos con un increíble rendimiento y soporte a los frameworks más populares actualmente del mundo front.
