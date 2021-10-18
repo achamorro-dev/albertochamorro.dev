@@ -7,7 +7,7 @@
         href="https://github.com/achamorro-dev/upay-frontend"
         description="Reto técnico en el que implemento una arquitectura por capas en el front con NPM workspaces."
         name="upay-frontend"
-        language="Dart / Flutter"
+        language="React"
       />
       <RepositoryCard
         class="w-75 xl:w-1/3"
@@ -21,7 +21,7 @@
         href="https://github.com/achamorro-dev/albertochamorro.dev"
         description="Repositorio de esta página desarrollada con JAMStack utilizando VueJS y NuxtJS con nuxt content."
         name="albertochamorro.dev"
-        language="VueJS"
+        language="Vue.js"
       />
     </div>
   </article>

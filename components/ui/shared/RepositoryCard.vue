@@ -46,10 +46,11 @@ export default {
   computed: {
     circleColorClass () {
       return {
-        'bg-green-600': this.language.toLowerCase() === 'vuejs',
+        'bg-green-500': this.language.toLowerCase() === 'vue.js',
         'bg-blue-600': this.language.toLowerCase().startsWith('dart'),
         'bg-yellow-300': this.language.toLowerCase() === 'javascript',
-        'bg-yellow-500': this.language.toLowerCase() === 'astro'
+        'bg-yellow-500': this.language.toLowerCase() === 'astro',
+        'bg-blue-400': this.language.toLowerCase() === 'react'
       }
     }
   }

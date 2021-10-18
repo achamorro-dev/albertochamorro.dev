@@ -11,7 +11,7 @@
         ¡Hola! Me llamo <b>Alberto Chamorro</b> y actualmente soy Frontend
         Developer en
         <a href="https://www.vivelibre.es/" target="_blank">@vivelibre</a>
-        trabajando principalmente con tecnologías JavaScript como VueJS y
+        trabajando principalmente con tecnologías JavaScript como Vue.js y
         TypeScript. También a nivel personal utilizo Flutter para crear
         aplicaciones multiplataforma para iOS y Android.
       </p>
