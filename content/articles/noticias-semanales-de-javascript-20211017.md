@@ -18,11 +18,11 @@ date: 2021-10-17
 
 Nuestro linter por excelencia con el que mantenemos la calidad de nuestro código llega a su versión 8.0.
 
-En esta versión ya se incluye <u>soporte a ES2022</u> aunque ¡CUIDADO! porque perdemos soporte a Node.JS 10, 13 y 15. Han preparado [esta guía](https://eslint.org/docs/8.0.0/user-guide/migrating-to-8.0.0) para ayudarnos a migrar a esta nueva versión.
+En esta versión ya se incluye <u>soporte a ES2022</u> aunque ¡CUIDADO! porque perdemos soporte a Node.js 10, 13 y 15. Han preparado [esta guía](https://eslint.org/docs/8.0.0/user-guide/migrating-to-8.0.0) para ayudarnos a migrar a esta nueva versión.
 
 
 ### Nuxt3 en beta pública
-El framework por excelencia de VueJS abre sus puertas a su versión beta con soporte a Vue 3 (Composition API, composable functions, TypeScript y más). Te dejo por aquí una comparación del soporte en las diferentes versiones de Nuxt y su [guía oficial](https://v3.nuxtjs.org/).
+El framework por excelencia de Vue.js abre sus puertas a su versión beta con soporte a Vue 3 (Composition API, composable functions, TypeScript y más). Te dejo por aquí una comparación del soporte en las diferentes versiones de Nuxt y su [guía oficial](https://v3.nuxtjs.org/).
 
 <img src="https://res.cloudinary.com/dp1r5podd/image/upload/v1634488167/albertochamorro.dev/noticias-semanales-javascript/nuxt-comparacion-soporte_vjwfei.webp" alt="Comparación del soporte en las diferentes versiones de Nuxt" />
 
@@ -34,7 +34,7 @@ En esta nueva versión traen un largo listado de features nuevas como tree shaki
 
 ## Node 16.11.1, 14.18.1, and 12.22.7
 
-Nuevas versiones de NodeJS aplicando dos parches de seguridad de HTTP request smuggling (o contrabando de peticiones HTTP). Más info [aquí](https://nodejs.org/en/blog/vulnerability/oct-2021-security-releases/).
+Nuevas versiones de Node.js aplicando dos parches de seguridad de HTTP request smuggling (o contrabando de peticiones HTTP). Más info [aquí](https://Node.js.org/en/blog/vulnerability/oct-2021-security-releases/).
 
 ## jest-extended 1.0
 
@@ -74,15 +74,15 @@ Hoy Miriam González [@miriamgonp](https://twitter.com/miriamgonp), Frontend dev
 
 Os dejo [la entrada de Instagram](https://www.instagram.com/p/CVIcM1cDg7G/) dónde anuncia este directo y dónde además podéis dejar vuestras dudas para responderlas en directo.
 
-### Vue.JS Live 2021 - Miércoles 20 
+### Vue.js Live 2021 - Miércoles 20 
 
-La comunidad de Vue.JS en Londres nos trae esta conferencia con 35 speakers y 9 workshops (para los que puedan disfrutarlo presencialmente). ¡Hasta Evan You, creador de Vite y Vue tiene charla! Si eres amante de Vue.JS o quieres estar informado de todas las novedades deberías ver este eventazo, os dejo [la web oficial](https://vuejslive.com/). 
+La comunidad de Vue.js en Londres nos trae esta conferencia con 35 speakers y 9 workshops (para los que puedan disfrutarlo presencialmente). ¡Hasta Evan You, creador de Vite y Vue tiene charla! Si eres amante de Vue.js o quieres estar informado de todas las novedades deberías ver este eventazo, os dejo [la web oficial](https://Vue.jslive.com/). 
 
 Un punto extra para este evento, si es que lo necesita, es que el gran Miguel Ángel Durán [@midudev](https://twitter.com/midudev) estará cubriendo el evento en su canal de YouTube, os dejo [enlace directo al vídeo](https://www.youtube.com/watch?v=ahupn-ogcSo).
 
 ### Primeros pasos con Nuxt.js (Pablo Sirera) - Miércoles 20 a las 18:00
 
-Este miércoles el equipo de Malt nos trae esta charla dónde Pablo Sirera [@pablosirera](https://twitter.com/pablosirera), Tech Lead en Dekalabs, nos dará una introducción al framework por excelencia de VueJS.
+Este miércoles el equipo de Malt nos trae esta charla dónde Pablo Sirera [@pablosirera](https://twitter.com/pablosirera), Tech Lead en Dekalabs, nos dará una introducción al framework por excelencia de Vue.js.
 
 No os lo podéis perder, os dejo el tweet con la info [aquí](https://twitter.com/pablosirera/status/1448695706571640833).
 
@@ -95,6 +95,11 @@ El evento son 3 días aunque el grueso es el viernes 22 de octubre dónde tenemo
 
 Os dejo la web [por aquí](https://www.tarugoconf.com/) para que te apuntes sí o sí y veas la agenda.
 
+### React advanced - Viernes 22 y Lunes 25
+
+Además de la conferencia Vue.js Live, nos llega desde Londres el evento React Advanced donde tendremos charlas durante toda la tarde del viernes 22 y del lunes 25 con más de 60 speakers en total.
+
+Si queréis más información podéis entrar en [la web](https://reactadvanced.com) que, como no podría ser de otra manera, está hecha en React.
 
 ----
 
