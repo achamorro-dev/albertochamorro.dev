@@ -77,16 +77,21 @@ Os dejo [la entrada de Instagram](https://www.instagram.com/p/CVIcM1cDg7G/) dón
 
 ### Vue.js Live 2021 - Miércoles 20 
 
-La comunidad de Vue.js en Londres nos trae esta conferencia con 35 speakers y 9 workshops (para los que puedan disfrutarlo presencialmente). ¡Hasta Evan You, creador de Vite y Vue tiene charla! Si eres amante de Vue.js o quieres estar informado de todas las novedades deberías ver este eventazo, os dejo [la web oficial](https://Vue.jslive.com/). 
+La comunidad de Vue.js en Londres nos trae esta conferencia con 35 speakers y 9 workshops (para los que puedan disfrutarlo presencialmente). ¡Hasta Evan You, creador de Vite y Vue tiene charla! Si eres amante de Vue.js o quieres estar informado de todas las novedades deberías ver este eventazo, os dejo [la web oficial](https://vuejslive.com/). 
 
 Un punto extra para este evento, si es que lo necesita, es que el gran Miguel Ángel Durán [@midudev](https://twitter.com/midudev) estará cubriendo el evento en su canal de YouTube, os dejo [enlace directo al vídeo](https://www.youtube.com/watch?v=ahupn-ogcSo).
+
+### Codemotion 2021 - Miércoles 20 y jueves 21
+
+La conferencia técnica multitrack hecha por devs para devs llega una vez más en formato streaming con hasta tres tracks cada día.
+
+El miércoles es el día reservado para backend y el jueves está reservado para frontend, soft skills, AI/ML y tecnologías emergentes. Puedes ir a la web del evento [aquí](https://events.codemotion.com/conferences/online/2021/online-tech-conference-spanish-edition-autumn). 
 
 ### Primeros pasos con Nuxt.js (Pablo Sirera) - Miércoles 20 a las 18:00
 
 Este miércoles el equipo de Malt nos trae esta charla dónde Pablo Sirera [@pablosirera](https://twitter.com/pablosirera), Tech Lead en Dekalabs, nos dará una introducción al framework por excelencia de Vue.js.
 
 No os lo podéis perder, os dejo el tweet con la info [aquí](https://twitter.com/pablosirera/status/1448695706571640833).
-
 
 ### Tarugoconf - Del 21 al 23 
 
