@@ -21,6 +21,12 @@
       <LogoImage type="nuxt" title="NuxtJS" link="https://nuxtjs.org/" />
     </li>
     <li>
+      <LogoImage type="react" title="React" link="https://reactjs.org/" />
+    </li>
+    <li>
+      <LogoImage type="nextjs" title="NextJS" link="https://nextjs.org/" />
+    </li>
+    <li>
       <LogoImage
         type="storybook"
         title="Storybook"

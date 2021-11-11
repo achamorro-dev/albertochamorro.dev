@@ -15,9 +15,9 @@
       <span class="text-2xl"> ¡Hola!</span>
       <p class="text-xl">
         Soy <b>Alberto Chamorro</b>, Frontend Developer en
-        <a href="https://www.vivelibre.es/" target="_blank">@vivelibre</a>. Me
+        <a href="https://www.autentia.com/" target="_blank">@autentia</a>. Me
         encanta el café, la tecnología, la Fórmula 1 y el Universo
-        cinematográfico de Marvel.
+        Cinematográfico de Marvel.
       </p>
       <p class="text-xl">
         Ahora mismo tengo mi corazón dividido por el lado del desarrollo web con

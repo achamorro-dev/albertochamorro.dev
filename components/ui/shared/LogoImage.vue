@@ -30,7 +30,9 @@ const LOGO_DEFINITIONS = [
   { key: 'vscode', component: 'VSCodeImage' },
   { key: 'atlassian', component: 'AtlassianImage' },
   { key: 'notion', component: 'NotionImage' },
-  { key: 'adobexd', component: 'AdobeXDImage' }
+  { key: 'adobexd', component: 'AdobeXDImage' },
+  { key: 'react', component: 'ReactImage' },
+  { key: 'nextjs', component: 'NextImage' }
 ]
 
 export default {
@@ -53,7 +55,9 @@ export default {
     AtlassianImage: () => import('@/assets/logos/atlassian.svg?inline'),
     NotionImage: () => import('@/assets/logos/notion.svg?inline'),
     AdobeXDImage: () => import('@/assets/logos/adobexd.svg?inline'),
-    StorybookImage: () => import('@/assets/logos/storybook.svg?inline')
+    StorybookImage: () => import('@/assets/logos/storybook.svg?inline'),
+    ReactImage: () => import('@/assets/logos/react.svg?inline'),
+    NextImage: () => import('@/assets/logos/nextjs.svg?inline')
   },
   props: {
     link: {
