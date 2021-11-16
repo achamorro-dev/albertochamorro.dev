@@ -1,6 +1,6 @@
 <template>
   <article class="xl-container p-4">
-    <Heading type="h2" text="repos en github" class="mb-2 xl:mb-4" />
+    <Heading type="h2" text="repos en github" class="mb-2 xl:mb-4" brackets-color="green" />
     <div class="flex flex-col justify-between xl:flex-row gap-2">
       <RepositoryCard
         class="w-75 xl:w-1/3"

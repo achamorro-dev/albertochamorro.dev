@@ -1,6 +1,6 @@
 <template>
   <article id="contacto" class="xl-container p-4">
-    <Heading type="h2" text="contacto" class="mb-2 xl:mb-4" />
+    <Heading type="h2" text="contacto" class="mb-2 xl:mb-4" brackets-color="blue" />
     <form v-if="!formSent" ref="contactForm" @submit.prevent="sendForm">
       <label for="nameForm" class="text-lg mb-2">nombre</label>
       <input
@@ -103,6 +103,6 @@ export default {
 
 <style lang="css" scoped>
 label {
-  @apply block font-display text-custom-gray;
+  @apply block font-display;
 }
 </style>

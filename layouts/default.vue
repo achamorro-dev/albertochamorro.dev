@@ -63,6 +63,7 @@ h6 {
   @apply font-display text-custom-gray;
 }
 
+label,
 p {
   @apply font-body text-custom-gray my-4;
 }
@@ -75,6 +76,7 @@ p {
 .dark h6,
 .dark p,
 .dark span,
+.dark label,
 .dark small {
   @apply text-gray-100;
 }
@@ -90,12 +92,12 @@ a:focus {
 
 input,
 textarea {
-  @apply rounded border border-gray-700 py-2 px-3;
+  @apply rounded border border-gray-400 py-2 px-3;
 }
 
 input:focus,
 textarea:focus {
-  @apply outline-none border border-custom-blue;
+  @apply outline-none border border-custom-yellow;
 }
 
 .button--green {
@@ -118,6 +120,21 @@ textarea:focus {
   content: ']';
   position: relative;
   right: 0;
+}
+
+.brackets-red.brackets::after,
+.brackets-red.brackets::before {
+  @apply text-custom-red;
+}
+
+.brackets-blue.brackets::after,
+.brackets-blue.brackets::before {
+  @apply text-custom-blue;
+}
+
+.brackets-green.brackets::after,
+.brackets-green.brackets::before {
+  @apply text-custom-green;
 }
 
 .xl-container {

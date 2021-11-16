@@ -2,17 +2,17 @@
   <div>
     <h1 v-if="type === 'h1'" class="text-2xl text-left">
       <span
-        :class="{ 'brackets': hasBrackets }"
+        :class="computedClass"
       >{{ firstWord }}</span> {{ restOfWords }}
     </h1>
     <h2 v-if="type === 'h2'" class="text-2xl text-left">
       <span
-        :class="{ 'brackets': hasBrackets }"
+        :class="computedClass"
       >{{ firstWord }}</span> {{ restOfWords }}
     </h2>
     <h3 v-if="type === 'h3'" class="text-xl text-left">
       <span
-        :class="{ 'brackets': hasBrackets }"
+        :class="computedClass"
       >{{ firstWord }}</span> {{ restOfWords }}
     </h3>
   </div>
@@ -37,6 +37,11 @@ export default {
       type: Boolean,
       required: false,
       default: true
+    },
+    bracketsColor: {
+      type: String,
+      required: false,
+      default: undefined
     }
   },
   data () {
@@ -58,6 +63,15 @@ export default {
 
         return finalText
       }, '')
+    },
+    computedClass () {
+      let result = ''
+      result += this.hasBrackets ? ' brackets' : ''
+      result += this.hasBrackets && this.bracketsColor
+        ? ` brackets-${this.bracketsColor}`
+        : ''
+
+      return result
     }
   }
 }
