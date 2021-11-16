@@ -106,11 +106,18 @@ textarea:focus {
   @apply bg-black;
 }
 
-.custom-path-bg {
-  background: url('~assets/images/custom_path.svg');
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+.brackets::before {
+  @apply text-custom-yellow;
+  content: '[';
+  position: relative;
+  left: 0;
+}
+
+.brackets::after {
+  @apply text-custom-yellow;
+  content: ']';
+  position: relative;
+  right: 0;
 }
 
 .xl-container {

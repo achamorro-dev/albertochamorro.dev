@@ -1,5 +1,5 @@
 <template>
   <h1 class="text-2xl">
-    <span class="custom-path-bg px-2">alberto</span>chamorro
+    <span class="brackets">alberto</span> chamorro
   </h1>
 </template>

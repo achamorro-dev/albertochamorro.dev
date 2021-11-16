@@ -4,7 +4,7 @@
       type="h2"
       text="🧑‍💻 timeline"
       class="mb-5"
-      :has-custom-path="false"
+      :has-brackets="false"
     />
     <TimelineCard
       v-for="(workItem, index) in workTimelineItems"

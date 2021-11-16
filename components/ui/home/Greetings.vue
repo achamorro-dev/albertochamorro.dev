@@ -11,8 +11,8 @@
   >
     <Avatar />
     <div class="text-container">
+      <span class="text-2xl">¡Hola!</span>
       <span class="text-4xl">👋</span>
-      <span class="text-2xl"> ¡Hola!</span>
       <p class="text-xl">
         Soy <b>Alberto Chamorro</b>, Frontend Developer en
         <a href="https://www.autentia.com/" target="_blank">@autentia</a>. Me

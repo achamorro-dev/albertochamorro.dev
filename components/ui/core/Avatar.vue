@@ -1,5 +1,5 @@
 <template>
-  <div class="avatar-bg bg-custom-green">
+  <div class="avatar-bg bg-custom-yellow">
     <img
       src="~/assets/images/avatar_home.png"
       alt="Avatar Alberto Chamorro"

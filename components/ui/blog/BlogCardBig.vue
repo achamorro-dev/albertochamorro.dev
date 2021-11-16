@@ -15,7 +15,7 @@
       <small class="block text-custom-gray text-center md:text-left">
         {{ article.date | formatDate }}
       </small>
-      <Heading type="h2" :text="article.title" :has-custom-path="false" />
+      <Heading type="h2" :text="article.title" :has-brackets="false" />
       <p class="max-w-screen-sm">
         {{ article.description }}
       </p>

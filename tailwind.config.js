@@ -10,9 +10,11 @@ module.exports = {
         dark: theme('colors.gray.700')
       }),
       colors: {
-        'custom-blue': '#067BC2',
-        'custom-green': '#22D39E',
-        'custom-gray': '#404e4d'
+        'custom-yellow': '#FCBF49',
+        'custom-red': '#EF6461',
+        'custom-gray': '#313638',
+        'custom-blue': '#01BAEF',
+        'custom-green': '#20BF55'
       },
       fontFamily: {
         display: ['Poppins', 'sans-serif'],

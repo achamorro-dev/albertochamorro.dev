@@ -40,7 +40,7 @@ export default {
   animation: shake 0.5s ease-in-out;
 }
 .primary {
-  @apply bg-custom-green;
+  @apply bg-custom-red;
 }
 .secondary {
   @apply bg-custom-blue;
