@@ -53,7 +53,7 @@
           footer-section
         "
       >
-        <Logo class="mb-3" />
+        <Logo class="mb-3" negative />
         <ul class="flex justify-center">
           <SocialLink
             type="twitter"
