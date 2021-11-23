@@ -28,13 +28,16 @@ export default {
 
 <style scoped>
 .btn {
-  @apply py-2 px-4 text-white font-body font-bold rounded-3xl flex justify-center items-center text-lg;
+  @apply py-2 px-4 text-white font-body font-bold rounded-xl flex justify-center items-center text-lg;
 }
 .btn:hover {
   @apply shadow-md;
 }
 .icon {
   @apply ml-2 text-white;
+}
+.outline .icon {
+  @apply text-custom-yellow;
 }
 .btn:hover .icon {
   animation: shake 0.5s ease-in-out;
@@ -46,7 +49,10 @@ export default {
   @apply bg-custom-blue;
 }
 .outline {
-  @apply border border-custom-green bg-white text-custom-gray;
+  @apply border border-custom-yellow bg-transparent text-custom-gray;
+}
+.dark .outline {
+  @apply text-custom-yellow;
 }
 @keyframes shake {
   20%,

@@ -30,7 +30,7 @@
         </Button>
         <Button
           icon="coffee"
-          type="secondary"
+          type="outline"
           class="ml-3"
           @btn-clicked="goToCoffee"
         >
