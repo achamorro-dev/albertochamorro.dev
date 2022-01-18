@@ -195,6 +195,10 @@ textarea:focus {
   @apply text-lg;
 }
 
+.nuxt-content li {
+  @apply mb-0.5;
+}
+
 .nuxt-content > ul ul {
   list-style-type: circle;
   margin-top: 0.5rem;
