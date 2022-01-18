@@ -34,6 +34,7 @@ export default {
     this.latestArticles = await this.$content('articles')
       .only(['title', 'description', 'thumbnail', 'alt', 'slug', 'date'])
       .sortBy('date', 'desc')
+      .limit(3)
       .fetch()
   }
 }
