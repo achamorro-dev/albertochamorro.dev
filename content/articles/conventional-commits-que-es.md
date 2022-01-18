@@ -1,0 +1,196 @@
+---
+title: Conventional Commits - Qué es y por qué deberías empezar a utilizarlo
+description: Conventional Commits es una convención en el mensaje de los commits que te llevarán al siguiente nivel
+img: https://res.cloudinary.com/dp1r5podd/image/upload/v1642529538/albertochamorro.dev/Conventional_Commits_frok1v.webp
+thumbnail: https://res.cloudinary.com/dp1r5podd/image/upload/c_scale,w_360/v1642529538/albertochamorro.dev/Conventional_Commits_frok1v.webp
+metaImg: https://res.cloudinary.com/dp1r5podd/image/upload/c_scale,w_360/v1642529538/albertochamorro.dev/Conventional_Commits_frok1v.jpg
+alt: Cartel del artículo Conventional Commits
+tags:
+- general
+- git
+- javascript
+date: 2022-01-18
+articleUrl: https://albertochamorro.dev/blog/conventional-commits-que-es
+---
+¿Alguna vez te ha pasado que no sabes que formato usar al escribir un mensaje de un commit? ¿Cada persona del equipo sigue un formato diferente porque no hay un acuerdo entre todos? O lo que es peor, ¿usa emojis en los commits? Yo he sido de esos...
+
+Pues Conventional Commits llega para solucionar todos esos problemas y más.
+
+## Pero, ¿qué es Conventional Commits?
+
+[Conventional Commits](https://www.conventionalcommits.org/) es una convención en el formato de los mensajes de los commits. Esta convención define una serie de reglas que hacen muy sencillo tanto la legibilidad del histórico del repositorio como el poder tener herramientas que automaticen procesos basándose en el historial de commits, por ejemplo, a la hora del versionado del proyecto.
+
+Esta convención está muy ligada con [Semantic Versioning](http://semver.org/) (o SemVer), estableciendo la versión del proyecto basándose en los commits del repositorio.
+
+> Conventional Commits es una especificación para dar significado a los mensajes de los commits haciéndolos legibles para máquinas y humanos.
+
+## Pero, ¿qué es Semantic Versioning o SemVer?
+
+A modo resumen, SemVer es la convención más extendida para establecer un versionado a librerías, paquetes, dependencias, y a la vida en general 🙃
+
+El versionado se divide en tres bloques:
+
+```jsx
+// MAJOR.MINOR.PATCH
+
+2.12.7
+// 2 -> MAJOR
+// 12 -> MINOR
+// 7 -> PATCH
+```
+
+- **MAJOR**: número de versión que se incrementa cuando se rompe la compatibilidad de versiones anteriores.
+- **MINOR**: número de versión que se incrementa cuando se añade funcionalidad y esta es compatible en la versión MAJOR actual.
+- **PATCH**: número de versión que se incrementa cuando se arreglan errores en la versión MAJOR.MINOR actual.
+
+Adicionalmente está permitido (y es muy común) añadir al bloque PATCH información adicional indicando si son versiones previas a un nuevo lanzamiento (alpha, beta, next, rc, ...) y el número de la compilación. Esta información adicional debe ir en el bloque PATCH precedido por un guión `-`.
+
+Un ejemplo:
+
+```jsx
+12.2.0-alpha.0
+
+// Aquí "alpha" indica el estado de la compilación y ".0" indica el número de compilación
+```
+
+Todo el detalle puedes consultarlo en la página oficial de [SemVer](https://semver.org/). Ahora sí, volvamos a Conventional Commits.
+
+## Especificación de Conventional Commits
+
+Conventional Commits especifica que el mensaje de commit debe ser estructurado de la siguiente manera:
+
+```jsx
+<tipo>(ámbito opcional): <descripción>
+<LINEA_EN_BLANCO>
+[cuerpo opcional]
+<LINEA_EN_BLANCO>
+[nota(s) al pie opcional(es)]
+```
+
+Hay ciertos elementos que serán utilizados para comunicar la intención del commit a terceros:
+
+- Si el tipo es **fix** indica que el commit es un parche de un error y está relacionado con la versión [PATCH](https://semver.org/#summary) del proyecto.
+- Si el tipo es **feat** indica que el commit añade una nueva funcionalidad y se relaciona con la versión [MINOR](https://semver.org/#summary) del proyecto.
+- Añadir el texto **BREAKING CHANGE** en el footer de un commit, o el carácter `!` después del tipo, indica que se rompe la compatibilidad de la versión actual y está relacionado con la versión [MAJOR](http://semver.org/#summary) del proyecto.
+
+Espero que aún no hayas hecho 🤯  porque de verdad que es muy sencillo. Vamos a ver cada una de las zonas del commit en detalle.
+
+### Tipo
+
+El primer elemento es el tipo de commit refiriéndose al contenido del commit. Basados en la [convención establecida por Angular](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines) estos son:
+
+- **feat**: cuando se añade una nueva funcionalidad.
+- **fix**: cuando se arregla un error.
+- **chore**: tareas rutinarias que no sean específicas de una feature o un error como por ejemplo añadir contenido al fichero `.gitignore` o instalar una dependencia.
+- **test**: si añadimos o arreglamos tests.
+- **docs**: cuando solo se modifica documentación.
+- **build**: cuando el cambio afecta al compilado del proyecto.
+- **ci**: el cambio afecta a ficheros de configuración y scripts relacionados con la integración continua.
+- **style**: cambios de legibilidad o formateo de código que no afecta a funcionalidad.
+- **refactor**: cambio de código que no corrige errores ni añade funcionalidad, pero mejora el código.
+- **perf**: usado para mejoras de rendimiento.
+- **revert**: si el commit revierte un commit anterior. Debería indicarse el hash del commit que se revierte.
+
+### Ámbito
+
+El campo ámbito es opcional y sirve para dar información contextual como por ejemplo indicar el nombre de la feature a la que afecta el commit.
+
+### Descripción
+
+Breve descripción del cambio cumpliendo lo siguiente:
+
+- usa imperativos, en tiempo presente: “añade” mejor que “añadido” o “añadidos”
+- la primera letra siempre irá en minúscula
+- no escribir un punto al final
+
+### Cuerpo
+
+Es opcional y debería añadir aportar más información que la descripción. Debería usar el mismo tono imperativo que esta.
+
+### Nota al pie
+
+Es opcional. Siempre se utiliza para indicar cambios que rompan la compatibilidad de la versión actual (Breaking Changes) aunque también están permitidos otros formatos que sigan la convención de [git trailer format](https://git-scm.com/docs/git-interpret-trailers).
+
+Si el pie de página indica un Breaking Change, el formato deberá ser el siguiente:
+
+```jsx
+BREAKING CHANGE: <description>
+```
+
+<br>
+<hr>
+
+¿A que no ha sido tan difícil? Venga que seguro que unos ejemplos te ayudan.
+
+## Ejemplos
+
+### Commit rompiendo la compatibilidad de la versión actual
+
+```jsx
+feat: allow provided config object to extend other configs
+
+BREAKING CHANGE: `extends` key in config file is now used for extending other config files
+```
+
+### Mismo commit que antes pero indicando la ruptura de compatibilidad con `!`
+
+```jsx
+feat!: allow provided config object to extend other configs
+```
+
+### Commit con ámbito
+
+```jsx
+feat(lang): add spanish language
+```
+
+### Commit con cuerpo y notas al pie
+
+```jsx
+fix: correct minor typos in code
+
+see the issue for details
+
+on typos fixed.
+
+Reviewed-by: Z
+Refs #133
+```
+
+## ¿Por qué usar Conventional Commits?
+
+- Conseguimos un acuerdo en el formato de los commits con todo el equipo de desarrollo tanto interno como externo
+- Armonía en el histórico del repositorio
+- Generación automática de CHANGELOG
+- Versionado automático del proyecto
+
+## Herramientas
+
+Hay muchas librerías, extensiones y linters que se integran con la convención de Conventional Commits para validar los mensajes de los commits, generar documentación como alimentar el fichero `CHANGELOG` o para versionar automáticamente el proyecto.
+
+En la web de [Conventional Commits](https://www.conventionalcommits.org/en/about/#tooling-for-conventional-commits) se listan un montón de estas herramientas para Go, Python, PHP, Java y JavaScript. Además hay plugins para tu editor favorito seguro así que te animo a que pases a echarle un vistazo.
+
+Algunas de las más famosas en el ecosistema JavaScript son:
+
+- [standard-version](https://github.com/conventional-changelog/standard-version): librería creada por la gente de Conventional commits, automatiza la generación del CHANGELOG y genera la siguiente versión en base a las tags de versiones anteriores en tu repositorio y a los commits posteriores a esa tag. Genera un commit incluyendo la versión en el mensaje y los ficheros que ha creado/actualizado automáticamente y el tag con la nueva versión.
+- [semantic-release](https://github.com/semantic-release/semantic-release): otra herramienta más completa que la anterior y más extendida por la comunidad. Automatiza todo el flujo de desarrollo y versionado trabajando con ramas (master, next, beta, alpha, etc), genera versionado analizando las tags en estas ramas y los commits, genera las notas de la nueva versión, realiza commit con todos los cambios y lanza la publicación del paquete. ¡Un todo en uno en toda regla!
+- [multi-semantic-release](https://github.com/dhoulb/multi-semantic-release): si lo tuyo son los monorepos esta es tu librería. Sigue el mismo concepto que semantic-release pero funciona con monorepos, determinando el versionado para cada uno de los workspaces dentro de tu proyecto.
+- [commitlint](https://github.com/conventional-changelog/commitlint): uno de los linters más famosos cuando hablamos de mensajes de commits y con una integración directa con Conventional Commits. Puedes usarlo por ejemplo con `simple-git-hooks` o `husky` para validar los mensajes del proyecto antes de que se registren en el histórico del repositorio y poder rechazarlo si no cumple el formato.
+
+## Algunos proyectos que lo usan
+
+- [vue](https://github.com/vuejs/vue)
+- [ionic](https://github.com/ionic-team/ionic-framework)
+- [stencil](https://github.com/ionic-team/stencil)
+- [electron](https://github.com/electron/electron)
+- [remix](https://github.com/remix-run/remix)
+- [yargs](https://github.com/yargs/yargs)
+- [docusaurus](https://github.com/facebook/docusaurus)
+
+----
+
+Espero que a partir de ahora utilices esta convención para tus commits, estaré vigilándote 🕵️‍.
+
+¿Quieres cambiar algo de este artículo? Puedes enviarme una PR [para este artículo](https://github.com/achamorro-dev/albertochamorro.dev/blob/main/content/articles/conventional-commits-que-es.md)
+
+¡Gracias por leer hasta aquí y hasta la próxima 👋!
