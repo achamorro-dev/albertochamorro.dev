@@ -5,12 +5,12 @@
         py-1
         px-4
         rounded-full
-        border border-custom-green
+        border border-custom-yellow
         text-sm
         font-display
       "
       :class="{
-        'bg-custom-green': selected,
+        'bg-custom-yellow': selected,
         'text-gray-100': selected,
         'text-custom-gray': !selected,
       }"
