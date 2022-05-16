@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="../../../../Downloads/cera-round-pro-cufonfonts-webfont/style.css">
 <template>
   <div class="xl-container h-screen text-center">
     <h2 class="text-2xl mt-12">
