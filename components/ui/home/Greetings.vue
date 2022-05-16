@@ -9,22 +9,26 @@
       lg:flex-row
     "
   >
-    <Avatar />
+    <img
+      src="~/assets/images/me.png"
+      alt="Foto de Alberto Chamorro"
+      class="w-64 h-64 rounded-full m-auto"
+    >
     <div class="text-container">
-      <span class="text-2xl">¡Hola!</span>
-      <span class="text-4xl">👋</span>
-      <p class="text-xl">
+      <span class="text-3xl">¡Hola!</span>
+      <span class="text-3xl">👋</span>
+      <p class="text-3xl mt-7">
         Soy <b>Alberto Chamorro</b>, Frontend Developer en
         <a href="https://www.autentia.com/" target="_blank">@autentia</a>. Me
         encanta el café, la tecnología, la Fórmula 1 y el Universo
         Cinematográfico de Marvel.
       </p>
-      <p class="text-xl">
+      <p class="text-3xl mt-7">
         Ahora mismo tengo mi corazón dividido por el lado del desarrollo web con
         <b>#Vue.js #Nuxt.js</b> y <b>#TailwindCSS</b> y por el lado del desarrollo
         multiplataforma con <b>#Flutter</b>.
       </p>
-      <div class="flex justify-start">
+      <div class="flex justify-start mt-9">
         <Button icon="chevron-right" @btn-clicked="goToContact">
           contacto
         </Button>

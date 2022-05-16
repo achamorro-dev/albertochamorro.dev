@@ -28,19 +28,31 @@ export default {
 
 <style scoped>
 .btn {
-  @apply py-2 px-4 text-white font-body font-bold rounded-xl flex justify-center items-center text-lg;
+  @apply py-2 px-4 text-custom-gray border-2 border-custom-gray font-body font-bold rounded-xl flex justify-center items-center text-lg font-display;
+  box-shadow: 2px 5px 0 #29313D;
+  position: relative;
+}
+.dark .btn {
+  @apply border-custom-light-gray;
+  box-shadow: 2px 5px 0 #f0f1f3;
 }
 .btn:hover {
-  @apply shadow-md;
+  box-shadow: none;
+  top: 5px;
+  left: 2px;
 }
 .icon {
-  @apply ml-2 text-white;
-}
-.outline .icon {
-  @apply text-custom-yellow;
+  @apply ml-2 text-custom-gray;
 }
 .btn:hover .icon {
   animation: shake 0.5s ease-in-out;
+}
+span {
+  @apply text-custom-gray;
+}
+.dark .outline span,
+.dark .outline .icon {
+  @apply text-custom-light-gray;
 }
 .primary {
   @apply bg-custom-yellow;
@@ -49,10 +61,10 @@ export default {
   @apply bg-custom-blue;
 }
 .outline {
-  @apply border border-custom-yellow bg-transparent text-custom-gray;
+  @apply bg-transparent;
 }
 .dark .outline {
-  @apply text-custom-yellow;
+  @apply text-custom-light-gray;
 }
 @keyframes shake {
   20%,

@@ -1,20 +1,13 @@
 <template>
   <article
-    class="
-      flex flex-col
-      justify-center
-      items-center
-      p-4
-      rounded-md
-      hover:shadow-xl
-    "
+    class="blog-card"
   >
     <img :src="article.thumbnail" :alt="article.alt" class="rounded">
     <div class="flex flex-col justify-items-start align-middle w-full mt-3">
       <small class="block text-custom-gray text-center md:text-left">
         {{ article.date | formatDate }}
       </small>
-      <Heading type="h2" :text="article.title" :has-brackets="false" />
+      <Heading type="h3" :text="article.title" :has-brackets="false" />
       <p class="w-full mb-0">
         {{ article.description }}
       </p>
@@ -39,8 +32,8 @@ export default {
 </script>
 
 <style scoped>
-article {
-  transition: all 0.5s ease;
+.blog-card {
+  @apply flex flex-col justify-center items-center p-4 rounded-md border border-gray-400 border-r-4 border-b-4 hover:border-custom-red;
 }
 img {
   max-height: 12rem;

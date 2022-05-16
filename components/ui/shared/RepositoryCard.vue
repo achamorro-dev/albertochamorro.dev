@@ -2,7 +2,7 @@
   <a
     :href="href"
     target="_blank"
-    class="repository-card hover:no-underline hover:shadow-lg"
+    class="repository-card"
   >
     <div class="flex items-center">
       <OcticonRepo class="mr-1" />
@@ -59,10 +59,9 @@ export default {
 
 <style scoped>
 .repository-card {
-  @apply p-4 flex flex-col rounded border border-gray-300;
-  transition: all 0.3s ease;
+  @apply p-4 flex flex-col rounded border border-l-4 border-b-4 border-gray-400;
 }
 .repository-card:hover {
-  transform: translateY(-0.75rem);
+  @apply border-custom-blue;
 }
 </style>

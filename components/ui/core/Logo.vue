@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-2xl" :class="{'text-white': negative}">
+  <h1 class="text-3xl" :class="{'text-white': negative}">
     <span class="brackets">alberto</span> chamorro
   </h1>
 </template>

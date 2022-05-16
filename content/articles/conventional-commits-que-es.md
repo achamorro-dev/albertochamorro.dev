@@ -1,6 +1,6 @@
 ---
 title: Conventional Commits - Qué es y por qué deberías empezar a utilizarlo
-description: Conventional Commits es una convención en el mensaje de los commits que te llevarán al siguiente nivel
+description: Conventional Commits es una convención en el mensaje de los commits que te llevarán al siguiente nivel.
 img: https://res.cloudinary.com/dp1r5podd/image/upload/v1642529538/albertochamorro.dev/Conventional_Commits_frok1v.webp
 thumbnail: https://res.cloudinary.com/dp1r5podd/image/upload/c_scale,w_360/v1642529538/albertochamorro.dev/Conventional_Commits_frok1v.webp
 metaImg: https://res.cloudinary.com/dp1r5podd/image/upload/c_scale,w_360/v1642529538/albertochamorro.dev/Conventional_Commits_frok1v.jpg

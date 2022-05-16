@@ -3,9 +3,7 @@
     <span
       class="
         py-1
-        px-4
         rounded-full
-        border border-custom-yellow
         text-sm
         font-display
       "

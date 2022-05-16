@@ -3,19 +3,19 @@
     <nav>
       <ul class="flex align-middle justify-end text-center">
         <nuxt-link to="/blog" class="hover:no-underline">
-          <li class="text-2xl text-custom-gray font-display px-4">
+          <li class="text-3xl text-custom-gray font-display px-4">
             blog
           </li>
         </nuxt-link>
         <!-- <nuxt-link to="/portfolio" class="hover:no-underline"
           ><li
-            class="text-2xl text-custom-gray font-display px-4 dark:text-gray-100"
+            class="text-3xl text-custom-gray font-display px-4 dark:text-gray-100"
           >
             portfolio
           </li></nuxt-link
         > -->
         <nuxt-link to="/about-me" class="hover:no-underline">
-          <li class="text-2xl text-custom-gray font-display px-4">
+          <li class="text-3xl text-custom-gray font-display px-4">
             sobre mí
           </li>
         </nuxt-link>

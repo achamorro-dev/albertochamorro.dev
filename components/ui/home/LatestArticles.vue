@@ -4,11 +4,11 @@
       type="h2"
       text="últimos artículos"
       class="mb-2 xl:mb-4"
-      brackets-color="red"
+      :has-brackets="false"
     />
     <ul
       v-if="latestArticles && latestArticles.length > 0"
-      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-2"
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2"
     >
       <li v-for="(article, index) in latestArticles" :key="index">
         <NuxtLink

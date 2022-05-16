@@ -5,12 +5,12 @@
         :class="computedClass"
       >{{ firstWord }}</span> {{ restOfWords }}
     </h1>
-    <h2 v-if="type === 'h2'" class="text-2xl text-left">
+    <h2 v-if="type === 'h2'" class="text-4xl text-left">
       <span
         :class="computedClass"
       >{{ firstWord }}</span> {{ restOfWords }}
     </h2>
-    <h3 v-if="type === 'h3'" class="text-xl text-left">
+    <h3 v-if="type === 'h3'" class="text-2xl text-left">
       <span
         :class="computedClass"
       >{{ firstWord }}</span> {{ restOfWords }}

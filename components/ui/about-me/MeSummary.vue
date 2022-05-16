@@ -1,10 +1,6 @@
 <template>
   <article class="text-container m-auto">
-    <img
-      src="~/assets/images/me.jpeg"
-      alt="Foto de Alberto Chamorro"
-      class="w-56 h-56 rounded-full m-auto"
-    >
+    <Avatar />
     <small>Trabajando en 🏡 &nbsp;desde Madrid</small>
     <section class="flex flex-col align-middle text-left mt-5">
       <p class="text-lg">
