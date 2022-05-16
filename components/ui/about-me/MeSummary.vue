@@ -1,7 +1,7 @@
 <template>
   <article class="text-container m-auto">
     <Avatar />
-    <small>Trabajando en 🏡 &nbsp;desde Madrid</small>
+    <small>Trabajando en 🏡 desde Madrid</small>
     <section class="flex flex-col align-middle text-left mt-5">
       <p class="text-lg">
         ¡Hola! Me llamo <b>Alberto Chamorro</b> y actualmente soy Frontend

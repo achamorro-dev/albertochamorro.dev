@@ -1,15 +1,5 @@
 <template>
-  <article
-    class="
-      flex flex-col
-      justify-center
-      items-center
-      p-4
-      rounded-md
-      md:flex-row
-      hover:shadow-xl
-    "
-  >
+  <article class="blog-card">
     <img :src="article.img" :alt="article.alt" class="rounded">
     <div class="flex flex-col justify-items-start align-middle mt-3 md:ml-4">
       <small class="block text-custom-gray text-center md:text-left">
@@ -40,8 +30,8 @@ export default {
 </script>
 
 <style scoped>
-article {
-  transition: all 0.5s ease;
+.blog-card {
+  @apply flex flex-col justify-center items-center p-4 rounded-md md:flex-row hover:shadow-xl border border-gray-400 border-r-4 border-b-4 hover:border-custom-red;
 }
 img {
   max-height: 12rem;
