@@ -1,18 +1,9 @@
 <template>
-  <article
-    class="
-      xl-container
-      flex flex-col
-      justify-center
-      items-center
-      home-container
-      lg:flex-row
-    "
-  >
+  <article class="xl-container home-container">
     <img
       src="~/assets/images/me.png"
       alt="Foto de Alberto Chamorro"
-      class="w-64 h-64 rounded-full m-auto"
+      class="me-image"
     >
     <div class="text-container">
       <span class="text-3xl">¡Hola!</span>
@@ -63,6 +54,11 @@ export default {
 
 <style scoped>
 .home-container {
+  @apply flex flex-col justify-center items-center lg:flex-row;
   min-height: 70vh;
+}
+.me-image {
+  @apply p-4 w-64 h-64 m-auto;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 }
 </style>
