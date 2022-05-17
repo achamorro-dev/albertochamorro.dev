@@ -1,5 +1,5 @@
 <template>
-  <section class="xl-container">
+  <section class="xl-container p-4">
     <h1 class="mb-4 text-4xl text-center">
       blog
     </h1>
