@@ -81,7 +81,7 @@
 
 <style scoped>
 .footer {
-  @apply bg-custom-gray;
+  @apply bg-custom-red border-t-4 border-black;
   min-height: 12.5rem;
 }
 .dark .footer {
