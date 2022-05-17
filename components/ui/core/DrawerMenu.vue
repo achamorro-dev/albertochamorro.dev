@@ -11,6 +11,11 @@
       <ul
         class="h-screen flex align-middle justify-center flex-col text-center"
       >
+        <nuxt-link to="/" class="text-gray-100 text-xl">
+          <li class="drawer-menu-link" @click="closeClicked">
+            inicio
+          </li>
+        </nuxt-link>
         <nuxt-link to="/blog" class="text-gray-100 text-xl">
           <li class="drawer-menu-link" @click="closeClicked">
             blog
