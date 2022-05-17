@@ -31,7 +31,7 @@ export default {
 
 <style scoped>
 .blog-card {
-  @apply flex flex-col justify-center items-center p-4 rounded-md md:flex-row hover:shadow-xl border border-gray-400 border-r-4 border-b-4 hover:border-custom-red;
+  @apply flex flex-col justify-center items-center p-4 rounded-md md:flex-row hover:shadow-xl border-2 border-black hover:border-custom-red;
 }
 img {
   max-height: 12rem;

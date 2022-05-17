@@ -59,7 +59,7 @@ export default {
 
 <style scoped>
 .repository-card {
-  @apply p-4 flex flex-col rounded border border-l-4 border-b-4 border-gray-400 hover:no-underline;
+  @apply p-4 flex flex-col rounded border-2 border-black hover:no-underline;
 }
 .repository-card:hover {
   @apply border-custom-blue;

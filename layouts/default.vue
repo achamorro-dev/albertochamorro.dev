@@ -92,12 +92,14 @@ a:focus {
 
 input,
 textarea {
-  @apply rounded border border-gray-400 py-2 px-3;
+  @apply rounded border-2 border-black py-2 px-3;
+  box-shadow: 2px 4px 0 #000;
 }
 
 input:focus,
 textarea:focus {
-  @apply outline-none border border-custom-yellow;
+  @apply outline-none border-2 border-custom-blue;
+  box-shadow: 2px 4px 0 #345995;
 }
 
 .button--green {
