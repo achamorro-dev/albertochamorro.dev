@@ -1,10 +1,12 @@
 <template>
   <article class="xl-container home-container">
-    <img
-      src="~/assets/images/me.png"
-      alt="Foto de Alberto Chamorro"
-      class="me-image"
-    >
+    <div class="me-wrapper">
+      <img
+        src="~/assets/images/me.png"
+        alt="Foto de Alberto Chamorro"
+        class="me-image"
+      >
+    </div>
     <div class="text-container">
       <span class="text-3xl">¡Hola!</span>
       <span class="text-3xl">👋</span>
@@ -57,10 +59,24 @@ export default {
   @apply flex flex-col justify-center items-center lg:flex-row;
   min-height: 70vh;
 }
+.me-wrapper {
+  position: relative;
+}
+.me-wrapper::before {
+  content: '';
+  height: 17rem;
+  width: 17rem;
+  background: #FFD614;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  position: absolute;
+  top: -.5rem;
+  left: -.5rem;
+  transform: rotate(12deg);
+  z-index: -1;
+}
 .me-image {
   @apply w-64 h-64 m-auto;
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   border: 3px solid #666;
-  outline: 6px solid #FFD614;
 }
 </style>
