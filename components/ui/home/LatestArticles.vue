@@ -13,7 +13,7 @@
       <li v-for="(article, index) in latestArticles" :key="index">
         <NuxtLink
           :to="{ name: 'blog-slug', params: { slug: article.slug } }"
-          class="hover:no-underline"
+          class="hover:no-underline md:relative"
         >
           <BlogCardSmall :article="article" />
         </NuxtLink>
