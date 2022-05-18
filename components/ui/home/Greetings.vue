@@ -60,7 +60,7 @@ export default {
   min-height: 70vh;
 }
 .me-wrapper {
-  position: relative;
+  @apply relative mt-8 md:mt-0;
 }
 .me-wrapper::before {
   content: '';
