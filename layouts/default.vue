@@ -148,6 +148,17 @@ textarea:focus {
   max-width: 50rem;
   padding: 2rem;
 }
+.card {
+  @apply flex flex-col justify-center items-center p-4 rounded-md border-2 border-black;
+  box-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
+}
+.dark .card {
+  box-shadow: 2px 2px 0 rgb(55, 65, 81), 4px 4px 0 #000;
+}
+.blog-card:hover,
+.dark .blog-card:hover {
+  box-shadow: 2px 2px 0 #D6603F, 4px 4px 0 #000;
+}
 
 .nuxt-content {
   overflow: auto;

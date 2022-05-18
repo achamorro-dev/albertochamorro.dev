@@ -58,7 +58,9 @@ export default {
   min-height: 70vh;
 }
 .me-image {
-  @apply p-4 w-64 h-64 m-auto;
+  @apply w-64 h-64 m-auto;
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  border: 3px solid #666;
+  outline: 6px solid #FFD614;
 }
 </style>
