@@ -1,8 +1,10 @@
 <template>
   <section class="xl-container text-center">
-    <h1 class="mb-4 text-4xl text-center">
-      sobre mí
-    </h1>
+    <article class="section-card bg-custom-green">
+      <h1 class="my-2 text-4xl text-center">
+        sobre mí
+      </h1>
+    </article>
     <MeSummary />
     <SkillsAndTools />
     <WorkTimeline :work-timeline-items="workTimelineItems" />

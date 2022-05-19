@@ -24,7 +24,7 @@ Esta convención está muy ligada con [Semantic Versioning](http://semver.org/) 
 
 > Conventional Commits es una especificación para dar significado a los mensajes de los commits haciéndolos legibles para máquinas y humanos.
 
-## Pero, ¿qué es Semantic Versioning o SemVer?
+## Semantic Versioning o SemVer
 
 A modo resumen, SemVer es la convención más extendida para establecer un versionado a librerías, paquetes, dependencias, y a la vida en general 🙃
 

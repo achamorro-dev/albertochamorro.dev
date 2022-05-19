@@ -1,9 +1,10 @@
 <template>
-  <article class="xl-container p-4">
+  <article class="xl-container section-card p-4 bg-custom-blue">
     <Heading
       type="h2"
       text="últimos artículos"
       class="mb-2 xl:mb-4"
+      text-class="text-white"
       :has-brackets="false"
     />
     <ul

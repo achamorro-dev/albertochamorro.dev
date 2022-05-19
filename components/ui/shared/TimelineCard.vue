@@ -12,7 +12,7 @@
         :title="item.title"
         :subtitle="item.location"
       >
-        <p class="mb-0" v-html="item.information" />
+        <p class="mb-0 text-xl" v-html="item.information" />
       </TimelineItem>
     </div>
   </article>

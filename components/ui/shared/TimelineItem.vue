@@ -26,6 +26,9 @@ export default {
 </script>
 
 <style scoped>
+h3 {
+  @apply text-xl;
+}
 .timeline-item {
   @apply text-left py-4 pl-4 border-gray-300;
   border-left-width: 1px;
@@ -42,7 +45,7 @@ export default {
 }
 
 .timeline-item__subtitle {
-  @apply text-sm text-gray-400;
+  @apply text-lg text-gray-400;
 }
 
 .dark .timeline-item__subtitle {

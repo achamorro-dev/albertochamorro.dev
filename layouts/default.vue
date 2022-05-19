@@ -148,16 +148,23 @@ textarea:focus {
   max-width: 50rem;
   padding: 2rem;
 }
+
 .card {
-  @apply flex flex-col md:h-full justify-start items-center p-4 rounded-md border-2 border-black;
+  @apply flex flex-col md:h-full justify-start items-center p-4 rounded-md border-2 border-black bg-white;
   box-shadow: 2px 2px 0 #fff, 4px 4px 0 #000;
 }
+
 .dark .card {
   box-shadow: 2px 2px 0 rgb(55, 65, 81), 4px 4px 0 #000;
 }
+
 .blog-card:hover,
 .dark .blog-card:hover {
   box-shadow: 2px 2px 0 #D6603F, 4px 4px 0 #000;
+}
+
+.section-card {
+  @apply border-2 border-black rounded-xl my-6 mx-2 xl:mx-auto;
 }
 
 .nuxt-content {
@@ -165,11 +172,11 @@ textarea:focus {
 }
 
 .nuxt-content > h2 {
-  @apply text-2xl mt-10 mb-1;
+  @apply text-3xl mt-10 mb-1;
 }
 
 .nuxt-content > h3 {
-  @apply text-xl mt-6 mb-1;
+  @apply text-2xl mt-6 mb-1;
 }
 
 .nuxt-content > p {
@@ -205,7 +212,7 @@ textarea:focus {
 .nuxt-content p,
 .nuxt-content ul,
 .nuxt-content ol {
-  @apply text-lg;
+  @apply text-xl;
 }
 
 .nuxt-content li {

@@ -1,9 +1,10 @@
 <template>
   <section class="xl-container p-4">
-    <h1 class="mb-4 text-4xl text-center">
+    <article class="section-card bg-custom-blue">
+      <h1 class="my-2 text-4xl text-center text-white">
       blog
     </h1>
-
+    </article>
     <!-- <ul class="flex justify-center mt-2 mb-8">
       <li v-for="(tag, index) in availableTags" :key="index" class="mr-3">
         <Tag

@@ -1,16 +1,16 @@
 <template>
   <div>
-    <h1 v-if="type === 'h1'" class="text-2xl text-left">
+    <h1 v-if="type === 'h1'" :class="`text-2xl text-left ${textClass}`">
       <span
         :class="computedClass"
       >{{ firstWord }}</span> {{ restOfWords }}
     </h1>
-    <h2 v-if="type === 'h2'" class="text-4xl text-left">
+    <h2 v-if="type === 'h2'" :class="`text-4xl text-left ${textClass}`">
       <span
         :class="computedClass"
       >{{ firstWord }}</span> {{ restOfWords }}
     </h2>
-    <h3 v-if="type === 'h3'" class="text-2xl text-left">
+    <h3 v-if="type === 'h3'" :class="`text-2xl text-left ${textClass}`">
       <span
         :class="computedClass"
       >{{ firstWord }}</span> {{ restOfWords }}
@@ -42,6 +42,11 @@ export default {
       type: String,
       required: false,
       default: undefined
+    },
+    textClass: {
+      type: String,
+      required: false,
+      default: ''
     }
   },
   data () {

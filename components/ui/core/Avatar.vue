@@ -1,5 +1,5 @@
 <template>
-  <div class="avatar-bg bg-custom-yellow">
+  <div class="avatar">
     <img
       src="~/assets/images/avatar_home.png"
       alt="Avatar Alberto Chamorro"
@@ -14,9 +14,9 @@ export default {
 }
 </script>
 
-<style>
-.avatar-bg {
-  @apply rounded-full w-64 h-64 m-auto flex justify-center items-center shadow-lg;
+<style scoped>
+.avatar {
+  @apply rounded-full w-64 h-64 m-auto flex justify-center items-center shadow-md bg-custom-yellow border border-black;
   min-width: 16rem;
   animation: avatar-appear 0.2s ease-out;
 }

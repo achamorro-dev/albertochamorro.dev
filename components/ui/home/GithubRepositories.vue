@@ -1,6 +1,6 @@
 <template>
-  <article class="xl-container p-4">
-    <Heading type="h2" text="repos en github" class="mb-2 xl:mb-4" brackets-color="green" :has-brackets="false" />
+  <article class="xl-container section-card bg-custom-yellow p-4">
+    <Heading type="h2" text="repos en github" class="mb-2 xl:mb-4" :has-brackets="false" />
     <div class="flex flex-col justify-between xl:flex-row gap-2">
       <RepositoryCard
         class="w-75 xl:w-1/3"
