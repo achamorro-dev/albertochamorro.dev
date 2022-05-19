@@ -1,10 +1,14 @@
 <template>
-  <button :class="`btn ${type}`" @click.prevent="$emit('btn-clicked')">
+  <button v-if="!isLink" :class="`btn ${type}`" @click.prevent="$emit('btn-clicked')">
     <span v-if="$slots.default">
       <slot />
     </span>
     <fa v-if="icon" :icon="['fas', icon]" class="icon" />
   </button>
+  <a v-else :class="`btn ${type}`" :href="href" :target="target">
+    <slot />
+    <fa v-if="icon" :icon="['fas', icon]" class="icon" />
+  </a>
 </template>
 
 <script>
@@ -21,6 +25,21 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    isLink: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    href: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    target: {
+      type: String,
+      required: false,
+      default: '_blank'
     }
   }
 }
@@ -65,6 +84,9 @@ span {
 }
 .dark .outline {
   @apply text-custom-light-gray;
+}
+a {
+  text-decoration: none;
 }
 @keyframes shake {
   20%,

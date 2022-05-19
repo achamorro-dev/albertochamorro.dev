@@ -22,14 +22,13 @@
         multiplataforma con <b>#Flutter</b>.
       </p>
       <div class="flex justify-start mt-9">
-        <Button icon="chevron-right" @btn-clicked="goToContact">
-          contacto
-        </Button>
+        <Button icon="chevron-right" is-link="true" href="#contacto" target="_self">contacto</Button>
         <Button
           icon="coffee"
           type="outline"
+          is-link="true"
+          href="https://www.buymeacoffee.com/albertochamorro"
           class="ml-3"
-          @btn-clicked="goToCoffee"
         >
           ¿café?
         </Button>
@@ -40,17 +39,7 @@
 
 <script>
 export default {
-  name: 'Greetings',
-  methods: {
-    goToCoffee () {
-      window.open('https://www.buymeacoffee.com/albertochamorro', '_blank')
-    },
-    goToContact () {
-      const contact = document.getElementById('contacto')
-
-      contact && contact.scrollIntoView()
-    }
-  }
+  name: 'Greetings'
 }
 </script>
 
@@ -60,7 +49,7 @@ export default {
   min-height: 70vh;
 }
 .me-wrapper {
-  @apply relative mt-8 md:mt-0;
+  @apply relative mt-8 lg:mt-0;
 }
 .me-wrapper::before {
   content: '';
