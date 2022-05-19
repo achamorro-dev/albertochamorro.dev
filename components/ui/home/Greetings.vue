@@ -22,11 +22,11 @@
         multiplataforma con <b>#Flutter</b>.
       </p>
       <div class="flex justify-start mt-9">
-        <Button icon="chevron-right" is-link="true" href="#contacto" target="_self">contacto</Button>
+        <Button icon="chevron-right" :is-link="true" href="#contacto" target="_self">contacto</Button>
         <Button
           icon="coffee"
           type="outline"
-          is-link="true"
+          :is-link="true"
           href="https://www.buymeacoffee.com/albertochamorro"
           class="ml-3"
         >

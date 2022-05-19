@@ -40,6 +40,9 @@ export default {
   text-decoration: none;
   color: white;
 }
+.dark .twitter-link span {
+  @apply text-custom-gray;
+}
 .twitter-link__icon {
   @apply text-2xl ml-4;
   color: #00acee;

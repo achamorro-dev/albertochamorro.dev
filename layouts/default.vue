@@ -90,6 +90,10 @@ a:focus {
   text-decoration: underline;
 }
 
+.dark a {
+  @apply text-custom-light-blue;
+}
+
 input,
 textarea {
   @apply rounded border-2 border-black py-2 px-3;
@@ -234,6 +238,19 @@ textarea:focus {
 .dark .nuxt-content > ol,
 .dark .nuxt-content > blockquote {
   @apply text-gray-100;
+}
+
+.dark .card h1,
+.dark .card h2,
+.dark .card h3,
+.dark .card h4,
+.dark .card h5,
+.dark .card h6,
+.dark .card p,
+.dark .card span,
+.dark .card label,
+.dark .card small {
+  @apply text-custom-gray;
 }
 
 @media (min-width: 768px) {

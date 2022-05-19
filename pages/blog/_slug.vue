@@ -1,5 +1,5 @@
 <template>
-  <article class="xl-container p-4">
+  <article class="xl-container section-card m-auto p-4">
     <h1 class="text-3xl xl:text-center">
       {{ article.title }}
     </h1>
@@ -116,9 +116,7 @@ export default {
 article {
   max-width: 50rem;
 }
-.article-twitter-link {
-  position: fixed;
-  left: 50%;
-  bottom: 3rem;
+.section-card {
+  @apply mx-2 md:mx-auto;
 }
 </style>

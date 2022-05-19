@@ -57,7 +57,7 @@ export default {
 
 <style scoped>
 .drawer-menu {
-  @apply h-screen w-screen fixed top-0 left-0 bg-custom-green text-white;
+  @apply h-screen w-screen fixed top-0 left-0 bg-custom-red text-white;
   transition: all 0.25s ease-out;
   transform: translateX(100vh);
   opacity: 0;
@@ -70,7 +70,11 @@ export default {
 }
 
 .drawer-menu-link {
-  @apply text-4xl font-display py-2;
+  @apply text-4xl font-display py-2 no-underline;
+}
+
+.dark .drawer-menu-link {
+  @apply text-white;
 }
 
 @media (min-width: 768px) {
