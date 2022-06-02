@@ -3,7 +3,7 @@ title: Cómo tener diferentes versiones de Node.js
 description: ¿Necesitas trabajar con diferentes versiones de Node.js? En este post repasamos los dos gestores de versiones más famosos.
 img: https://res.cloudinary.com/dp1r5podd/image/upload/v1654178542/albertochamorro.dev/Versiones_de_NodeJS_yhohch.webp
 thumbnail: https://res.cloudinary.com/dp1r5podd/image/upload/c_scale,w_360/v1654178542/albertochamorro.dev/Versiones_de_NodeJS_yhohch.webp
-metaImg: https://res.cloudinary.com/dp1r5podd/image/upload/v1654178542/albertochamorro.dev/Versiones_de_NodeJS_yhohch.webp
+metaImg: https://res.cloudinary.com/dp1r5podd/image/upload/v1654178542/albertochamorro.dev/Versiones_de_NodeJS_yhohch.jpg
 alt: Cartel del artículo "Cómo tener diferentes versiones de Node.js"
 tags:
 - general
