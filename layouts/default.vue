@@ -30,7 +30,7 @@ export default {
 
 <style>
 html {
-  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  font-family: 'Cera Round Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
@@ -220,7 +220,7 @@ textarea:focus {
 }
 
 .nuxt-content li {
-  @apply mb-0.5;
+  @apply mb-2.5;
 }
 
 .nuxt-content > ul ul {
