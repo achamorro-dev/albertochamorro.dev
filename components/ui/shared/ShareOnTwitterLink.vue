@@ -1,6 +1,6 @@
 <template>
   <a :href="tweetLink" target="_blank" class="twitter-link">
-    <span>Compartir en Twitter</span>
+    <span>Compartir el artículo</span>
     <fa :icon="['fab', 'twitter']" class="twitter-link__icon" />
   </a>
 </template>
@@ -33,7 +33,6 @@ export default {
   border-radius: 1rem;
   font-weight: 600;
   font-size: .9rem;
-  object-fit: fill;
 }
 .twitter-link:hover {
   background-color: #00acee;

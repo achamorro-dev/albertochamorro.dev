@@ -171,6 +171,10 @@ textarea:focus {
   @apply border-2 border-black rounded-xl my-6 mx-2 xl:mx-auto;
 }
 
+.dark .section-card {
+  @apply border-white;
+}
+
 .nuxt-content {
   overflow: auto;
 }
@@ -231,7 +235,7 @@ textarea:focus {
 
 .dark .nuxt-content > h2,
 .dark .nuxt-content > h3 {
-  @apply text-custom-green;
+  @apply text-custom-yellow;
 }
 
 .dark .nuxt-content > ul,
