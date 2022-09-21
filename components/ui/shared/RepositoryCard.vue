@@ -1,9 +1,5 @@
 <template>
-  <a
-    :href="href"
-    target="_blank"
-    class="card repository-card"
-  >
+  <a :href="href" target="_blank" rel="nofollow" class="card repository-card">
     <div class="flex items-center">
       <OcticonRepo class="mr-1" />
       <h3>{{ name }}</h3>
@@ -44,13 +40,14 @@ export default {
     }
   },
   computed: {
-    circleColorClass () {
+    circleColorClass() {
       return {
         'bg-green-500': this.language.toLowerCase() === 'vue.js',
         'bg-blue-600': this.language.toLowerCase().startsWith('dart'),
         'bg-yellow-300': this.language.toLowerCase() === 'javascript',
         'bg-yellow-500': this.language.toLowerCase() === 'astro',
-        'bg-blue-400': this.language.toLowerCase() === 'react'
+        'bg-blue-400': this.language.toLowerCase() === 'react',
+        'bg-green-700': this.language.toLowerCase() === 'shell'
       }
     }
   }
