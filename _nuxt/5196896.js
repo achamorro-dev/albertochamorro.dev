@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{337:function(n,e,t){"use strict";function o(n){return new Date(n).toLocaleDateString("es",{weekday:"long",year:"numeric",month:"long",day:"numeric"})}t.r(e),t.d(e,"formatDate",(function(){return o}))}}]);
