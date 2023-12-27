@@ -85,7 +85,7 @@ const links = [
     const indexLinkSelected = Array.from(menuList.children).indexOf(linkSelected)
     const linksOffset = isFirstMovement ? 4 : 0
 
-    const menuIndicatorTranslateX = linkSelected.offsetLeft + linksOffset * indexLinkSelected
+    const menuIndicatorTranslateX = linkSelected.offsetLeft + linksOffset * indexLinkSelected || 1
     const menuIndicatorWidth = linkSelected.offsetWidth
 
     menuIndicator.style.setProperty('--menu-indicator-translate-x', `${menuIndicatorTranslateX}px`)
