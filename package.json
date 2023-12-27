@@ -23,8 +23,17 @@
     "react-dom": "^18.2.0",
     "typescript": "5.3.3"
   },
+  "simple-git-hooks": {
+    "commit-msg": "npx --no -- commitlint --edit ${1}"
+  },
   "volta": {
     "node": "18.17.1",
     "npm": "9.6.7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "18.4.3",
+    "@commitlint/config-conventional": "18.4.3",
+    "commitlint": "18.4.3",
+    "simple-git-hooks": "2.9.0"
   }
 }
