@@ -1,0 +1,41 @@
+---
+import BaseHead from '../components/base-head/base-head.component.astro'
+import Header from '../components/header/header.component.astro'
+import SkipToContent from '../components/skip-to-content/skip-to-content.component.astro'
+import { MAIN_CONTENT_ID, SITE_DESCRIPTION, SITE_TITLE } from '../consts'
+
+interface Props {
+  title?: string
+  description?: string
+  contentId?: string
+}
+
+const { title = SITE_TITLE, description = SITE_DESCRIPTION, contentId = MAIN_CONTENT_ID } = Astro.props as Props
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <SkipToContent contentId={contentId} />
+    <Header />
+    <main id={MAIN_CONTENT_ID}>
+      <slot />
+    </main>
+    <style>
+      body {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+      }
+    </style>
+    <style>
+      main {
+        max-width: var(--max-width-content);
+        padding-inline: var(--size-4);
+        margin: 0 auto;
+      }
+    </style>
+  </body>
+</html>

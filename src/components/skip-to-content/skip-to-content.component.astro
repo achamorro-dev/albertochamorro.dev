@@ -1,0 +1,35 @@
+---
+interface Props {
+  contentId?: string
+}
+
+const { contentId = 'main-content' } = Astro.props satisfies Props
+---
+
+<a href={`#${contentId}`}>Ir al contenido</a>
+
+<style>
+  a {
+    left: -999px;
+    position: absolute;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -999;
+  }
+
+  a:focus {
+    background: white;
+    color: blue;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    overflow: auto;
+    margin: 10px;
+    padding: 5px;
+    font-size: 1.4em;
+    z-index: 999;
+  }
+</style>

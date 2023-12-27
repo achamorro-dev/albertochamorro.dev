@@ -1,0 +1,99 @@
+---
+import MenuBarItem from './menu-bar-item.component.astro'
+
+const links = [
+  {
+    href: '/',
+    label: 'Inicio',
+  },
+  {
+    href: '/blog',
+    label: 'Blog',
+  },
+  {
+    href: '/about-me',
+    label: 'Sobre mí',
+  },
+]
+---
+
+<nav transition:persist>
+  <ul id="menu-list">
+    {
+      links.map(link => {
+        return (
+          <li data-href={link.href}>
+            <MenuBarItem href={link.href}>{link.label}</MenuBarItem>
+          </li>
+        )
+      })
+    }
+    <div id="menu-indicator" class="menu-indicator" aria-hidden></div>
+  </ul>
+</nav>
+
+<style>
+  nav {
+    box-shadow: var(--shadow-xs);
+    margin: 0 auto;
+    padding: var(--size-2) var(--size-2);
+    border-radius: var(--border-radius-full);
+    background-color: var(--gray-color-100);
+    color: var(--on-gray-color-100);
+  }
+
+  ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: var(--size-1);
+  }
+
+  li {
+    padding: var(--size-1) var(--size-2);
+    z-index: var(--z-index-1);
+  }
+
+  .menu-indicator {
+    background-color: white;
+    border-radius: var(--border-radius-full);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    transform: translateX(var(--menu-indicator-translate-x));
+    width: var(--menu-indicator-width);
+    z-index: var(--z-index-0);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .menu-indicator {
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+</style>
+
+<script is:inline>
+  const menuIndicator = document.querySelector('#menu-indicator')
+  const menuList = document.querySelector('#menu-list')
+  let isFirstMovement = true
+
+  function moveMenuIndicator() {
+    const newPathname = window.location.pathname
+    const linkSelected = menuList.querySelector(`[data-href="${newPathname}"]`)
+    const indexLinkSelected = Array.from(menuList.children).indexOf(linkSelected)
+    const linksOffset = isFirstMovement ? 4 : 0
+
+    const menuIndicatorTranslateX = linkSelected.offsetLeft + linksOffset * indexLinkSelected
+    const menuIndicatorWidth = linkSelected.offsetWidth
+
+    menuIndicator.style.setProperty('--menu-indicator-translate-x', `${menuIndicatorTranslateX}px`)
+    menuIndicator.style.setProperty('--menu-indicator-width', `${menuIndicatorWidth}px`)
+
+    isFirstMovement = false
+  }
+
+  document.addEventListener('astro:after-swap', moveMenuIndicator)
+  moveMenuIndicator()
+</script>

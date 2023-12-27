@@ -1,0 +1,54 @@
+@import './reset.css';
+@import './fonts.css';
+@import './theme.css';
+
+html,
+body {
+  font-family: var(--body-font-family);
+  font-size: var(--font-size-4);
+  font-weight: var(--regular-font-weight);
+  color: var(--text-color);
+  background-color: var(--color-background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font-family);
+  font-weight: var(--bold-font-weight);
+  text-wrap: balance;
+  line-height: 1;
+}
+
+h1 {
+  font-size: var(--font-size-fluid-4);
+}
+h2 {
+  font-size: var(--font-size-10);
+}
+h3 {
+  font-size: var(--font-size-8);
+}
+h4 {
+  font-size: var(--font-size-6);
+}
+h5 {
+  font-size: var(--font-size-5);
+}
+
+p,
+span {
+  font-size: var(--font-size-fluid-2);
+  max-width: 80ch;
+}
+
+p {
+  margin-bottom: var(--size-4);
+}
+
+main {
+  max-width: 1024px;
+}

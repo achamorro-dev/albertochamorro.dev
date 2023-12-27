@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets'
+import MeImage from '../../assets/me.png'
+import { Button } from '../button/button.component'
+---
+
+<article>
+  <section class="text-section">
+    <span class="greeting">👋 Me llamo <h1>Alberto Chamorro</h1></span>
+    <p>Soy Software Developer centrado sobre todo en el lado del frontend.</p>
+    <p>Me encanta el café, la tecnología, la Fórmula 1 y el Universo Cinematográfico de Marvel.</p>
+    <p>
+      Ahora mismo tengo mi corazón dividido por el lado del desarrollo web con #Astro #React.js #Next.js y por el lado
+      del desarrollo multiplataforma con #Flutter.
+    </p>
+    <div class="actions">
+      <Button href="/about-me">Sobre mí</Button>
+      <Button href="#contacto" variant="outline">Contacto</Button>
+    </div>
+  </section>
+  <section class="image-section">
+    <Image src={MeImage} alt="Foto mía sonriendo con una camiseta amarilla" />
+  </section>
+</article>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-4);
+    height: 100%;
+  }
+
+  h1 {
+    background: linear-gradient(
+      120deg,
+      var(--accent-color-100) 0%,
+      var(--primary-color-100) 65%,
+      var(--primary-color-100) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .greeting {
+    display: block;
+    font-weight: var(--bold-font-weight);
+    font-size: var(--font-size-fluid-4);
+    line-height: 1;
+    margin-bottom: var(--size-4);
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    margin-block: var(--size-4);
+    gap: var(--size-2);
+  }
+
+  .image-section {
+    background-color: var(--accent-color-100);
+    padding-top: var(--size-4);
+    padding-inline: var(--size-4);
+    max-width: 25rem;
+    border-radius: 56% 44% 25% 75% / 58% 57% 43% 42%;
+    overflow: hidden;
+  }
+
+  @media (min-width: 1024px) {
+    article {
+      flex-direction: row;
+    }
+
+    .actions {
+      flex-direction: row;
+    }
+
+    .text-section {
+      /* align-self: flex-end; */
+    }
+
+    .image-section {
+      max-width: 35rem;
+      /* align-self: flex-start; */
+    }
+  }
+</style>
