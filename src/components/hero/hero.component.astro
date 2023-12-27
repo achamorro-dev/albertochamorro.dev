@@ -19,7 +19,7 @@ import { Button } from '../button/button.component'
     </div>
   </section>
   <section class="image-section">
-    <Image src={MeImage} alt="Foto mía sonriendo con una camiseta amarilla" />
+    <Image src={MeImage} alt="Foto mía sonriendo con una camiseta amarilla" class="me-image" />
   </section>
 </article>
 
@@ -67,6 +67,7 @@ import { Button } from '../button/button.component'
     max-width: 25rem;
     border-radius: 56% 44% 25% 75% / 58% 57% 43% 42%;
     overflow: hidden;
+    max-height: 25rem;
   }
 
   @media (min-width: 1024px) {
@@ -78,13 +79,9 @@ import { Button } from '../button/button.component'
       flex-direction: row;
     }
 
-    .text-section {
-      /* align-self: flex-end; */
-    }
-
     .image-section {
       max-width: 35rem;
-      /* align-self: flex-start; */
+      max-height: initial;
     }
   }
 </style>
