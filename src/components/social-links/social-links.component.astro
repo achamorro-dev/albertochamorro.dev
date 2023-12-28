@@ -1,0 +1,50 @@
+---
+import X from '../icons/x.component.astro';
+import Threads from '../icons/threads.component.astro';
+import LinkedIn from '../icons/linkedin.component.astro';
+import GitHub from '../icons/github.component.astro';
+---
+
+<ul class="social-links">
+  <li>
+    <a href="https://twitter.com/achamorro_dev" target="_blank" aria-label="Enlace a X">
+      <X />
+    </a>
+  </li>
+  <li>
+    <a href="https://www.threads.net/@achamorro_dev" target="_blank" aria-label="Enlace a Threads">
+      <Threads />
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/achamorro-dev" target="_blank" aria-label="Enlace a GitHub">
+      <GitHub />
+    </a>
+  </li>
+  <li>
+    <a href="https://www.linkedin.com/in/alberto-chamorro/" target="_blank" aria-label="Enlace a LinkedIn">
+      <LinkedIn />
+    </a>
+  </li>
+</ul>
+
+<style>
+  .social-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--size-4);
+  }
+
+  .social-links li {
+    width: var(--size-8);
+  }
+
+  .social-links li:hover {
+    color: var(--accent-color-100);
+   }
+
+  .social-links a:visited {
+    color: inherit;
+  }
+</style>

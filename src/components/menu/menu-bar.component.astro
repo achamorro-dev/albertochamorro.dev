@@ -1,29 +1,15 @@
 ---
+import { MAIN_LINKS } from '../../metadata'
 import MenuBarItem from './menu-bar-item.component.astro'
-
-const links = [
-  {
-    href: '/',
-    label: 'Inicio',
-  },
-  {
-    href: '/blog',
-    label: 'Blog',
-  },
-  {
-    href: '/about-me',
-    label: 'Sobre mí',
-  },
-]
 ---
 
 <nav transition:persist>
   <ul id="menu-list">
     {
-      links.map(link => {
+      MAIN_LINKS.map(link => {
         return (
           <li data-href={link.href}>
-            <MenuBarItem href={link.href}>{link.label}</MenuBarItem>
+            <MenuBarItem href={link.href}>{link.name}</MenuBarItem>
           </li>
         )
       })

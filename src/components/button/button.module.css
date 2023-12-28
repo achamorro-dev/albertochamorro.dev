@@ -41,7 +41,7 @@
   border-color: transparent;
 }
 
-a,
-a:visited {
+a.button,
+a:visited.button {
   text-decoration: none;
 }

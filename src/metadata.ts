@@ -5,3 +5,22 @@ export const SITE_TITLE = 'Alberto Chamorro'
 export const SITE_DESCRIPTION = 'Software developer - JavaScript, TypeScript, Vue.js, ReactJS, Angular - Flutter lover'
 
 export const MAIN_CONTENT_ID = 'main-content'
+
+export const MAIN_LINKS = [
+  {
+    name: 'Inicio',
+    href: '/',
+  },
+  {
+    name: 'Blog',
+    href: '/blog',
+  },
+  // {
+  //   name: 'Proyectos',
+  //   href: '/projects',
+  // },
+  {
+    name: 'Sobre mí',
+    href: '/about-me',
+  },
+]

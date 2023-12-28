@@ -1,10 +1,70 @@
-<footer>
-  <h2>Footer</h2>
-</footer>
+---
+import { MAIN_LINKS } from '../../metadata'
+import Logo from '../logo/logo.component.astro'
+import SocialLinks from '../social-links/social-links.component.astro'
+---
 
-<style>
-  footer {
-    background-color: var(--gray-color-100);
-    color: var(--on-gray-color-100);
-  }
-</style>
+<footer>
+  <article>
+    <section>
+      <Logo />
+    </section>
+    <section>
+      <SocialLinks />
+    </section>
+    <section>
+      <ul>
+        {
+          MAIN_LINKS.map(link => (
+            <li>
+              <a href={`${link.href}`}>{link.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </article>
+
+  <style>
+    footer {
+      background-color: var(--gray-color-100);
+      color: var(--on-gray-color-100);
+      padding: var(--size-4);
+      margin-top: var(--size-4);
+      width: 100%;
+    }
+
+    article {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+      gap: var(--size-8);
+    }
+
+    footer ul {
+      list-style: none;
+      text-align: center;
+    }
+
+    footer a {
+      text-decoration: none;
+    }
+
+    footer a:visited {
+      color: inherit;
+    }
+
+    @media (min-width: 1024px) {
+      article {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      footer ul {
+        text-align: left;
+      }
+    }
+  </style>
+</footer>
