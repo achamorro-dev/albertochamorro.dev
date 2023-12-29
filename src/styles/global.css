@@ -11,6 +11,10 @@ body {
   background-color: var(--color-background);
 }
 
+* {
+  outline-color: var(--accent-color-100);
+}
+
 h1,
 h2,
 h3,
@@ -27,7 +31,7 @@ h1 {
   font-size: var(--font-size-fluid-4);
 }
 h2 {
-  font-size: var(--font-size-10);
+  font-size: var(--font-size-fluid-3);
 }
 h3 {
   font-size: var(--font-size-8);
@@ -46,9 +50,22 @@ span {
 }
 
 p {
-  margin-bottom: var(--size-4);
+  margin-block: var(--size-2);
 }
 
-main {
-  max-width: 1024px;
+.main-content {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding-inline: var(--size-4);
+  margin: var(--size-4) auto;
+}
+
+@media (min-width: 1024px) {
+  .main-content {
+    margin-block: var(--size-8);
+  }
+
+  p {
+    margin-block: var(--size-4);
+  }
 }

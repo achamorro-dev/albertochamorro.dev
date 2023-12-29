@@ -1,0 +1,29 @@
+---
+import { ContactForm } from './contact-form.component'
+---
+
+<article id="contacto" class="main-content contact">
+  <section>
+    <h2>Contacto</h2>
+    <p>
+      ¿Quieres que charlemos? Puedes contarme tus ideas más descabelladas o simplemente saludar. ¡Estoy aquí para lo que
+      necesites!
+    </p>
+  </section>
+  <ContactForm client:load />
+</article>
+
+<style>
+  .contact {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

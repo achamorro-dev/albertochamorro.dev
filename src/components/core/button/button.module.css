@@ -41,6 +41,13 @@
   border-color: transparent;
 }
 
+.button--loading {
+  pointer-events: none;
+  background-color: var(--disabled-color);
+  color: var(--on-disabled-color);
+  border-color: var(--disabled-color);
+}
+
 a.button,
 a:visited.button {
   text-decoration: none;

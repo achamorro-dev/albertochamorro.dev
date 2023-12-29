@@ -61,8 +61,8 @@
 
   --font-size-fluid-1: clamp(0.75rem, 2vw, 1rem);
   --font-size-fluid-2: clamp(1rem, 4vw, 1.375rem);
-  --font-size-fluid-3: clamp(1.5rem, 6vw, 2.5rem);
-  --font-size-fluid-4: clamp(2rem, 9vw, 3.5rem);
+  --font-size-fluid-3: clamp(2rem, 9vw, 3.25rem);
+  --font-size-fluid-4: clamp(2.5rem, 9.5vw, 3.75rem);
 
   /* Colors */
   --primary-color-100: oklch(89% 0.183 96.16); /* #ffd903 */
@@ -80,10 +80,17 @@
   --text-color: oklch(16.84% 0 0); /* #0f0f0f */
 
   --disabled-color: #cbd5e1;
-  --on-disabled-color: #222;
+  --on-disabled-color: oklch(16.84% 0 0); /* #0f0f0f */
+
+  --success-color: oklch(60% 0.175 158.03); /* #009a60 */
+  --on-success-color: oklch(100% 0 0); /* #ffffff */
+
+  --error-color: oklch(64.82% 0.208 35.71); /* #f24e1e */
+  --on-error-color: oklch(16.84% 0 0); /* #0f0f0f */
 
   --gray-color-100: oklch(95.51% 0 0); /* #f0f0f0 */
   --on-gray-color-100: black;
+  --gray-color-80: oklch(45% 0 0);
 
   /* Shadows */
   --shadow-color: 220 3% 15%;

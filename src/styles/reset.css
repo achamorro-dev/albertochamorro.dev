@@ -28,7 +28,8 @@ video {
   height: auto;
 }
 
-input {
+input,
+textarea {
   border: none;
   font-family: var(--body-font-family);
 }
