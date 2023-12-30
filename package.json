@@ -32,7 +32,8 @@
   },
   "simple-git-hooks": {
     "commit-msg": "npx --no -- commitlint --edit ${1}",
-    "pre-commit": "npx pretty-quick --staged"
+    "pre-commit": "npx pretty-quick --staged",
+    "pre-push": "npm run build"
   },
   "volta": {
     "node": "18.17.1",
