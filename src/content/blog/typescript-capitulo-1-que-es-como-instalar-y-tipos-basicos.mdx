@@ -1,0 +1,235 @@
+---
+title: TypeScript [Capítulo 1] ¿Qué es TypeScript? Instalación y tipos básicos
+description: TypeScript es un lenguaje open-source mantenido por Microsoft que trata de resolver las debilidades del lenguaje en el que está basado, JavaScript.
+cover: blog/typescript-capitulo-1/typescript-1-cover.png
+metaImg: https://res.cloudinary.com/dp1r5podd/image/upload/v1656338748/albertochamorro.dev/typescript-capitulo-1/TypeScript_Capitulo_1_ef7tvy.jpg
+alt: Cartel del artículo TypeScript [Capítulo 1] ¿Qué es TypeScript? Instalación y tipos básicos
+tags:
+  - javascript
+  - typescript
+date: 2022-06-28
+canonicalUrl: https://albertochamorro.dev/blog/typescript-capitulo-1-que-es-como-instalar-y-tipos-basicos
+---
+
+Si has trabajado con JavaScript sabrás que es considerado un lenguaje de tipado débil o no tipado.
+
+En aplicaciones pequeñas puede que esto no sea un problema pero en un entorno empresarial donde el negocio y las aplicaciones tienden a escalar, dónde se busca estabilidad y solidez del software y donde el equipo de desarrollo incluyen a varias personas o incluso varios equipos los errores desconocidos empiezan a aparecer.
+
+## ¿Qué es TypeScript?
+
+TypeScript (https://www.typescriptlang.org/) es un lenguaje de programación open-source de tipado fuerte basado en JavaScript creado por Microsoft (podéis ver su repositorio de código en [GitHub](https://github.com/microsoft/TypeScript/)).
+
+Su uso cada vez es más extendido frente a JavaScript ya que nos trae lo mejor de los lenguajes de programación orientados a objetos para ayudarnos a modelar nuestras entidades. Su sintaxis es idéntica pero con añadidos, por eso también escucharás que es considerado un superset de tipos de JavaScript.
+
+Sus herramientas más potentes son el linter y el compilador ya que son capaces de detectar errores en tiempo de desarrollo y compilación. Tras el proceso de compilación, el código final será JavaScript puro compilado a la versión de ECMAScript que indiquemos en la configuración.
+
+## TypeScript vs JavaScript
+
+Imagina una función en JavaScript para sumar dos números:
+
+```javascript
+function sum(firstNumber, secondNumber) {
+  return firstNumber + secondNumber
+}
+
+sum(1, 2) // Resultado: 3
+```
+
+Aparentemente todo correcto ¿verdad? Ahora vamos a llamar más veces a la función:
+
+```javascript
+sum(1, '2') // 12
+sum('1', '2') // 12
+sum(1) // NaN
+sum(true, false) // 1
+sum([2, 4], [6, 8]) // '2,46,8'
+```
+
+Obviamente el ejemplo es exagerado pero podría ocurrir. El problema es que estos errores se detectan en tiempo de ejecución por lo que siempre llegamos tarde.
+
+Otro caso de error es la mutabilidad de los tipos. Ahora mismo JavaScript permite sin problemas algo como:
+
+```javascript
+let id = 12
+id = 'A-12'
+id = true
+console.log(id) // true
+```
+
+Ahora imagina que pudieras decirle a la variable `id` que tiene que ser un número:
+
+```typescript
+let id: number = 12
+id = 'A-12' // TS2322: Type 'string' is not assignable to type 'number'
+```
+
+El código anterior daría error al compilar además de que tu editor te avisará marcando la línea con error.
+
+<img
+  src="https://res.cloudinary.com/dp1r5podd/image/upload/v1655985285/albertochamorro.dev/typescript-capitulo-1/Error_linter_TypeScript_VSCode.webp"
+  alt="Captura del error del linter de Visual Studio Code"
+/>
+
+Volvemos al ejemplo de la función pero con tipos:
+
+```typescript
+function sum(firstNumber: number, secondNumber: number) {
+  return firstNumber + secondNumber
+}
+
+sum(1, 2) // Resultado: 3
+
+const texto = '12'
+sum(1, texto) // TS2345: Argument of type 'string' is not assignable to parameter of type 'number'.
+```
+
+Tendremos un error en tiempo de desarrollo y compilación indicándote que estás intentando utilizar un 'string' cuando la función necesita un 'number'.
+
+<center>
+  <iframe
+    src="https://giphy.com/embed/3ohzdIuqJoo8QdKlnW"
+    width="480"
+    height="222"
+    frameBorder="0"
+    class="giphy-embed"
+    allowFullScreen
+  ></iframe>
+</center>
+
+## ¡Quiero empezar! ¿Cómo lo instalo?
+
+La mayor parte de los frameworks/librerías en su documentación tienen información con comandos específicos para crear un proyecto desde cero o añadir TypeScript a un proyecto existente.
+
+Un ejemplo sería la documentación de React (https://create-react-app.dev/docs/adding-typescript/):
+
+```
+npx create-react-app my-app --template typescript
+```
+
+Con el comando anterior iniciaremos un nuevo proyecto de React con TypeScript instalado y configurado.
+
+Otros frameworks como Angular o NestJS trabajan con TypeScript por defecto y no tendremos que hacer nada especial.
+
+Aun así, si quieres hacerlo manualmente teniendo un proyecto de `npm` bastaría con seguir dos sencillos pasos:
+
+1- Instalar el paquete `typescript` como **dependencia de desarrollo**:
+
+```
+npm install --save-dev --save-exact typescript
+
+// Version reducida
+npm i -DE typescript
+```
+
+2- Inicializar el proyecto de TypeScript:
+
+```
+npx tsc --init
+```
+
+Este paso generará el fichero `tsconfig.json` en la raíz del proyecto.
+Este fichero es el fichero de configuración que necesita el compilador de TypeScript, hablaré de él en un capítulo posterior.
+
+Sólo nos quedaría añadir un script a nuestro fichero `package.json` para poder compilar:
+
+```json
+"scripts": {
+  "build": "tsc --build",
+  "start": "tsc --watch" // Modo observador para compilar automáticamente cuando se modifiquen los ficheros
+},
+```
+
+Ya podríamos crear nuestro primer fichero TypeScript, por ejemplo `index.ts` en nuestro proyecto y compilarlo.
+Como puedes ver, el fichero lleva la extensión `.ts` específica de TypeScript.
+
+Ahora prueba a meter el siguiente código y ejecutar `npm run build`:
+
+```typescript
+function sayHello(name: string): string {
+  return `Hola ${name}`
+}
+
+console.log(sayHello('Pedro'))
+```
+
+El compilador generará el fichero `index.js` que podrás ejecutar con `node index.js`.
+
+¿Y tengo que hacer todo esto sólo para las pruebas? Pues no. En la web de TypeScript tienes su playground (https://www.typescriptlang.org/play) dónde puedes hacer pruebas, ver el código compilado en JavaScript, ejecutarlo, etc
+
+> El fichero `tsconfig.json` es el fichero de configuración utilizado por el compilador de TypeScript
+
+## Tipado o type annotations
+
+Como has podido comprobar en los ejemplos anteriores, definir el tipo de una variable o propiedad es tan sencillo como escribir `:` seguido del tipo que queramos que tenga, por ejemplo:
+
+```typescript
+let id: number = 12 // La variable id es de tipo número
+```
+
+Lo mismo ocurre con las funciones, donde podremos indicar los tipos tanto para la entrada como para la salida:
+
+```typescript
+function sayHello(name: string): string {
+  return `Hola ${name}`
+}
+```
+
+En la función anterior puedes ver que el tipo de retorno de la función será un string y se indica después de la lista de parámetros.
+
+### Inferencia de tipos
+
+En ocasiones no es necesario explícitamente añadir una anotación con el tipo de una propiedad, por ejemplo cuando inicializamos la variable con un valor.
+
+En este caso, TypeScript es capaz de determinar el tipo dependiendo del valor que le estemos dando inicialmente. A esto se le conoce como inferencia de tipos.
+
+```typescript
+let id = true // id es un boolean
+id = 0 // TS2322: Type 'number' is not assignable to type 'boolean'.
+```
+
+## Tipos básicos
+
+Hay una gran cantidad de tipos, desde los más básicos como string o number hasta algunos más complejos como interfaces, genéricos, union types, literal types, ...
+
+Vamos a repasar los tipos básicos, los que ya nos trae JavaScript.
+
+```typescript
+// String
+const name: string = 'Alberto'
+const surname: string = 'Chamorro'
+const fullName: string = `${name} ${surname}`
+
+// Number
+const age: number = 33
+const price: number = 33.5
+const hexadecimal: number = 0xf00d
+
+// Boolean
+const isTrue: boolean = true
+const isNotTrue = !isTrue
+
+// Array
+const listOfNumbers: number[] = [1, 2, 3]
+const otherList: Array<number> = [72, 14] // Sería un array pero es preferible la anotación anterior
+
+// Object
+const person: { name: string; age: number } = {
+  name: 'Alberto',
+  age: 33,
+}
+
+const personWrong: { name: string; age: number } = {
+  name: true, // TS2322: Type 'number' is not assignable to type 'string'.
+  age: 33,
+}
+```
+
+---
+
+Esto es solo el principio.
+En próximos artículos veremos diferentes tipos más complejos y una gran cantidad de herramientas que nos aporta TypeScript para definir nuestros datos.
+
+¿Quieres cambiar algo de este artículo?
+Puedes enviarme una PR [para este artículo](https://github.com/achamorro-dev/albertochamorro.dev/blob/main/content/articles/typescript-capitulo-1-que-es-como-instalar-y-tipos-basicos.md).
+
+¡Gracias por leer hasta aquí y hasta la próxima 👋!

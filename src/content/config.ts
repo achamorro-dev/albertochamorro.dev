@@ -1,16 +1,19 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from 'astro:content'
 
+const blogTags = z.enum(['javascript', 'typescript', 'frontend', 'backend', 'productividad', 'flutter', 'git'])
 const blog = defineCollection({
-	type: 'content',
-	// Type-check frontmatter using a schema
-	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		// Transform string to Date object
-		pubDate: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
-		heroImage: z.string().optional(),
-	}),
-});
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    // TODO
+    cover: z.string(),
+    metaImg: z.string(),
+    alt: z.string(),
+    // TODO
+    tags: z.array(blogTags),
+    date: z.date(),
+    canonicalUrl: z.string().url(),
+  }),
+})
 
-export const collections = { blog };
+export const collections = { blog }

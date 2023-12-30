@@ -1,0 +1,82 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { Datetime } from '../../../core/datetime/datetime'
+import { Urls } from '../../../core/url/urls'
+import AssetImage from '../asset-image/asset-image.component.astro'
+import Tag from '../tag/tag.component.astro'
+
+interface Props {
+  size: 'small' | 'large'
+  article: CollectionEntry<'blog'>
+}
+
+const { article, size } = Astro.props
+const articleUrl = Urls.BLOG_POST(article.slug)
+---
+
+<a href={articleUrl} class="blog-card-link">
+  <article class:list={['blog-card', `blog-card--${size}`]}>
+    <section class="image-section">
+      <AssetImage path={article.data.cover} alt={article.data.alt} />
+    </section>
+    <section class="content-section">
+      <ul>
+        {article.data.tags.map(tag => <Tag>{tag}</Tag>)}
+      </ul>
+      <h3 class="title">{article.data.title}</h3>
+      {size === 'large' && <p class="description">{article.data.description}</p>}
+      <div class="footer">
+        <span class="date">{Datetime.toHumanDate(article.data.date)}</span>
+        <a href={articleUrl}>Leer más</a>
+      </div>
+    </section>
+  </article>
+</a>
+
+<style>
+  .blog-card-link,
+  .blog-card-link:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-4);
+    background-color: var(--background-color);
+    padding: var(--size-4);
+    border-radius: var(--border-radius-2xl);
+
+    & .content-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--size-2);
+
+      & .title {
+        margin-top: var(--size-4);
+        font-size: var(--font-size-8);
+      }
+      & .description {
+        font-size: var(--font-size-4);
+      }
+      & .date {
+        font-size: var(--font-size-3);
+      }
+      & .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex: 1 0 50%;
+      }
+    }
+
+    &.blog-card--small .content-section {
+      & .title {
+        margin-top: var(--size-3);
+        font-size: var(--font-size-6);
+      }
+    }
+  }
+</style>

@@ -53,16 +53,26 @@ p {
   margin-block: var(--size-2);
 }
 
+a,
+a:visited {
+  color: var(--accent-color-100);
+}
+
 .main-content {
   max-width: var(--max-width-content);
-  margin: 0 auto;
   padding-inline: var(--size-4);
-  margin: var(--size-4) auto;
+  margin: var(--size-8) auto;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    padding-inline: var(--size-8);
+  }
 }
 
 @media (min-width: 1024px) {
   .main-content {
-    margin-block: var(--size-8);
+    margin-block: var(--size-12);
   }
 
   p {

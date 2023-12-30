@@ -1,0 +1,188 @@
+---
+title: Cómo tener diferentes versiones de Node.js
+description: ¿Necesitas trabajar con diferentes versiones de Node.js? En este post repasamos los dos gestores de versiones más famosos.
+cover: blog/diferentes-versiones-de-nodejs/versiones-nodejs-cover.png
+metaImg: https://res.cloudinary.com/dp1r5podd/image/upload/v1654178542/albertochamorro.dev/Versiones_de_NodeJS_yhohch.jpg
+alt: Cartel del artículo "Cómo tener diferentes versiones de Node.js"
+tags:
+  - javascript
+date: 2022-06-02
+canonicalUrl: https://albertochamorro.dev/blog/diferentes-versiones-de-nodejs
+---
+
+Cuantas veces te ha ocurrido que trabajas en diferentes proyectos con JavaScript pero utilizan versiones diferentes de Node.js.
+
+¿Sabías que existen gestores de versiones que te facilitan el cambio entre versiones? Aquí te enseño dos de los más famosos: NVM y N
+
+## NVM
+
+NVM (https://nvm.sh/) (o Node Version Manager) es sin lugar a dudas el gestor de versiones de Node.js más conocido y extendido, con más de 58K estrellas en GitHub.
+
+Este gestor de versiones se instala como un comando en tu terminal y es compatible con terminales UNIX, macOS y Windows WSL. Te permite tener descargadas diferentes versiones de Node.js y cambiar de manera global entre ellas.
+
+> NVM funciona en cualquier terminal POSIX (sh, dash, ksh, zsh, bash)
+
+### Instalación y configuración
+
+Para instalar o actualizar simplemente necesitas ejecutar un script con una de estas dos opciones:
+
+```bash
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+
+```bash
+$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+
+Este script clonará el repositorio de `nvm` en `$NVM_DIR/.nvm` (por defecto NVM_DIR será tu directorio HOME) e intentará añadir la configuración necesaria a tu fichero de preferencias. Una vez recargues tu terminal ya tendrás el comando `nvm` listo para funcionar.
+
+```
+$ nvm -v
+0.39.1
+```
+
+También si estás utilizando el sistema operativo macOS puedes instalar NVM gracias a Homebrew (https://brew.sh/):
+
+```
+$ brew install nvm
+```
+
+### Comandos útiles
+
+- `nvm ls-remote`: lista todas las versiones disponibles de Node.js para descargar y utilizar (no te asustes que ya te digo que son muchas 😋).
+- `nvm ls`: lista las versiones que tienes descargadas en tu ordenador.
+- `nvm install <VERSION>`: descarga la versión que le pasemos por parámetro. Podemos indicar la versión en formato numérico (14.7.0), "stable" para instalar la última versión estable o "lts/" seguido del nombre de la versión que queramos, por ejemplo, "lts/gallium".
+- `nvm use <VERSION>`: configura de manera global la versión que le indiquemos para empezar a utilizarla.
+- `nvm uninstall <VERSION>`: elimina de tu ordenador la versión que le digamos.
+- `nvm current`: muestra la versión de Node.js activa (igual que hacer `node -v`).
+- `nvm exec <VERSION> <COMANDO>`: ejecuta el comando en la versión que le digamos.
+- `nvm run <VERSION> <ARGS>`: ejecuta el comando `node` con la versión y argumentos que le indiquemos.
+- `nvm reinstall-packages <VERSION>`: reinstala los paquetes globales con la versión que le digamos.
+
+```bash
+$ nvm current
+v16.15.1
+
+$ nvm install stable
+Downloading and installing node v18.3.0...
+Local cache found: ${NVM_DIR}/.cache/bin/node-v18.3.0-darwin-arm64/node-v18.3.0-darwin-arm64.tar.xz
+Computing checksum with shasum -a 256
+Checksums do not match: '413d8691e8dee241cfca660b17c3857f4bb63a35e87cddef893da52b83a91e51' found, '437e836a1e77d3e19c6e8a7526b8077fb38062a01511b99f3801457db6a63bec' expected.
+Checksum check failed!
+Removing the broken local cache...
+Downloading https://nodejs.org/dist/v18.3.0/node-v18.3.0-darwin-arm64.tar.xz...
+################################################################################################################################### 100.0%
+Computing checksum with shasum -a 256
+Checksums matched!
+Now using node v18.3.0 (npm v7.24.2)
+
+$ nvm current
+v18.3.0
+
+$ nvm use 16
+Now using node v16.15.1 (npm v7.24.2)
+```
+
+### Fichero .nvmrc
+
+Puede que al empezar a trabajar en un proyecto veas un fichero `.nvmrc` en el directorio raíz. Este fichero indica la versión de Node.js que se está utilizando en ese proyecto y que tú deberías también utilizar.
+
+NVM buscará y utilizará la versión indicada en ese fichero para ejecutar los comandos si nosotros no especificamos una versión:
+
+```bash
+$ nvm current
+v18.3.0
+
+$ cat .nvmrc
+v16.15.1
+
+$ nvm use
+Found '/Users/alberto/workspace/personal/albertochamorro.dev/.nvmrc' with version <v16.15.1>
+Now using node v16.15.1 (npm v7.24.2)
+```
+
+En la documentación de NVM, sección "Deeper Shell Integration" (https://github.com/nvm-sh/nvm#deeper-shell-integration), te enseñan a automatizar tu terminal para ejecutar el comando `nvm use` cada vez que accedes a un directorio que contiene un fichero `.nvmrc`.
+
+## N
+
+N (https://github.com/tj/n) es otro conocido gestor de versiones de Node.js pero con una filosofía diferente a NVM. Sus creadores indican que lo han hecho mucho más sencillo que NVM sin tener que modificar la configuración del usuario para funcionar.
+
+Este gestor de versiones también se instala como un comando en tu terminal y es compatible con sistemas UNIX, macOS y Windows WSL.
+
+### Instalación y configuración
+
+Hay varias formas con las que puedes instalar N.
+
+Si por ejemplo ya tuvieras Node.js y npm instalados bastaría con ejecutar:
+
+```bash
+$ npm install -g n
+```
+
+Si, por el contrario, aún no tienes npm estos serían los comandos a ejecutar:
+
+```bash
+$ curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
+$ bash n lts
+$ npm install -g n
+```
+
+O si estás en Linux o macOS tienes un instalador en un sólo paso:
+
+```bash
+curl -L https://bit.ly/n-install | bash
+```
+
+La instalación por defecto se hará en `/usr/local/n` pero podríamos modificar el directorio donde queremos tener N estableciendo la variable de entorno `N_PREFIX` antes de la instalación.
+
+Una vez terminemos la instalación podemos confirmar que tenemos N ejecutando:
+
+```bash
+$ n --version
+v8.2.0
+```
+
+### Comandos útiles
+
+- `n`: si no tenemos ninguna versión de Node.js descargada mostrará la ayuda. En caso de tener alguna versión descargada nos mostrará un selector interactivo para poder cambiar a la versión que queramos.
+- `n ls-remote`: lista las últimas versiones disponibles de Node.js. Si queremos ver todas añadiremos `--all` al comando.
+- `n ls`: lista las versiones que tienes descargadas en tu ordenador.
+- `n install <VERSION>`: descarga la versión que le pasemos por parámetro.
+- `n use <VERSION>`: configura de manera global la versión que le indiquemos para empezar a utilizarla.
+- `n rm <VERSION>`: elimina de tu ordenador la versión que le digamos.
+- `n exec <VERSION> <COMANDO>`: ejecuta el comando en la versión que le digamos.
+- `n run <VERSION> <ARGS>`: ejecuta el comando `node` con la versión y argumentos que le indiquemos.
+- `n prune`: elimina todas las versiones descargadas menos la que está en uso en ese momento.
+- `n uninstall`: eliminar la versión que está en uso en ese momento
+
+![Uso de n](https://nimit.io/images/n/n.gif)
+
+Algunos comandos tienen alias definidos para facilitar su uso:
+
+- install: i
+- latest: current
+- ls: list
+- lsr: ls-remote
+- lts: stable
+- rm: -
+- run: use, as
+- which: bin
+
+### Definir versiones de Node.js
+
+Al igual que con NVM decíamos que se utilizaba el fichero `.nvmrc` para definir la versión de Node.js del proyecto, con N tenemos soporte a diferentes mecanismos.
+
+N lee la versión en el directorio actual o cualquier directorio principal, buscando en el siguiente orden:
+
+- `.n-node-version`: fichero propio de `n`.
+- `.node-version`: fichero común a otras herramientas (https://github.com/shadowspawn/node-version-usage).
+- `.nvmrc`: usado por NVM
+- Si no existe ninguno de los ficheros anteriores, busca la propiedad `engines` (https://docs.npmjs.com/cli/v7/configuring-npm/package-json#engines) dentro del fichero `package.json` y utiliza `npx semver` para resolver rangos complejos.
+
+---
+
+¿Conocías estas herramientas? ¿Vas a empezar a utilizarlas si no lo hacías ya? Espero que después de leer el artículo te anime al menos a probarlas 😊.
+
+¿Quieres cambiar algo de este artículo? Puedes enviarme una PR [para este artículo](https://github.com/achamorro-dev/albertochamorro.dev/blob/main/content/articles/diferentes-versiones-de-nodejs.md)
+
+¡Gracias por leer hasta aquí y hasta la próxima 👋!

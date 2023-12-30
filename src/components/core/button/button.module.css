@@ -51,4 +51,5 @@
 a.button,
 a:visited.button {
   text-decoration: none;
+  color: inherit;
 }

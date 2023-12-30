@@ -1,0 +1,39 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'accent' | 'outline'
+}
+
+const { variant = 'secondary' } = Astro.props
+---
+
+<span class={`tag tag--${variant}`}><slot /></span>
+
+<style>
+  .tag {
+    font-size: var(--font-size-3);
+    padding: var(--size-1) var(--size-2);
+    border-radius: var(--border-radius-md);
+    font-weight: var(--medium-font-weight);
+  }
+
+  .tag--primary {
+    background-color: var(--primary-color-100);
+    color: var(--on-primary-color);
+  }
+
+  .tag--secondary {
+    background-color: var(--secondary-color-100);
+    color: var(--on-secondary-color);
+  }
+
+  .tag--accent {
+    background-color: var(--accent-color-100);
+    color: var(--on-accent-color-100);
+  }
+
+  .tag--outline {
+    background-color: transparent;
+    border: 1px solid var(--on-primary-color-100);
+    color: var(--on-primary-color-100);
+  }
+</style>

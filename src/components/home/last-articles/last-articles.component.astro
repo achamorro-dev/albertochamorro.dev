@@ -1,0 +1,78 @@
+---
+import { getCollection } from 'astro:content'
+import { Urls } from '../../../core/url/urls'
+import BlogCard from '../../core/blog-card/blog-card.component.astro'
+
+const blog = await getCollection('blog')
+const lastArticles = blog
+  .sort((a, b) => {
+    return b.data.date.valueOf() - a.data.date.valueOf()
+  })
+  .slice(0, 3)
+console.log(lastArticles)
+---
+
+<article id="last-articles">
+  <div class="main-content">
+    <section class="title-section">
+      <h2>Últimos artículos</h2>
+      <a href={Urls.BLOG}>Ver más</a>
+    </section>
+    <section>
+      <ul class="article-list">
+        {
+          lastArticles.map((article, index) => {
+            return (
+              <li class="article-item" style={`--article-position: article-${index}`}>
+                <BlogCard size={index === 0 ? 'large' : 'small'} article={article} />
+              </li>
+            )
+          })
+        }
+      </ul>
+    </section>
+  </div>
+</article>
+
+<style>
+  article {
+    background-color: var(--gray-color-100);
+    color: var(--on-gray-color-100);
+  }
+
+  .title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--size-4);
+
+    & a {
+      flex-shrink: 0;
+      text-align: right;
+    }
+  }
+
+  .article-list {
+    list-style: none;
+    display: grid;
+    gap: var(--size-4);
+    grid-template-areas:
+      'article-0'
+      'article-0'
+      'article-1'
+      'article-2';
+  }
+
+  .article-item {
+    grid-area: var(--article-position);
+  }
+
+  @media (min-width: 1024px) {
+    .article-list {
+      grid-template-columns: 1.5fr 1fr;
+      grid-template-areas:
+        'article-0 article-1'
+        'article-0 article-2';
+    }
+  }
+</style>
