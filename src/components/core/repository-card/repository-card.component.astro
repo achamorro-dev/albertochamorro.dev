@@ -1,0 +1,56 @@
+---
+import OcticonRepo from '../icons/octicon-repo.component.astro'
+export interface Props {
+  name: string
+  description: string
+  url: string
+  language: string
+}
+
+const { name, description, url, language } = Astro.props
+---
+
+<a href={url} target="_blank" rel="nofollow">
+  <article>
+    <section class="title-section">
+      <OcticonRepo />
+      <h3>{name}</h3>
+    </section>
+    <p class="description">
+      {description}
+    </p>
+    <section class="details">
+      <div class:list={['language-indicator', language]}></div>
+      <p>{language}</p>
+    </section>
+  </article>
+</a>
+
+<style>
+  a,
+  a:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .dart {
+  }
+
+  .flutter {
+  }
+
+  .vuejs {
+  }
+
+  .javascript {
+  }
+
+  .astro {
+  }
+
+  .react {
+  }
+
+  .shell {
+  }
+</style>
