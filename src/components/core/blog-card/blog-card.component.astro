@@ -24,10 +24,10 @@ const articleUrl = Urls.BLOG_POST(article.slug)
         {article.data.tags.map(tag => <Tag>{tag}</Tag>)}
       </ul>
       <h3 class="title">{article.data.title}</h3>
-      {size === 'large' && <p class="description">{article.data.description}</p>}
+      <p class="description">{article.data.description}</p>
       <div class="footer">
         <span class="date">{Datetime.toHumanDate(article.data.date)}</span>
-        <a href={articleUrl}>Leer más</a>
+        <a href={articleUrl}>Leer</a>
       </div>
     </section>
   </article>
@@ -47,6 +47,7 @@ const articleUrl = Urls.BLOG_POST(article.slug)
     background-color: var(--background-color);
     padding: var(--size-4);
     border-radius: var(--border-radius-2xl);
+    border: 1px solid var(--gray-color-75);
 
     & .content-section {
       display: flex;

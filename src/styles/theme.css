@@ -90,7 +90,8 @@
 
   --gray-color-100: oklch(95.51% 0 0); /* #f0f0f0 */
   --on-gray-color-100: black;
-  --gray-color-80: oklch(45% 0 0);
+  --gray-color-75: oklch(75% 0 0);
+  --gray-color-45: oklch(45% 0 0);
 
   /* Shadows */
   --shadow-color: 220 3% 15%;
