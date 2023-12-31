@@ -8,7 +8,7 @@ const lastArticles = blog
   .sort((a, b) => {
     return b.data.date.valueOf() - a.data.date.valueOf()
   })
-  .slice(0, 3)
+  .slice(0, 4)
 console.log(lastArticles)
 ---
 
@@ -22,9 +22,11 @@ console.log(lastArticles)
       <ul class="article-list">
         {
           lastArticles.map((article, index) => {
+            const lastIndex = lastArticles.length - 1
+            const size = index === 0 ? 'large' : index !== lastIndex ? 'medium' : 'small'
             return (
               <li class="article-item" style={`--article-position: article-${index}`}>
-                <BlogCard size={index === 0 ? 'large' : 'small'} article={article} />
+                <BlogCard size={size} article={article} />
               </li>
             )
           })
@@ -58,9 +60,9 @@ console.log(lastArticles)
     gap: var(--size-4);
     grid-template-areas:
       'article-0'
-      'article-0'
       'article-1'
-      'article-2';
+      'article-2'
+      'article-3';
   }
 
   .article-item {
@@ -69,10 +71,12 @@ console.log(lastArticles)
 
   @media (min-width: 1024px) {
     .article-list {
-      grid-template-columns: 1.5fr 1fr;
+      grid-template-columns: 2fr 1fr;
       grid-template-areas:
         'article-0 article-1'
-        'article-0 article-2';
+        'article-0 article-1'
+        'article-0 article-2'
+        'article-3 article-2';
     }
   }
 </style>
