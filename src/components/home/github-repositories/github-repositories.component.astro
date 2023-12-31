@@ -1,0 +1,74 @@
+---
+import RepositoryCard from '../../core/repository-card/repository-card.component.astro'
+
+const repositories = [
+  {
+    name: 'eventos.wiki',
+    description: 'Sitio web de código abierto con el listado de eventos tecnológicos en España.',
+    url: 'https://github.com/achamorro-dev/eventoswiki',
+    language: 'Astro',
+  },
+  {
+    name: 'albertochamorro.dev',
+    description: 'Repositorio de mi página personal desarrollada con Astro.',
+    url: 'https://github.com/achamorro-dev/albertochamorro.dev',
+    language: 'Astro',
+  },
+  {
+    name: 'flutter_glassmorphism',
+    description: 'Repositorio del ejemplo de Glassmorphism con Flutter que mostré en Twitch/YouTube de Flutter España.',
+    url: 'https://github.com/achamorro-dev/flutter_glassmorphism',
+    language: 'Flutter',
+  },
+  {
+    name: 'astro-pokedex',
+    description: 'Ejemplo de Pokedex utilizando el framework Astro utilizando componentes de diferentes frameworks.',
+    url: 'https://github.com/achamorro-dev/astro-pokedex',
+    language: 'Astro',
+  },
+]
+---
+
+<article id="last-articles">
+  <div class="main-content">
+    <h2>Repositorios en GitHub</h2>
+    <section>
+      <ul>
+        {
+          repositories.map(repository => (
+            <li>
+              <RepositoryCard {...repository} />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+
+  <style>
+    article {
+      border-top: 1px solid var(--gray-color-75);
+
+      & ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-4);
+      }
+
+      & h2 {
+        margin-block: var(--size-4);
+      }
+    }
+
+    @media (min-width: 768px) {
+      article {
+        & ul {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+        }
+      }
+    }
+  </style>
+</article>

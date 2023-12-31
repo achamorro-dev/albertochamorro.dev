@@ -9,7 +9,6 @@ const lastArticles = blog
     return b.data.date.valueOf() - a.data.date.valueOf()
   })
   .slice(0, 4)
-console.log(lastArticles)
 ---
 
 <article id="last-articles">
@@ -40,6 +39,7 @@ console.log(lastArticles)
   article {
     background-color: var(--gray-color-100);
     color: var(--on-gray-color-100);
+    border-top: 1px solid var(--gray-color-75);
   }
 
   .title-section {

@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content'
 import { Datetime } from '../../../core/datetime/datetime'
 import { Urls } from '../../../core/url/urls'
 import AssetImage from '../asset-image/asset-image.component.astro'
+import Card from '../card/card.component.astro'
 import Tag from '../tag/tag.component.astro'
 
 interface Props {
@@ -14,32 +15,30 @@ const { article, size } = Astro.props
 const articleUrl = Urls.BLOG_POST(article.slug)
 ---
 
-<article class:list={['blog-card', `blog-card--${size}`]}>
-  <section class="image-section">
-    <AssetImage path={article.data.cover} alt={article.data.alt} />
-  </section>
-  <section class="content-section">
-    <ul>
-      {article.data.tags.map(tag => <Tag>{tag}</Tag>)}
-    </ul>
-    <h3 class="title">{article.data.title}</h3>
-    <p class="description">{article.data.description}</p>
-    <div class="footer">
-      <span class="date">{Datetime.toHumanDate(article.data.date)}</span>
-      <a href={articleUrl} aria-label={`Leer el artículo ${article.data.title}`}>Leer</a>
-    </div>
-  </section>
-</article>
+<Card>
+  <div class:list={['blog-card', `blog-card--${size}`]}>
+    <section class="image-section">
+      <AssetImage path={article.data.cover} alt={article.data.alt} />
+    </section>
+    <section class="content-section">
+      <ul>
+        {article.data.tags.map(tag => <Tag>{tag}</Tag>)}
+      </ul>
+      <h3 class="title">{article.data.title}</h3>
+      <p class="description">{article.data.description}</p>
+      <div class="footer">
+        <span class="date">{Datetime.toHumanDate(article.data.date)}</span>
+        <a href={articleUrl} aria-label={`Leer el artículo ${article.data.title}`}>Leer</a>
+      </div>
+    </section>
+  </div>
+</Card>
 
 <style>
   .blog-card {
     display: flex;
     flex-direction: column;
     gap: var(--size-4);
-    background-color: var(--background-color);
-    padding: var(--size-4);
-    border-radius: var(--border-radius-2xl);
-    border: 1px solid var(--gray-color-75);
     height: 100%;
 
     & .content-section {
