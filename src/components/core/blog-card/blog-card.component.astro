@@ -1,8 +1,8 @@
 ---
+import { Picture } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
 import { Datetime } from '../../../core/datetime/datetime'
 import { Urls } from '../../../core/url/urls'
-import AssetImage from '../asset-image/asset-image.component.astro'
 import Card from '../card/card.component.astro'
 import Tag from '../tag/tag.component.astro'
 
@@ -13,33 +13,51 @@ interface Props {
 
 const { article, size } = Astro.props
 const articleUrl = Urls.BLOG_POST(article.slug)
+const linkLabel = `Leer el artículo ${article.data.title}`
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif,webp}')
+const assetImagePath = `/src/assets/${article.data.cover}`
+
+if (!images[assetImagePath]) throw new Error(`No asset image found for ${assetImagePath}`)
 ---
 
-<Card>
-  <div class:list={['blog-card', `blog-card--${size}`]}>
-    <section class="image-section">
-      <AssetImage path={article.data.cover} alt={article.data.alt} />
-    </section>
-    <section class="content-section">
-      <ul>
-        {article.data.tags.map(tag => <Tag>{tag}</Tag>)}
-      </ul>
-      <h3 class="title">{article.data.title}</h3>
-      <p class="description">{article.data.description}</p>
-      <div class="footer">
-        <span class="date">{Datetime.toHumanDate(article.data.date)}</span>
-        <a href={articleUrl} aria-label={`Leer el artículo ${article.data.title}`}>Leer</a>
-      </div>
-    </section>
-  </div>
-</Card>
+<a href={articleUrl} aria-label={linkLabel}>
+  <Card>
+    <div class:list={['blog-card', `blog-card--${size}`]}>
+      <section class="image-section">
+        <Picture src={images[assetImagePath]()} alt={article.data.alt} widths={[240, 540, 720]}
+        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}/>
+      </section>
+      <section class="content-section">
+        <ul>
+          {article.data.tags.map(tag => <Tag>{tag}</Tag>)}
+        </ul>
+        <h3 class="title">{article.data.title}</h3>
+        <p class="description">{article.data.description}</p>
+        <div class="footer">
+          <span class="date">{Datetime.toHumanDate(article.data.date)}</span>
+        </div>
+      </section>
+    </div>
+  </Card>
+</a>
 
 <style>
+  a, a:visited {
+    color: inherit;
+    text-decoration: none; 
+  }
+
   .blog-card {
     display: flex;
     flex-direction: column;
     gap: var(--size-4);
     height: 100%;
+
+    & .image-section img {
+      width: 100%;
+      border-radius: var(--border-radius-xl);
+    }
 
     & .content-section {
       display: flex;
