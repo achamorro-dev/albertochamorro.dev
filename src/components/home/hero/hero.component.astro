@@ -1,8 +1,8 @@
 ---
-import { Image } from 'astro:assets'
-import MeImage from '../../../assets/me.png'
-import { Button } from '../../core/button/button.component'
-import SocialLinks from '../../core/social-links/social-links.component.astro'
+import { Image } from 'astro:assets';
+import MeImage from '../../../assets/me.png';
+import { Button } from '../../core/button/button.component';
+import SocialLinks from '../../core/social-links/social-links.component.astro';
 ---
 
 <article class="main-content hero">
@@ -21,7 +21,7 @@ import SocialLinks from '../../core/social-links/social-links.component.astro'
     <SocialLinks />
   </section>
   <section class="image-section">
-    <Image src={MeImage} alt="Foto mía sonriendo con una camiseta amarilla" class="me-image" />
+    <Image src={MeImage} alt="Foto mía sonriendo con una camiseta amarilla" class="me-image" loading={'eager'} />
   </section>
 </article>
 
