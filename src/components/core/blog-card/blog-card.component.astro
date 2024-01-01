@@ -14,11 +14,6 @@ interface Props {
 const { article, size } = Astro.props
 const articleUrl = Urls.BLOG_POST(article.slug)
 const linkLabel = `Leer el artículo ${article.data.title}`
-
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif,webp}')
-const assetImagePath = `/src/assets/${article.data.cover}`
-
-if (!images[assetImagePath]) throw new Error(`No asset image found for ${assetImagePath}`)
 ---
 
 <a href={articleUrl} aria-label={linkLabel}>
