@@ -58,6 +58,17 @@ a:visited {
   color: var(--accent-color-100);
 }
 
+pre {
+  border-radius: var(--border-radius-lg);
+  padding: var(--size-4);
+  margin-block: var(--size-4);
+  overflow: auto;
+}
+
+code * {
+  font-size: var(--font-size-4);
+}
+
 .main-content {
   max-width: var(--max-width-content);
   padding-inline: var(--size-4);

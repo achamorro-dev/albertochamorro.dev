@@ -1,85 +1,65 @@
-<!-- ---
-import type { CollectionEntry } from 'astro:content'
-import BaseHead from '../components/BaseHead.astro'
-import FormattedDate from '../components/FormattedDate.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/footer/footer.component.astro'
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/core/base-head/base-head.component.astro';
+import Footer from '../components/core/footer/footer.component.astro';
+import Header from '../components/core/header/header.component.astro';
+import { Datetime } from '../core/datetime/datetime';
 
-type Props = CollectionEntry<'blog'>['data']
+interface Props {
+  article: CollectionEntry<'blog'>
+} 
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props
+const {article} = Astro.props
 ---
 
-<html lang="en">
+<html lang="es">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={article.data.title} description={article.data.description} />
     <style>
-      main {
-        width: calc(100% - 2em);
-        max-width: 100%;
-        margin: 0;
-      }
-      .hero-image {
-        width: 100%;
-      }
-      .hero-image img {
-        display: block;
-        margin: 0 auto;
-        border-radius: 12px;
-        box-shadow: var(--box-shadow);
-      }
-      .prose {
-        width: 720px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 1em;
-        color: rgb(var(--gray-dark));
-      }
-      .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-        line-height: 1;
-      }
-      .title h1 {
-        margin: 0 0 0.5em 0;
-      }
+
       .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
-      }
-      .last-updated-on {
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: var(--font-size-4);
+        margin: var(--size-2) auto 0;
+        color: var(--gray-color-45);
         font-style: italic;
+      }
+
+      h1 {
+        margin: 0 auto;
+        padding-bottom: var(--size-6);
+        text-wrap: pretty;
+      }
+
+
+      .hero-image img {
+        margin: 0 auto var(--size-8);
+        border-radius: var(--border-radius-xl);
+      }
+
+      .article {
+        margin: 0 auto;
+        max-width: 768px;
+
       }
     </style>
   </head>
 
   <body>
     <Header />
-    <main>
-      <article>
-        <div class="hero-image">
-          {heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
-        </div>
-        <div class="prose">
-          <div class="title">
-            <div class="date">
-              <FormattedDate date={pubDate} />
-              {
-                updatedDate && (
-                  <div class="last-updated-on">
-                    Last updated on <FormattedDate date={updatedDate} />
-                  </div>
-                )
-              }
-            </div>
-            <h1>{title}</h1>
-            <hr />
-          </div>
-          <slot />
-        </div>
+    <main class="main-content">
+      <span class="date">{Datetime.toHumanDate(article.data.date)}</span>
+      <h1>{article.data.title}</h1>
+      <article class="article">
+        <section class="hero-image">
+          <Image src={article.data.cover} alt={article.data.alt} />
+        </section>
+        <slot />
       </article>
     </main>
     <Footer />
   </body>
-</html> -->
+</html>

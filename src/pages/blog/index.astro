@@ -10,9 +10,9 @@ const articles = await getCollection('blog')
   <article class:list={['main-content', 'blog']}>
   <h1>Blog</h1>
   <ul>
-    {articles.map((article) => (
+    {articles.map((article, index) => (
       <li>
-        <BlogCard article={article} size='medium' />
+        <BlogCard article={article} size='medium' priority={index < 3 ? 'high' : 'low'} />
       </li>
     ))}
   </ul>

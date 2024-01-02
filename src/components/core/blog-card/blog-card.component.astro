@@ -9,9 +9,10 @@ import Tag from '../tag/tag.component.astro'
 interface Props {
   size: 'small' | 'medium' | 'large'
   article: CollectionEntry<'blog'>
+  priority?: 'high' | 'low'
 }
 
-const { article, size } = Astro.props
+const { article, size, priority = 'low' } = Astro.props
 const articleUrl = Urls.BLOG_POST(article.slug)
 const linkLabel = `Leer el artículo ${article.data.title}`
 ---
@@ -20,7 +21,7 @@ const linkLabel = `Leer el artículo ${article.data.title}`
   <Card>
     <div class:list={['blog-card', `blog-card--${size}`]}>
       <section class="image-section">
-        <Picture src={article.data.cover} alt={article.data.alt} formats={['avif', 'webp']} widths={[360, 450]} sizes="(max-width: 450px) 360px, (max-width: 768px) 450px" />
+        <Picture src={article.data.cover} alt={article.data.alt} formats={['avif', 'webp']} loading={priority === 'high' ? 'lazy' : 'eager'} widths={[360, 450]} sizes="(max-width: 450px) 360px, (max-width: 768px) 450px" />
       </section>
       <section class="content-section">
         <ul>
