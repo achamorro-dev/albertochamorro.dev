@@ -17,20 +17,21 @@ const {article} = Astro.props
   <head>
     <BaseHead title={article.data.title} description={article.data.description} />
     <style>
-
+      .main-content {
+        margin-top: 0;
+      }
       .date {
-        width: 100%;
         display: block;
         text-align: center;
         font-size: var(--font-size-4);
-        margin: var(--size-2) auto 0;
+        margin: var(--size-2) auto;
         color: var(--gray-color-45);
         font-style: italic;
       }
 
       h1 {
         margin: 0 auto;
-        padding-bottom: var(--size-6);
+        padding-bottom: var(--size-8);
         text-wrap: pretty;
       }
 

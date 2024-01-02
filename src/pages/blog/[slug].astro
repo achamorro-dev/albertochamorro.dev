@@ -21,24 +21,24 @@ const { Content } = await article.render()
 
 <style is:inline>
   .content {
-    & h2 {
+    & > h2 {
       margin-block: var(--size-5);
     }
 
-    & h3 {
+    & > h3 {
       margin-block: var(--size-4);
       font-weight: var(--medium-font-weight);
     }
 
-    & p {
+    & > p {
       margin-block: var(--size-4);
     }
 
-    & ul {
+    & > ul {
       font-size: var(--font-size-fluid-2);
       padding-inline: var(--size-8);
 
-      & li {
+      & > li {
         margin-block: var(--size-2);
       }
     }
