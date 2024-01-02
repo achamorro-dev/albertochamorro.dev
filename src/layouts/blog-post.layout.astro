@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/core/base-head/base-head.component.astro';
 import Footer from '../components/core/footer/footer.component.astro';
 import Header from '../components/core/header/header.component.astro';
+import Tag from '../components/core/tag/tag.component.astro';
 import { Datetime } from '../core/datetime/datetime';
 
 interface Props {
@@ -27,6 +28,13 @@ const {article} = Astro.props
         margin: var(--size-2) auto;
         color: var(--gray-color-45);
         font-style: italic;
+      }
+
+      .tags {
+        display: flex;
+        justify-content: center;
+        gap: var(--size-2);
+        margin-bottom: var(--size-2);
       }
 
       h1 {
@@ -53,6 +61,9 @@ const {article} = Astro.props
     <Header />
     <main class="main-content">
       <span class="date">{Datetime.toHumanDate(article.data.date)}</span>
+      <ul class="tags">
+        {article.data.tags.map(tag => <Tag>{tag}</Tag>)}
+      </ul>
       <h1>{article.data.title}</h1>
       <article class="article">
         <section class="hero-image">
