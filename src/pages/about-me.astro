@@ -1,15 +1,26 @@
 ---
-import BaseLayout from '../layouts/base.layout.astro'
+import BaseLayout from '../layouts/base.layout.astro';
 ---
 
 <BaseLayout title="Sobre mí">
-  <h1>Sobre mí</h1>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas
-    pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis
-    purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam
-    phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis.
-    Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-  </p>
+  <article class="main-content about-me">
+    <h1>Sobre mí</h1>
+    <section class="introduction">
+      <p>¡Hola! Soy Alberto Chamorro y actualmente trabajo como Frontend Developer en <a href="https://autentia.com/" target="_blank" rel="nofollow noreferrer" aria-label="autentia">@autentia</a> principalmente con tecnologías JavaScript como Angular y React pero siempre con TypeScript. También a nivel personal utilizo Flutter para desarrollar aplicaciones multiplataforma para iOS y Android.</p>
+      <p>Me considero alguien abierto y siempre dispuesto a ayudar a quien lo necesite, sin ningún problema para trabajar en equipo. Con muchas ganas de aprender y de avanzar en mi carrera profesional como desarrollador probando nuevos avances o adoptando nuevas tecnologías siempre con sentido.</p>
+      <p>En mi blog escribo artículos para poder compartir lo que aprendo en mi día a día y que espero pueda servir a más gente.</p>
+    </section>
+  </article>
 </BaseLayout>
+
+<style>
+  .about-me {
+    margin-top: 0;
+    width: 100%;
+
+    & .introduction {
+      max-width: 768px;
+      margin: 0 auto;
+    }
+  }
+</style>
