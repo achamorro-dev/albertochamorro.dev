@@ -43,7 +43,7 @@ import MenuBarItem from './menu-bar-item.component.astro'
   }
 
   .menu-indicator {
-    background-color: white;
+    background-color: var(--background-color);
     border-radius: var(--border-radius-full);
     height: 100%;
     left: 0;
@@ -67,7 +67,12 @@ import MenuBarItem from './menu-bar-item.component.astro'
 
   function moveMenuIndicator() {
     const newPathname = window.location.pathname
-    const linkSelected = menuList.querySelector(`[data-href="${newPathname}"]`)
+    const parentPathname = newPathname.split('/').slice(0, 2).join('/')
+    const linkSelector = `[data-href="${parentPathname}"]`
+    const linkSelected = menuList.querySelector(linkSelector)
+
+    if (!linkSelected) return
+
     const indexLinkSelected = Array.from(menuList.children).indexOf(linkSelected)
     const linksOffset = isFirstMovement ? 4 : 0
 
