@@ -16,7 +16,7 @@ const {article} = Astro.props
 
 <html lang="es">
   <head>
-    <BaseHead title={article.data.title} description={article.data.description} />
+    <BaseHead title={article.data.title} description={article.data.description} image={article.data.cover.src}/>
     <style>
       .main-content {
         margin-top: 0;

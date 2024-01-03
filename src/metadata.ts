@@ -3,8 +3,10 @@
 
 import { Urls } from './core/url/urls'
 
-export const SITE_TITLE = 'Alberto Chamorro'
-export const SITE_DESCRIPTION = 'Software developer - JavaScript, TypeScript, Vue.js, ReactJS, Angular - Flutter lover'
+export const SITE_TITLE =
+  'Alberto Chamorro · Frontend, JavaScript, TypeScript, Astro, NextJs, ReactJS, Angular, Vue.js, NextJs - Flutter lover'
+export const SITE_DESCRIPTION =
+  'Alberto Chamorro · Frontend, JavaScript, TypeScript, Astro, NextJs, ReactJS, Angular, Vue.js, NextJs - Flutter lover'
 
 export const MAIN_CONTENT_ID = 'main-content'
 
