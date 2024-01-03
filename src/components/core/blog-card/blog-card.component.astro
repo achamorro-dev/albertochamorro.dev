@@ -21,7 +21,7 @@ const linkLabel = `Leer el artículo ${article.data.title}`
   <Card>
     <div class:list={['blog-card', `blog-card--${size}`]}>
       <section class="image-section">
-        <Picture src={article.data.cover} alt={article.data.alt} formats={['avif', 'webp']} loading={priority === 'high' ? 'lazy' : 'eager'} widths={[360, 450]} sizes="(max-width: 450px) 360px, (max-width: 768px) 450px" />
+        <Picture src={article.data.cover} alt={article.data.alt} formats={['avif', 'webp']} loading={priority === 'high' ? 'lazy' : 'eager'} densities={[1, 2]} />
       </section>
       <section class="content-section">
         <ul>
@@ -91,6 +91,7 @@ const linkLabel = `Leer el artículo ${article.data.title}`
   @media (min-width: 768px) {
     .blog-card--small {
       flex-direction: row;
+      align-items: center;
     }
   }
 </style>
