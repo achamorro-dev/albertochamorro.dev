@@ -25,7 +25,7 @@ const linkLabel = `Leer el artículo ${article.data.title}`
       </section>
       <section class="content-section">
         <ul>
-          {article.data.tags.map(tag => <Tag>{tag}</Tag>)}
+          {article.data.tags.map((tag: string) => <Tag>{tag}</Tag>)}
         </ul>
         <h3 class="title">{article.data.title}</h3>
         <p class="description">{article.data.description}</p>
