@@ -1,26 +1,13 @@
 ---
+import Introduction from '../components/about-me/introduction/introduction.component.astro';
+import Summary from '../components/about-me/summary/summary.component.astro';
 import BaseLayout from '../layouts/base.layout.astro';
+import { SITE_TITLE } from '../metadata';
+
+const title = `Sobre mí - ${SITE_TITLE}`;
 ---
 
-<BaseLayout title="Sobre mí">
-  <article class="main-content about-me">
-    <h1>Sobre mí</h1>
-    <section class="introduction">
-      <p>¡Hola! Soy Alberto Chamorro y actualmente trabajo como Frontend Developer en <a href="https://autentia.com/" target="_blank" rel="nofollow noreferrer" aria-label="autentia">@autentia</a> principalmente con tecnologías JavaScript como Angular y React pero siempre con TypeScript. También a nivel personal utilizo Flutter para desarrollar aplicaciones multiplataforma para iOS y Android.</p>
-      <p>Me considero alguien abierto y siempre dispuesto a ayudar a quien lo necesite, sin ningún problema para trabajar en equipo. Con muchas ganas de aprender y de avanzar en mi carrera profesional como desarrollador probando nuevos avances o adoptando nuevas tecnologías siempre con sentido.</p>
-      <p>En mi blog escribo artículos para poder compartir lo que aprendo en mi día a día y que espero pueda servir a más gente.</p>
-    </section>
-  </article>
+<BaseLayout title={title}>
+  <Introduction />
+  <Summary />
 </BaseLayout>
-
-<style>
-  .about-me {
-    margin-top: 0;
-    width: 100%;
-
-    & .introduction {
-      max-width: 768px;
-      margin: 0 auto;
-    }
-  }
-</style>

@@ -2,11 +2,13 @@
 import { getCollection } from 'astro:content';
 import BlogCard from '../../components/core/blog-card/blog-card.component.astro';
 import BaseLayout from '../../layouts/base.layout.astro';
+import { SITE_TITLE } from '../../metadata';
 
 const articles = await getCollection('blog')
+const title = `Blog - ${SITE_TITLE}`;
 ---
 
-<BaseLayout title="Blog">
+<BaseLayout title={title}>
   <article class:list={['main-content', 'blog']}>
   <h1>Blog</h1>
   <ul>

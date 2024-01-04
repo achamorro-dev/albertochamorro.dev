@@ -1,0 +1,189 @@
+---
+import AngularIcon from '../../core/icons/angular.component.astro'
+import AstroIcon from '../../core/icons/astro.component.astro'
+import AtlassianIcon from '../../core/icons/atlassian.component.astro'
+import CypressIcon from '../../core/icons/cypress.component.astro'
+import FigmaIcon from '../../core/icons/figma.component.astro'
+import FlutterIcon from '../../core/icons/flutter.component.astro'
+import GitIcon from '../../core/icons/git.component.astro'
+import JestIcon from '../../core/icons/jest.component.astro'
+import JavaScriptIcon from '../../core/icons/js.component.astro'
+import NeovimIcon from '../../core/icons/neovim.component.astro'
+import NextIcon from '../../core/icons/nextjs.component.astro'
+import NotionIcon from '../../core/icons/notion.component.astro'
+import NuxtIcon from '../../core/icons/nuxt.component.astro'
+import ReactIcon from '../../core/icons/react.component.astro'
+import StorybookIcon from '../../core/icons/storybook.component.astro'
+import TailwindIcon from '../../core/icons/tailwindcss.component.astro'
+import TerminalIcon from '../../core/icons/terminal.component.astro'
+import TestingLibraryIcon from '../../core/icons/testing-library.component.astro'
+import TypeScriptIcon from '../../core/icons/typescript.component.astro'
+import VSCodeIcon from '../../core/icons/vscode.component.astro'
+import VueIcon from '../../core/icons/vue.component.astro'
+---
+<article>
+  <section class="summary">
+    <div class="summary-card technologies">
+      <h2>Tecnologías</h2>
+      <ul class="list">
+        <li><JavaScriptIcon /></li>
+        <li><TypeScriptIcon /></li>
+        <li><ReactIcon /></li>
+        <li><AngularIcon /></li>
+        <li><VueIcon /></li>
+        <li><AstroIcon /></li>
+        <li><NextIcon /></li>
+        <li><NuxtIcon /></li>
+        <li><JestIcon /></li>
+        <li><TestingLibraryIcon /></li>
+        <li><CypressIcon /></li>
+        <li><TailwindIcon /></li>
+        <li><FlutterIcon /></li>
+      </ul>
+    </div>
+
+    <div class="summary-card tools">
+      <h2>Herramientas</h2>
+      <ul class="list">
+        <li><VSCodeIcon /></li>
+        <li><NeovimIcon /></li>
+        <li class="figma"><FigmaIcon /></li>
+        <li><AtlassianIcon /></li>
+        <li><NotionIcon /></li>
+        <li><StorybookIcon /></li>
+        <li><GitIcon /></li>
+        <li><TerminalIcon /></li>
+      </ul>
+    </div>
+    
+    <div class="summary-card soft-skills">
+      <h2>Soft Skills</h2>
+      <ul>
+        <li>Comunicación</li>
+        <li>Trabajo en equipo</li>
+        <li>Adaptabilidad</li>
+        <li>Aprendizaje continuo</li>
+        <li>Resolución de problemas</li>
+      </ul>
+    </div>
+  </section>
+</article>
+
+<style>
+  article {
+    background: var(--gray-color-100);
+    padding-block: var(--size-12);
+    padding-inline: var(--size-4);
+  }
+  .summary {
+    display: grid;
+    grid-template-areas: 'soft' 'technologies' 'tools';
+    grid-gap: var(--size-4);
+    margin-block: var(--size-4);
+    max-width: 1024px;
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+      & {
+        grid-template-areas: 'technologies technologies soft' 'tools tools tools';
+      }
+    }
+
+    & .summary-card {
+      background: var(--background-color);
+      color: var(--on-background-color);
+      padding: var(--size-8);
+      border-radius: var(--border-radius-xl);
+      border: 1px solid var(--gray-color-75);
+
+      & h2 {
+        margin-bottom: var(--size-4);
+      }
+    }
+
+    & ul {
+      list-style: none;
+    }
+
+    & .technologies {
+      grid-area: technologies;
+
+      & ul {
+        display: flex;
+        gap: var(--size-2);
+        align-items: center;
+        justify-content: start;
+        flex-wrap: wrap;
+
+        & li {
+          width: 40px;
+        }
+
+        @media (min-width: 768px) {
+          & {
+            gap: var(--size-8);
+          }
+
+          & li {
+            width: 72px;
+          }
+        }
+      }
+    }
+
+    & .tools {
+      grid-area: tools;
+
+      & ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: var(--size-2);
+        align-items: center;
+
+        & li {
+          width: 32px;
+        }
+
+        & .figma {
+          width: 22px;
+        }
+
+        @media (min-width: 768px) {
+          & {
+            gap: var(--size-8);
+          }
+
+          & li {
+            width: 64px;
+          }
+
+          & .figma {
+            width: 42px;
+          }
+
+        }
+      }
+
+    }
+
+    & .soft-skills {
+      grid-area: soft;
+
+      & ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: var(--size-2);
+        font-size: var(--font-size-6);
+        font-weight: var(--light-font-weight);
+      }
+
+      @media (min-width: 768px) {
+        & ul {
+          font-size: var(--font-size-8);
+        }
+      }
+    }
+  }
+</style>
