@@ -1,49 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
-import BlogCard from '../../components/core/blog-card/blog-card.component.astro';
+import BlogPostList from '../../components/blog/blog-post-list.component.astro';
 import BaseLayout from '../../layouts/base.layout.astro';
 import { SITE_TITLE } from '../../metadata';
 
-const articles = await getCollection('blog')
 const title = `Blog - ${SITE_TITLE}`;
 ---
 
 <BaseLayout title={title}>
-  <article class:list={['main-content', 'blog']}>
-  <h1>Blog</h1>
-  <ul>
-    {articles.map((article, index) => (
-      <li>
-        <BlogCard article={article} size='medium' priority={index < 3 ? 'high' : 'low'} />
-      </li>
-    ))}
-  </ul>
-  </article>
+  <BlogPostList />
 </BaseLayout>
-
-<style>
-
-  .blog {
-    padding: var(--size-4);
-    margin-top: 0;
-
-    & h1 {
-      margin-bottom: var(--size-8);
-    }
-
-    & ul {
-      list-style: none;
-      display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--size-4);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .blog {
-      & ul {
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      }
-    }
-  }
-</style>
