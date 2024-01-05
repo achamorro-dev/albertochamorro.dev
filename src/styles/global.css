@@ -50,7 +50,7 @@ span {
 }
 
 p {
-  margin-block: var(--size-2);
+  margin-block: var(--size-4);
 }
 
 a,
@@ -87,6 +87,6 @@ code * {
   }
 
   p {
-    margin-block: var(--size-4);
+    margin-block: var(--size-6);
   }
 }
