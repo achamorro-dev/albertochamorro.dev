@@ -1,7 +1,8 @@
 ---
-import Introduction from '../components/about-me/introduction/introduction.component.astro';
-import Summary from '../components/about-me/summary/summary.component.astro';
-import BaseLayout from '../layouts/base.layout.astro';
+import Introduction from '../components/about-me/introduction/introduction.astro';
+import Summary from '../components/about-me/summary/summary.astro';
+import Timeline from '../components/about-me/timeline/timeline.astro';
+import BaseLayout from '../layouts/base-layout.astro';
 import { SITE_TITLE } from '../metadata';
 
 const title = `Sobre mí - ${SITE_TITLE}`;
@@ -10,4 +11,5 @@ const title = `Sobre mí - ${SITE_TITLE}`;
 <BaseLayout title={title}>
   <Introduction />
   <Summary />
+  <Timeline />
 </BaseLayout>

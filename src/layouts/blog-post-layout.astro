@@ -1,10 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/core/base-head/base-head.component.astro';
-import Footer from '../components/core/footer/footer.component.astro';
-import Header from '../components/core/header/header.component.astro';
-import Tag from '../components/core/tag/tag.component.astro';
+import BaseHead from '../components/core/base-head/base-head.astro';
+import Footer from '../components/core/footer/footer.astro';
+import Header from '../components/core/header/header.astro';
+import Tag from '../components/core/tag/tag.astro';
 import { Datetime } from '../core/datetime/datetime';
 
 interface Props {
@@ -49,11 +49,6 @@ const {article} = Astro.props
         border-radius: var(--border-radius-xl);
       }
 
-      .article {
-        margin: 0 auto;
-        max-width: 768px;
-
-      }
     </style>
   </head>
 

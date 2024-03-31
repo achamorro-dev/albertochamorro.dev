@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BlogPost from "../../layouts/blog-post.layout.astro";
+import BlogPost from "../../layouts/blog-post-layout.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
@@ -21,6 +21,9 @@ const { Content } = await article.render()
 
 <style is:inline>
   .content {
+    margin: 0 auto;
+    max-width: 1024px;
+
     & > h2 {
       margin-block: var(--size-5);
     }

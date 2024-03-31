@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import { Urls } from '../../../core/url/urls'
-import BlogCard from '../../core/blog-card/blog-card.component.astro'
+import BlogCard from '../../core/blog-card/blog-card.astro'
 
 const blog = await getCollection('blog')
 const lastArticles = blog

@@ -60,35 +60,50 @@
   --font-size-12: 3rem;
 
   --font-size-fluid-1: clamp(0.75rem, 2vw, 1rem);
-  --font-size-fluid-2: clamp(1rem, 4vw, 1.375rem);
+  --font-size-fluid-2: clamp(1rem, 4vw, 1.25rem);
   --font-size-fluid-3: clamp(2rem, 9vw, 3.25rem);
   --font-size-fluid-4: clamp(2.5rem, 9.5vw, 3.75rem);
 
   /* Colors */
-  --primary-color-100: oklch(89% 0.183 96.16); /* #ffd903 */
-  --on-primary-color-100: oklch(16.84% 0 0); /* #0f0f0f */
+  --primary-color-100: oklch(89% 0.183 96.16);
+  /* #ffd903 */
+  --on-primary-color-100: oklch(16.84% 0 0);
+  /* #0f0f0f */
   --primary-color-110: oklch(93% 0.183 96.16);
 
-  --secondary-color-100: oklch(73.79% 0.107 19.96); /* #e68e8e */
-  --on-secondary-color-100: oklch(16.84% 0 0); /* #0f0f0f */
-  --secondary-color-110: oklch(80% 0.107 19.96); /* #e68e8e */
+  --secondary-color-100: oklch(73.79% 0.107 19.96);
+  /* #e68e8e */
+  --on-secondary-color-100: oklch(16.84% 0 0);
+  /* #0f0f0f */
+  --secondary-color-110: oklch(80% 0.107 19.96);
+  /* #e68e8e */
 
-  --accent-color-100: oklch(63.51% 0.175 23.51); /* #E15555 */
-  --on-accent-color-100: oklch(16.84% 0 0); /* #0f0f0f */
+  --accent-color-100: oklch(63.51% 0.175 23.51);
+  /* #E15555 */
+  --on-accent-color-100: oklch(16.84% 0 0);
+  /* #0f0f0f */
 
-  --background-color: oklch(100% 0 0); /* #ffffff */
-  --text-color: oklch(16.84% 0 0); /* #0f0f0f */
+  --background-color: oklch(100% 0 0);
+  /* #ffffff */
+  --text-color: oklch(16.84% 0 0);
+  /* #0f0f0f */
 
   --disabled-color: #cbd5e1;
-  --on-disabled-color: oklch(16.84% 0 0); /* #0f0f0f */
+  --on-disabled-color: oklch(16.84% 0 0);
+  /* #0f0f0f */
 
-  --success-color: oklch(60% 0.175 158.03); /* #009a60 */
-  --on-success-color: oklch(100% 0 0); /* #ffffff */
+  --success-color: oklch(60% 0.175 158.03);
+  /* #009a60 */
+  --on-success-color: oklch(100% 0 0);
+  /* #ffffff */
 
-  --error-color: oklch(64.82% 0.208 35.71); /* #f24e1e */
-  --on-error-color: oklch(16.84% 0 0); /* #0f0f0f */
+  --error-color: oklch(64.82% 0.208 35.71);
+  /* #f24e1e */
+  --on-error-color: oklch(16.84% 0 0);
+  /* #0f0f0f */
 
-  --gray-color-100: oklch(95.51% 0 0); /* #f0f0f0 */
+  --gray-color-100: oklch(95.51% 0 0);
+  /* #f0f0f0 */
   --on-gray-color-100: black;
   --gray-color-75: oklch(75% 0 0);
   --gray-color-45: oklch(45% 0 0);
