@@ -1,9 +1,11 @@
 ---
-import BlogPostList from '../../components/blog/blog-post-list.astro';
-import BaseLayout from '../../layouts/base-layout.astro';
-import { SITE_TITLE } from '../../metadata';
+import BlogPostList from '../../components/blog/blog-post-list.astro'
+import BaseLayout from '../../layouts/base-layout.astro'
+import { SITE_TITLE } from '../../metadata'
 
-const title = `Blog - ${SITE_TITLE}`;
+const title = `Blog - ${SITE_TITLE}`
+
+export const prerender = true
 ---
 
 <BaseLayout title={title}>

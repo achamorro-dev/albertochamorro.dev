@@ -2,7 +2,11 @@
 import { getCollection } from 'astro:content';
 import BlogCard from '../core/blog-card/blog-card.astro';
 
-const articles = await getCollection('blog')
+const blog = await getCollection('blog')
+const articles = blog.sort((a, b) => {
+  return b.data.date.valueOf() - a.data.date.valueOf()
+})
+
 ---
 
 <article class:list={['main-content', 'blog']}>
