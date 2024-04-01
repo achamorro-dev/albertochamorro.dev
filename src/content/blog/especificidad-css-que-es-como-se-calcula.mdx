@@ -1,0 +1,178 @@
+---
+title: Especificidad en CSS, ¿qué es y cómo se calcula?
+description: La especificidad en CSS es una de las fases más importantes a la hora de evaluar que estilos prevalecen frente a otros cuando existe herencia o competición entre ellos. En este artículo vamos a ver qué es y cómo se calcula la especificidad.
+cover: ../../assets/blog/especificidad-css-que-es-como-se-calcula/especificidad-css.png
+alt: Cartel del artículo Especificidad en CSS, ¿qué es y cómo se calcula?
+tags:
+  - frontend
+  - css
+date: 2024-04-01
+canonicalUrl: https://albertochamorro.dev/blog/especificidad-css-que-es-como-se-calcula
+---
+
+import { Image } from 'astro:assets'
+import specificityCss from '../../assets/blog/especificidad-css-que-es-como-se-calcula/representacion-especificidad-css.png'
+import browserSpecificity from '../../assets/blog/especificidad-css-que-es-como-se-calcula/especificidad-en-el-navegador.png'
+
+¿Alguna vez has trabajado dando estilos a tus aplicaciones web pero no sabías por qué un estilo anulaba otro aunque estuviera antes? ¿Te suena haber trabajado con una librería de estilos o componentes externa y al intentar sobreescribir un estilo base no dabas con la clave o, en este caso, con el selector correcto?
+
+Hagamos un ejercicio, imagina que tenemos el siguiente código, ¿de qué color crees que sería el fondo del botón?
+
+```html
+<button class="button" onclick="alert('hello')">Click me</button>
+<style>
+  button[onclick] {
+    background: grey;
+  }
+
+  .button {
+    background: blue;
+  }
+</style>
+```
+
+Pues si has respondido gris ¡has acertado!
+
+Ahora cambiemos el ejemplo, ¿seguiría siendo de color gris o habría cambiado?
+
+```html
+<button class="button" onclick="alert('hello')">Click me</button>
+<style>
+  button[onclick] {
+    background: grey;
+  }
+
+  .button.button {
+    background: blue;
+  }
+</style>
+```
+
+Pues en este caso el botón se pintaría de color azul. Aunque no sea una bonita forma de aumentar la especificidad de un selector y nos haga sospechar de que algo esté mal ([smell](https://martinfowler.com/bliki/CodeSmell.html) 👃), el duplicar el nombre de la clase hace que el selector pase de 10 a 20 puntos, frente a los 11 puntos de la primera regla.
+
+En este artículo vamos a ver cómo se calcula la especificidad para no volver a fallar en este tipo de pruebas.
+
+## ¿Qué es la especificidad en CSS?
+
+La especificidad en CSS es un algoritmo que calcula y otorga puntuaciones a los selectores en CSS. Cuando dos o más selectores intentan estilar el mismo elemento se dice que estos entran en competición, el navegador calculará la especificidad de cada uno de los selectores y el que mayor puntuación consiga gana 🥇.
+
+La especificidad es acumulativa, esto significa que todos los elementos indicados en un selector suman. Por ejemplo, `[a.link](http://a.link)` suma menos puntos que `a.link.primary-link:hover`.
+
+Como sabemos, CSS significa Cascading Style Sheets o Hoja de Estilo en Cascada. Aunque en este algoritmo en cascada la posición y el orden de aparición de los selectores es importante, no deja de ser la primera fase. Las otras fases de este algoritmo son especificidad, origen (dónde entra en juego la herencia) y la importancia.
+
+Vamos a ver cómo se calcula la especificidad.
+
+## Cómo se calcula
+
+Cómo he comentado antes, el navegador realiza una puntuación dependiendo del selector que encuentra. Cuando un elemento tiene varios selectores, se aplican los estilos del que más puntuación obtiene.
+
+Veamos la puntuación para cada tipo de selector.
+
+- **Selector universal** **(`*`) y combinadores (`+`, `>`, `~`, `||`)**: no tienen especificidad y obtienen **0 puntos**.
+- **Selector de elementos o pseudoelementos (`::`)**: los selectores a elementos, por ejemplo `a` o `button`, o pseudoelementos cómo `::after` o `::placeholder` obtienen **1 punto**.
+- **Selector de clase (`.`), pseudoclase (`:`) o atributo (`[]`):** obtienen **10 puntos**. Algunas pseudoclases tienen reglas diferentes, las vemos más adelante.
+- **Selector de id** **(`#`)**: obtiene una puntuación de **100 puntos**.
+- **Estilo en línea (`style=””`):** tiene una puntuación de **1000 puntos**.
+- **Regla `!important`**: otorga la mayor puntuación \***\*posible que son **10.000 puntos\*\*.
+
+Veamos algunos ejemplos y cuanta puntuación sumarían:
+
+```css
+button {
+} /* 1 punto */
+
+button.primary-button {
+} /* 1+10 puntos */
+
+button.primary-button[onclick] {
+} /* 1+10+10 puntos */
+
+button#button.primary-button {
+} /* 1+100+10 puntos */
+
+.primary-button {
+  color: red !important; /* 10000 puntos */
+  background: white; /* 10 puntos */
+}
+```
+
+## Representación de la especificidad
+
+En documentación, diagramas y calculadoras podrás ver la especificidad representada de la siguiente manera:
+
+<Image
+  src={specificityCss}
+  alt="Ejemplo de representación de la especificidad en CSS con 3 números separados por guiones: el primero representa la puntuación por ID, el segundo por clase o atributo y el tercero por elemento"
+/>
+
+Incluso esta representación la puedes ver en el navegador, esta vez separada por comas:
+
+<Image
+  src={browserSpecificity}
+  alt="Captura de las herramientas de desarrollador de Chrome donde se muestra la especificidad de un selector al colocar el cursor sobre él en el panel de estilos"
+/>
+
+Veamos los ejemplos del punto anterior esta vez representando su especificidad:
+
+```css
+button {
+} /* 0-0-1 = 1 punto */
+
+button.primary-button {
+} /* 0-1-1 = 11 puntos */
+
+button.primary-button[onclick] {
+} /* 0-2-1 = 21 puntos */
+
+button#button.primary-button {
+} /* 1-1-1 = 111 puntos */
+```
+
+¿Y si repasamos los ejemplos que te propuse en la introducción de este artículo? Seguro que ahora sabes perfectamente cual selector es más específico, verás:
+
+```html
+<button class="button" onclick="alert('hello')">Click me</button>
+
+<!-- EJERCICIO 1 -->
+<style>
+  button[onclick] { /* 0-1-1 = 11 puntos. */
+    background: grey;
+  }
+
+  .button { /* 0-1-0 = 10 puntos */
+    background: blue;
+  }
+</style>
+
+<!-- EJERCICIO 2 -->
+<style>
+  button[onclick] { /* NO CAMBIA -> 0-1-1 = 11 puntos */
+    background: grey;
+  }
+
+  .button.button { /* DUPLICA -> 0-2-0 = 20 puntos */
+    background: blue;
+  }
+</style>
+```
+
+Si quieres ver una calculadora online para hacer tus propias pruebas echa un vistazo a [polypane.app](https://polypane.app/css-specificity-calculator).
+
+## Algunas reglas adicionales
+
+Aunque hemos explicado la forma básica en la que el navegador calcula la especificidad de nuestras reglas de CSS, existen formas de alterar este comportamiento.
+
+- `@scope` y `@layer` modifican el orden en el que se procesa, calcula y aplica la especificidad.
+- `:nth-child()`, `:nth-last-child()`, `:nth-of-type()` y `:nth-last-of-type()` suma la especificidad de la pseudoclase más el selector más específico.
+- `:is()` , `:not()` y `:has()` reciben como argumento una lista de selectores. En este caso la pseudoclase no añade especificidad en sí misma pero sí aplica la especificidad de los selectores que recibe.
+- `:where()` también recibe como argumento una lista de selectores pero en este caso ni la pseudoclase ni sus selectores aplican especificidad, por lo que sumaría 0 puntos.
+
+## Cierre
+
+Como hemos visto, el cálculo de que regla CSS se aplica frente a otras no es tan simple cómo analizar en que orden aparecen. Entran en juego más aspectos dónde uno de los más importantes y desconocidos es la especificidad. Aunque ya no es tan desconocida para ti, ¿verdad? 😋
+
+---
+
+Muchas gracias por llegar hasta el final y, si quieres modificar algo de este artículo, puedes hacerlo enviándome una PR editando [este fichero](https://github.com/achamorro-dev/albertochamorro.dev/blob/main/src/content/blog/especificidad-css-que-es-como-se-calcula.mdx).
+
+¡Gracias por leer hasta aquí y hasta la próxima 👋!
