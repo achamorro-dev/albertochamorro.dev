@@ -30,15 +30,19 @@ h6 {
 h1 {
   font-size: var(--font-size-fluid-4);
 }
+
 h2 {
   font-size: var(--font-size-fluid-3);
 }
+
 h3 {
   font-size: var(--font-size-8);
 }
+
 h4 {
   font-size: var(--font-size-6);
 }
+
 h5 {
   font-size: var(--font-size-5);
 }
@@ -63,6 +67,17 @@ pre {
   padding: var(--size-4);
   margin-block: var(--size-4);
   overflow: auto;
+}
+
+p > code,
+strong > code,
+li > code {
+  background: #24292e;
+  color: #e1e4e8;
+  padding: 1px var(--size-2);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-fluid-1);
+  font-weight: var(--medium-font-weight);
 }
 
 code * {
