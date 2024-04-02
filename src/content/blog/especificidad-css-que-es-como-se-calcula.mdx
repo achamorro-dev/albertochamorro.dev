@@ -48,19 +48,21 @@ Ahora cambiemos el ejemplo, ¿seguiría siendo de color gris o habría cambiado?
 </style>
 ```
 
-Pues en este caso el botón se pintaría de color azul. Aunque no sea una bonita forma de aumentar la especificidad de un selector y nos haga sospechar de que algo esté mal ([smell](https://martinfowler.com/bliki/CodeSmell.html) 👃), el duplicar el nombre de la clase hace que el selector pase de 10 a 20 puntos, frente a los 11 puntos de la primera regla.
+Pues en este caso el botón se pintaría de color azul.
 
-En este artículo vamos a ver cómo se calcula la especificidad para no volver a fallar en este tipo de pruebas.
+Aunque no sea una bonita forma de aumentar la especificidad de un selector y nos haga sospechar de que algo esté mal ([smell](https://martinfowler.com/bliki/CodeSmell.html) 👃), el duplicar el nombre de la clase hace que el selector pase de 10 a 20 puntos de especificidad, frente a los 11 puntos de la primera regla.
+
+En este artículo vamos a ver cómo se calcula la especificidad para no volver a fallar en este tipo de ejercicios.
 
 ## ¿Qué es la especificidad en CSS?
 
-La especificidad en CSS es un algoritmo que calcula y otorga puntuaciones a los selectores en CSS. Cuando dos o más selectores intentan estilar el mismo elemento se dice que estos entran en competición, el navegador calculará la especificidad de cada uno de los selectores y el que mayor puntuación consiga gana 🥇.
+La especificidad en CSS es un algoritmo que calcula y otorga puntuaciones a los selectores de nuestras hojas de estilo.
 
-La especificidad es acumulativa, esto significa que todos los elementos indicados en un selector suman. Por ejemplo, `[a.link](http://a.link)` suma menos puntos que `a.link.primary-link:hover`.
+Cuando dos o más selectores intentan estilar el mismo elemento se dice que estos entran en competición, el navegador calculará la especificidad de cada uno de los selectores y el que mayor puntuación consiga gana 🥇.
+
+La especificidad es acumulativa, esto significa que todos los elementos indicados en un selector suman. Por ejemplo, `a.link` suma menos puntos que `a.link.primary-link:hover`.
 
 Como sabemos, CSS significa Cascading Style Sheets o Hoja de Estilo en Cascada. Aunque en este algoritmo en cascada la posición y el orden de aparición de los selectores es importante, no deja de ser la primera fase. Las otras fases de este algoritmo son especificidad, origen (dónde entra en juego la herencia) y la importancia.
-
-Vamos a ver cómo se calcula la especificidad.
 
 ## Cómo se calcula
 
@@ -68,12 +70,12 @@ Cómo he comentado antes, el navegador realiza una puntuación dependiendo del s
 
 Veamos la puntuación para cada tipo de selector.
 
-- **Selector universal** **(`*`) y combinadores (`+`, `>`, `~`, `||`)**: no tienen especificidad y obtienen **0 puntos**.
-- **Selector de elementos o pseudoelementos (`::`)**: los selectores a elementos, por ejemplo `a` o `button`, o pseudoelementos cómo `::after` o `::placeholder` obtienen **1 punto**.
-- **Selector de clase (`.`), pseudoclase (`:`) o atributo (`[]`):** obtienen **10 puntos**. Algunas pseudoclases tienen reglas diferentes, las vemos más adelante.
-- **Selector de id** **(`#`)**: obtiene una puntuación de **100 puntos**.
-- **Estilo en línea (`style=””`):** tiene una puntuación de **1000 puntos**.
-- **Regla `!important`**: otorga la mayor puntuación \***\*posible que son **10.000 puntos\*\*.
+- **Selector universal** (`*`) y **combinadores** (`+` `>` `~` `||`): no tienen especificidad y obtienen **0 puntos**.
+- **Selector de elementos o pseudoelementos** (`::`): los selectores a elementos, por ejemplo `a` o `button`, o pseudoelementos cómo `::after` o `::placeholder` obtienen **1 punto**.
+- **Selector de clase** (`.`), **pseudoclase** (`:`) o **atributo** (`[]`): obtienen **10 puntos**. Algunas pseudoclases tienen reglas diferentes, las vemos más adelante.
+- **Selector de id** (`#`): obtiene una puntuación de **100 puntos**.
+- **Estilo en línea** (`style=””`): tiene una puntuación de **1000 puntos**.
+- **Regla** `!important`: otorga la mayor puntuación posible que son **10.000 puntos**.
 
 Veamos algunos ejemplos y cuanta puntuación sumarían:
 
@@ -160,16 +162,18 @@ Si quieres ver una calculadora online para hacer tus propias pruebas echa un vis
 
 ## Algunas reglas adicionales
 
-Aunque hemos explicado la forma básica en la que el navegador calcula la especificidad de nuestras reglas de CSS, existen formas de alterar este comportamiento.
+Aunque hemos explicado la forma básica en la que el navegador calcula la especificidad de nuestras reglas de CSS, existen reglas y maneras de alterar este comportamiento.
 
-- `@scope` y `@layer` modifican el orden en el que se procesa, calcula y aplica la especificidad.
-- `:nth-child()`, `:nth-last-child()`, `:nth-of-type()` y `:nth-last-of-type()` suma la especificidad de la pseudoclase más el selector más específico.
+- `@scope` y `@layer` pueden modificar el orden en el que se procesa, calcula y aplica la especificidad.
+- `:nth-child()`, `:nth-last-child()`, `:nth-of-type()` y `:nth-last-of-type()` reciben como argumento la posición de un elemento dentro de un grupo. Su especificidad es la suma de la pseudoclase más el selector más específico.
 - `:is()` , `:not()` y `:has()` reciben como argumento una lista de selectores. En este caso la pseudoclase no añade especificidad en sí misma pero sí aplica la especificidad de los selectores que recibe.
 - `:where()` también recibe como argumento una lista de selectores pero en este caso ni la pseudoclase ni sus selectores aplican especificidad, por lo que sumaría 0 puntos.
 
 ## Cierre
 
-Como hemos visto, el cálculo de que regla CSS se aplica frente a otras no es tan simple cómo analizar en que orden aparecen. Entran en juego más aspectos dónde uno de los más importantes y desconocidos es la especificidad. Aunque ya no es tan desconocida para ti, ¿verdad? 😋
+Como hemos visto, el cálculo de que regla CSS se aplica frente a otras no es tan simple cómo analizar en que orden aparecen.
+
+Entran en juego más aspectos; quizá uno de los más importantes y desconocidos es la especificidad. Aunque ya no es tan desconocida para ti, ¿verdad? 😋
 
 ---
 
