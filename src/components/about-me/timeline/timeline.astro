@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content'
+import TimelineItem from './timeline-item.astro'
+
+const works = await getCollection('work')
+works.sort((a,b) => {
+  return a.id > b.id ? -1 : 1
+})
+---
+<article class="timeline">
+  <h2>Timeline</h2>
+  <section class="timeline-grid">
+    {works.map((work, index) => {
+      const isLast = index === works.length - 1
+      let rowStartStyle = `grid-row-start: ${index + 1};`
+      if (isLast) rowStartStyle += `grid-row-end: ${index + 2};`
+
+      return (
+        <article class="timeline-grid-item" style={rowStartStyle}>
+          <TimelineItem work={work} />
+        </article>
+      )
+    })} 
+  </section>
+</article>
+
+
+<style>
+  .timeline {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding-inline: var(--size-4);
+    padding-block: var(--size-8);
+
+    & h2 {
+      margin-bottom: var(--size-10);
+    }
+
+  }
+
+  @media (min-width: 768px) {
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--size-8);
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 4px;
+        border-radius: 4px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--secondary-color-100);
+      }
+    }
+
+    .timeline-grid-item {
+      grid-row-end: span 2;
+    }
+  }
+</style>

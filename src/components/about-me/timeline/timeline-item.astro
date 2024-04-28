@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  work: CollectionEntry<'work'>
+  style?: string 
+}
+
+const {work, style} = Astro.props
+---
+<section style={style} class:list={['timeline-item']}>
+  <div class="timeline-item-image">
+    <img alt={work.data.location} src={work.data.logo} loading="lazy" />
+  </div>
+  <div class="timeline-item-content">
+    <span>{work.data.period}</span>
+    <h5>{work.data.location}</h5>
+    <h4>{work.data.title}</h4>
+    <p set:html={work.data.description}/>
+  </div>
+</section>
+
+<style>
+.timeline-item-image img {
+  max-height: 50px;
+  margin-bottom: var(--size-4);
+}
+
+@media (min-width: 768px) {
+  .timeline-item {
+    display: grid;
+    grid-template-areas: "image content";
+    grid-template-columns: 25% 1fr;
+    gap: var(--size-4);
+
+    & .timeline-item-image {
+      grid-area: image;
+      display: flex;
+      justify-content: end;
+    }
+
+    & .timeline-item-content {
+      grid-area: content;
+    }
+  }
+}
+</style>

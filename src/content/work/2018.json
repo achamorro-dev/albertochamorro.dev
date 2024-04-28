@@ -1,0 +1,7 @@
+{
+  "period": "2018 - 2019",
+  "title": "Advanced App Engineering Sr Analyst - Frontend Specialist",
+  "location": "Accenture",
+  "description": "Creación de Web Components visuales (UI) y técnicos (creando primero la librería o module y después su wrapper en un Web Component).<br><br>Creación de aplicaciones con el framework propietario del cliente reutilizando todo el catálogo de componentes creados.<br><br>Creación y administración de despliegues en Openshift Container Platform en todos los entornos de desarrollo, revisión de logs y solución de cualquier problema existente.<br><br>Desarrollo fullstack de aplicación de oficina para firma digital de documentos.<br><br>Diferentes evolutivos en el front basados en arquitectura AngularJS y Bootstrap.<br><br>Creación de una PoC para el proyecto de digitalización de documentos con tareas de clasificación y extracción manual. Creación de un componente visor de documentos para dicha PoC.<br><br>Supervisión y formación a varios compañeros dentro del cliente.<br><br>Tecnologías usadas:<br>LitElement, Polymer, AngularJS, Java, HTML, CSS, JavaScript",
+  "logo": "/work/accenture.svg"
+}
