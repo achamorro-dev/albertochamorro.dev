@@ -27,7 +27,7 @@
 
 .button--outline {
   background: transparent;
-  border: 1px solid var(--on-primary-color-100);
+  border: 1px solid transparent;
   color: var(--on-primary-color-100);
 }
 
