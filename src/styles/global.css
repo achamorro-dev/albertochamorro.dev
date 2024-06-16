@@ -102,6 +102,10 @@ code * {
   border-width: 0;
 }
 
+.highlighted {
+  font-weight: 500;
+}
+
 @media (min-width: 768px) {
   .main-content {
     padding-inline: var(--size-8);
