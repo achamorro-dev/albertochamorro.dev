@@ -1,0 +1,313 @@
+---
+title: 'Patrones GRASP (Parte 1)'
+description: En este primer artículo veremos que son los patrones GRASP o patrones de asignación de responsabilidad y como nos ayudaran a identificar y asignar responsabilidades en nuestro software. Además explicaremos 4 de los 9 patrones/principios GRASP  con ejemplos claros en cada uno de ellos.
+cover: ../../assets/blog/patrones-grasp-parte-1/patrones-grasp-1-cover.png
+alt: Cartel del artículo Patrones GRASP (Parte 1)
+tags:
+  - software design
+date: 2024-06-16
+canonicalUrl: https://albertochamorro.dev/blog/patrones-grasp-parte-1
+---
+
+import { Image } from 'astro:assets'
+import classDiagram from '../../assets/blog/patrones-grasp-parte-1/class-diagram.png'
+import classDiagramUseCases from '../../assets/blog/patrones-grasp-parte-1/class-diagram-usecases.png'
+
+## Introducción
+
+Seguro que si te hablo sobre patrones SOLID al menos alguna vez has oído hablar de ellos y seguramente puedas decirme cuales son. Pero en el mundo del diseño de software hay más patrones que nos ayudan a conseguir que nuestro código llegue a ser Clean Code.
+
+En este primer capítulo vamos a ver 4 de los 9 patrones/principios GRASP que nos ayudaran a saber como asignar las responsabilidades en nuestro software con ejemplos claros en cada uno de ellos.
+
+## Empecemos por el principio, ¿qué son los patrones GRASP?
+
+Como sabes, **los patrones** en diseño de software **son herramientas o recetas que aproximan una solución para resolver problemas comunes** conocidos de una manera eficiente y testada.
+
+GRASP es el acrónimo de General Responsibility Assignment Software Patterns o, traducido al español, **patrones de asignación de responsabilidad general**. Estos patrones pertenecen a una metodología denominada OOAD (Object-Oriented Analysis and Design) que utiliza una orientación a objetos para modelar y diseñar sistemas.
+
+Los patrones GRASP (aunque muchos son más principios que patrones) nos indican reglas o técnicas para asignar responsabilidades en nuestro software con el fin de mantener bajo acoplamiento, conseguir alta cohesión y hacer nuestro software más escalable y mantenible.
+
+El listado de los 9 patrones GRASP son:
+
+- Experto de la información (information expert)
+- Creador (creator)
+- Bajo acoplamiento (low coupling)
+- Alta cohesión (high cohesion)
+- Controlador (controller)
+- Indirección (indirection)
+- Polimorfismo (polymorphism)
+- Fabricación pura (pure fabrication)
+- Variaciones protegidas (protected variations)
+
+## Vale pero espera, ¿a qué llamamos responsabilidad?
+
+Muchas veces hablamos sobre responsabilidades pero no siempre queda claro a qué nos referimos.
+
+Muy resumido, **la responsabilidad** en diseño de software **hace referencia a comportamiento**, es decir **«quién» o qué tiene la obligación de ejecutar** una acción, **y a conocimiento**, si debería **saber de o conocer a otros**. Esto implica a todos los niveles, desde un sistema completo, pasando por módulos, clases, componentes, etc.
+
+Cuando hablamos de ejecutar una acción no sólo hacemos referencia a ejecutar un algoritmo y ya. Ejecutar una acción implica desde la creación de otros objetos dentro de sí mismo, ejecutar acciones o métodos de otros elementos, coordinar actividades entre diferentes objetos, etc.
+
+Ahora que ya sabemos a que nos referimos cuando hablamos de responsabilidad, vamos a ver los 4 primeros patrones definidos por GRASP.
+
+## Experto de la información (information expert)
+
+Problema: ¿en qué debemos basarnos para asignar responsabilidades a un objeto?
+
+El principio **Experto de la información** establece que **una responsabilidad debe asignarse a la clase u objeto que posea la mayor cantidad de información necesaria para cumplir esa responsabilidad**. Con esto conseguiremos aumentar la cohesión de esa clase u objeto al tener más relación entre atributos y comportamiento.
+
+**Patrones y principios relacionados**: bajo acoplamiento, alta cohesión.
+
+**Smell relacionados:** God class.
+
+## Ejemplo del principio Experto de la información
+
+Imagina que tenemos que calcular el importe total de un pedido. Este pedido (clase `Order`) tiene un listado de items (clase `OrderLine`) dónde cada uno de ellos contiene la información de la cantidad, el precio y el porcentaje de IVA (o impuesto) que debe pagar.
+
+Ahora echemos un vistazo al siguiente código, ¿crees que respeta el principio de experto de la información?
+
+```tsx {11-17}
+class OrderLine {
+  productId: Id
+  quantity: number
+  price: number
+  vat: number
+}
+
+class Order {
+  items: Array<OrderLine>
+
+  getTotal(): number {
+    return this.items.reduce((total, item) => {
+      const itemTotal = item.quantity * item.price * (1 + item.vat)
+
+      return total + itemTotal
+    }, 0)
+  }
+}
+```
+
+Si analizamos el método `Order.getTotal` vemos que el pedido tiene la responsabilidad de saber cómo se calcula el precio total del pedido al tener la información de los items pero, además, sabe calcular el importe total de un item concreto cuando toda esa información de precio, cantidad e impuesto se encuentra en la clase `OrderLine`.
+
+En este caso lo correcto sería calcular el coste total de un item dentro del propio item ya que es donde reside toda la información necesaria para ello, aumentando así la cohesión y reutilización de la clase `OrderLine` en caso de que fuera necesario:
+
+```tsx {6-9,15-19}
+class OrderLine {
+  productId: Id
+  quantity: number
+  price: number
+  vat: number
+
+  getTotal(): number {
+    return this.quantity * this.price * (1 + this.vat)
+  }
+}
+
+class Order {
+  items: Array<OrderLine>
+
+  getTotal(): number {
+    return this.items.reduce((total, item) => {
+      return total + item.getTotal()
+    }, 0)
+  }
+}
+```
+
+## Creador (creator)
+
+Problema: ¿quién o qué es el responsable de crear un objeto?
+
+El patrón **Creador** establece **ciertas reglas que tiene que cumplir un objeto B** **para ser responsable de la creación de un objeto A**. Estas reglas son:
+
+- Cuando B contiene o utiliza directamente instancias de A
+- Cuando B se compone de varias instancias de A
+- Cuando B tiene la información para crear A
+
+En ocasiones la creación de una nueva instancia es compleja. En estos casos es recomendable delegar la responsabilidad de la creación a una clase u objeto auxiliar llamado fábrica (lo veremos en el patrón de fabricación pura en el siguiente capítulo de patrones GRASP).
+
+**Patrones y principios relacionados:** bajo acoplamiento, Factory pattern.
+
+## Ejemplo del patrón Creador
+
+Siguiendo con el ejemplo anterior del pedido, imagina que ahora necesitamos implementar el añadir un nuevo item al pedido. Podemos ver que es el pedido el que contiene instancias de `OrderLine` en su atributo `items` por lo que el responsable de crear un nuevo item debería ser el pedido, en este caso hemos añadido el método `Order.addItem`.
+
+```tsx {10,17-20}
+class OrderLine {
+  constructor(private productId: Id, private quantity: number, private price: number, private vat: number) {}
+
+  getTotal(): number {
+    return this.quantity * this.price * (1 + this.vat)
+  }
+}
+
+class Order {
+  items: Array<OrderLine>
+
+  getTotal(): number {
+    return this.items.reduce((total, item) => {
+      return total + item.getTotal()
+    }, 0)
+  }
+
+  addItem(productId: Id, quantity: number, price: number, vat: number): void {
+    const orderLine = new OrderLine(productId, quantity, price, vat)
+    this.items.push(orderLine)
+  }
+}
+```
+
+## Bajo acoplamiento (low coupling)
+
+Problema: ¿cómo mantener un nivel bajo de dependencias, reducir el impacto a un cambio y aumentar la reutilización?
+
+Tal y como dice Craig Larman en su libro “Applying UML and Patterns”, **el acoplamiento es una medida de la intensidad con la que un elemento está conectado a otros, tiene conocimiento de ellos o depende de ellos**.
+
+Un elemento de nuestro software con **alto acoplamiento** a otros elementos externos **puede** **provocar los siguientes problemas**:
+
+- **Un cambio en un elemento** del que dependemos (y al que estamos acoplados) **fuerza que** nosotros **tengamos también que cambiar**.
+- **Es más difícil entender** que hace nuestra clase, componente o módulo de una manera aislada ya que para conocer el funcionamiento completo necesitamos también entender los elementos de los que depende.
+- **Hace más difícil su reutilización** porque su uso requiere también de los otros elementos de los que depende.
+
+Por lo tanto, las **ventajas de un bajo acoplamiento** serían:
+
+- **Mayor poder de reutilización**.
+- **Más fácil de entender**.
+- **Menos obligaciones de cambiar** por dependencias de terceros.
+
+La fase de análisis y diseño es crítica para mantener un acoplamiento lo más bajo posible. A continuación puedes ver algunas acciones que aumentan el acoplamiento:
+
+- A tiene un atributo que hace referencia a B.
+- A llama a servicios de B.
+- A tiene un método que hace referencia a una instancia de B.
+- A es una subclase directa o indirecta de B.
+- B es una interfaz y A la implementa.
+
+Si quieres más detalle de los tipos de acoplamiento que existen te animo a que eches un vistazo a [este artículo de geeksforgeeks](https://www.geeksforgeeks.org/software-engineering-coupling-and-cohesion/#types-of-coupling).
+
+**Patrones o principios relacionados**: variaciones protegidas, interface segregation principle, dependency injection, composition vs inheritance.
+
+## Alta cohesión (high cohesion)
+
+Problema: ¿cómo hacer que la complejidad sea manejable?
+
+¿Qué significa cohesión? **La cohesión es una medida de lo fuertemente relacionadas y centradas que están las responsabilidades de un elemento**.
+
+Por lo general, un elemento con alta cohesión suele tener un bajo número de métodos y variables que están relacionados entre sí. Este elemento colabora con otros elementos para distribuir el esfuerzo de una tarea más grande.
+
+Por el contrario, un elemento con baja cohesión contiene métodos y atributos no relacionados o hace demasiado trabajo. Los problemas que conlleva la baja cohesión son:
+
+- Difícil entender lo que hace la clase, módulo o sistema ya que realiza demasiadas cosas.
+- Los cambios en una de las responsabilidades de un elemento en particular, puede afectar a las otras responsabilidades.
+- Se reduce la reutilización, ya que cualquier consumidor que necesite una de las responsabilidades puede terminar obteniendo funcionalidades no deseadas.
+
+En general, los conceptos de cohesión y acoplamiento están estrechamente relacionados ya que un alto grado de acoplamiento en un objeto provoca una baja cohesión del mismo.
+
+Hay múltiples tipos de cohesión, puedes echar un vistazo a [este artículo de geeksforgeeks](https://www.geeksforgeeks.org/software-engineering-coupling-and-cohesion/#types-of-cohesion) para más información.
+
+**Patrones o principios relacionados**: Single Responsibility, bajo acoplamiento, patrón fachada.
+
+**Smells relacionados**: God class, clases ocultas.
+
+## Ejemplo de baja cohesión y alto acoplamiento
+
+Siguiendo con el contexto de pedidos, imagina estar en un proyecto y encontrarte con una clase de este estilo:
+
+```tsx {15-29}
+class OrderService {
+  private order: Order
+  private orderProcessor: OrderProcessor
+  private billGenerator: BillGenerator
+  private emailSender: EmailSender
+  private orderShiper: OrderShipper
+
+  constructor(order: Order) {
+    this.order = order
+    this.orderProcessor = new OrderProcessor()
+    this.billGenerator = new BillGenerator()
+    this.emailSender = new EmailSender()
+    this.orderShipper = new OrderShipper()
+  }
+
+  public processOrder(): void {
+    // Lógica para procesar el pedido
+  }
+
+  public generateBill(): File {
+    // Lógica para generar la factura
+  }
+
+  public sendConfirmationEmail(): void {
+    // Lógica para enviar el email de confirmación
+  }
+
+  public shipOrder(): void {
+    // Lógica para enviar el pedido
+  }
+}
+```
+
+Si revisamos las responsabilidades de esta clase `OrderService` podemos observar que esta clase puede: procesar el pedido, generar la factura, enviar email de confirmación y enviar el pedido al cliente. ¿Has llegado a ver una clase parecida con tantas responsabilidades? ¿Crees que es correcto?
+
+Esta clase es considerada una God Class o Large Class, una clase que hace y conoce demasiado. Además, cualquier cliente que necesite realizar alguna de las operaciones, por ejemplo enviar el email de confirmación, veremos que lleva consigo muchas más cosas de las que necesita para realizar esta tarea.
+
+Si esbozamos un diagrama de las relaciones de esta clase podremos ver que cada flecha suma acoplamiento, y eso que sólo mostramos un primer nivel de relación:
+
+<Image
+  src={classDiagram}
+  alt="Diagrama de clases de la clase OrderService con las dependencias de OrderProcessor, BillGenerator, EmailSender y OrderShipper"
+/>
+
+Una posible solución podría ser separar cada una de esas responsabilidades (métodos) que teníamos detectados en diferentes casos de uso, cada uno de ellos con sus dependencias y parámetros mínimos necesarios para procesarse:
+
+```tsx {0,8,16,24}
+class ProcessOrderUseCase {
+  constructor(private orderProcessor: OrderProcessor) {}
+
+  public execute(order: Order): void {
+    this.orderProcessor.process(order)
+  }
+}
+
+class GenerateBillUseCase {
+  constructor(private billGenerator: BillGenerator) {}
+
+  public execute(items: Array<OrderItem>): File {
+    return this.billGenerator.generate(items)
+  }
+}
+
+class SendConfirmationEmailUseCase {
+  constructor(private emailSender: EmailSender) {}
+
+  public execute(orderId: string, to: string): void {
+    this.emailSender.send(to, `Order ${orderId} confirmation`, `Your order ${orderId} has been processed`)
+  }
+}
+
+class ShipOrderUseCase {
+  constructor(private orderShipper: OrderShipper) {}
+
+  public execute(orderId: string, address: Address): void {
+    this.orderShipper.ship(orderId, address)
+  }
+}
+```
+
+Si volvemos a esbozar el diagrama veremos que ahora tenemos múltiples clases especializadas con un bajo acoplamiento. Si recordamos a nuestro cliente que simplemente quería enviar el email de confirmación veremos que ahora tendrá mucho más acotada la tarea y menos dependencias que cubrir para ejecutarla.
+
+<Image
+  src={classDiagramUseCases}
+  alt="Diagrama de las clases ProcessOrderUseCase, GenerateBillUseCase, SendConfirmationEmailUseCase y ShipOrderUseCase con sus respectivas dependencias"
+/>
+
+## Cierre
+
+En este primer capítulo hemos visto con ejemplos 4 de los 9 patrones GRASP. Sé que estos conceptos son complejos pero creo que necesarios de conocer y repasar cuando escribimos o leemos nuestro código para que este sea más legible, mantenible y escalable.
+
+Te espero en un próximo capítulo para estudiar los 5 patrones restantes (controlador, indirección, polimorfismo, fabricación pura y variaciones protegidas), ¡no te los pierdas! 👨‍💻.
+
+---
+
+Muchas gracias por llegar hasta el final y, si quieres modificar algo de este artículo, puedes hacerlo enviándome una PR editando [este fichero](https://github.com/achamorro-dev/albertochamorro.dev/blob/main/src/content/blog/patrones-grasp-parte-1.mdx).
+
+¡Hasta la próxima 👋!

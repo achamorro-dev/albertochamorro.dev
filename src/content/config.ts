@@ -1,6 +1,16 @@
 import { defineCollection, z } from 'astro:content'
 
-const blogTags = z.enum(['javascript', 'typescript', 'frontend', 'backend', 'productividad', 'flutter', 'git', 'css'])
+const blogTags = z.enum([
+  'javascript',
+  'typescript',
+  'frontend',
+  'backend',
+  'productividad',
+  'flutter',
+  'git',
+  'css',
+  'software design',
+])
 const blog = defineCollection({
   type: 'content',
   schema: ({ image }) =>
