@@ -1,0 +1,267 @@
+---
+title: 'HOC: Higher Order Components en React con ejemplos'
+description: Antes de la revolución de los custom hooks, la manera de compartir lógica o comportamientos entre componentes era a través de los llamados Higher Order Components o HOC para abreviar. En este artículo veremos qué son y por qué en ocasiones siguen siendo una opción interesante frente a los custom hook.
+cover: ../../assets/blog/hoc-higher-order-components-en-react/higher-order-components-cover-en-react-cover.png
+alt: Cartel del artículo Higher Order Components en React
+tags:
+  - frontend
+date: 2024-06-27
+canonicalUrl: https://albertochamorro.dev/blog/hoc-higher-order-components-en-react
+---
+
+## Introducción
+
+Con la llegada de los famosos hooks a React en su versión 16.8, la reutilización de lógica entre componentes se ha vuelto una tarea mucho más sencilla y trivial. Antes de esta revolución, la forma que teníamos de compartir lógica o comportamientos entre componentes era a través de los llamados Higher Order Components o HOC para abreviar.
+
+En este artículo vamos a definir que son los Higher Order Components, cómo crearlos, veremos 4 ejemplos y por qué en ocasiones siguen siendo una opción interesante frente a los custom hook.
+
+## ¿Qué son los Higher Order Components?
+
+Un Higher Order Component (o HOC) es un componente que devuelve otro componente. Estos componentes de alto nivel son utilizados para realizar acciones o extender otros componentes con la posibilidad de añadir nuevas o modificar sus propiedades.
+
+Este patrón avanzado de creación de componentes en React nos permite mantener nuestros componentes más simples y limpios haciéndolos ajenos a comportamientos adicionales que no son responsabilidad de esos componentes.
+
+Como he dicho, estos HOC siguen siendo componentes por lo que podemos hacer uso de hooks para manejar estado propio, ejecutar acciones según el ciclo de vida del componente, modificar el valor de las propiedades del componente final y más. Son muchos los casos de uso que le podemos dar a este tipo de componentes, vamos a ver como crearlos y alguno de esos casos de uso.
+
+## Creando nuestro primer Higher Order Component
+
+Por convención, el nombre de un HOC comienza con la palabra «with» aunque no es algo obligatorio. Veamos un ejemplo muy sencillo:
+
+```tsx
+function withPadding(Component) {
+  return props => {
+    const style = { padding: '0.2rem' }
+    return <Component style={style} {...props} />
+  }
+}
+```
+
+Como podemos ver, la función `withPadding` recibe un componente como parámetro de entrada y devuelve una nueva función. Esta segunda función es el nuevo componente generado que recibe las propiedades del componente original, establece una constante `style` con un padding preestablecido y retorna el componente original pasándole, además de sus propiedades, una nueva para establecer un padding.
+
+Vamos a ver como podemos usarlo:
+
+```tsx
+const Button = () => <button>Click me!</button>
+
+const PaddedButton = withPadding(Button)
+```
+
+En este caso tenemos un componente botón del cual generamos una nueva versión con el extra de padding que define nuestro HOC.
+
+¿Sencillo verdad?
+
+## Ejemplos de uso de Higher Order Components
+
+El ejemplo anterior ha sido un primer acercamiento a cómo se escriben los HOC. A continuación expongo diferentes ejemplos dónde este tipo de componentes destacan por su reutilización.
+
+Los ejemplos están en JavaScript y no en TypeScript para que los ejemplos sean más legibles y no perderte en verbosidad de tipos de TypeScript.
+
+### Haciendo uso de Suspense para mostrar un loader
+
+Por lo general, cuando hacemos fetching de datos deberíamos mostrar feedback al usuario de que algo está cargando. Esto normalmente se consigue envolviendo nuestro lazy component (o server component si trabajamos con SSR) que realiza el fetching dentro de un componente `Suspense`.
+
+Ahora imagina una aplicación de gran tamaño, puede que tengamos múltiples componentes que realizan fetching de datos ¿verdad? ¿Y si creamos un HOC que envuelva otro componente dentro de un componente `Suspense`?
+
+```tsx
+// with-suspense.jsx
+import { Suspense } from 'react'
+
+export const withSuspense = WrappedComponent => {
+  return props => {
+    ;<Suspense fallback={<LoadingSkeleton />}>
+      <WrappedComponent {...props} />
+    </Suspense>
+  }
+}
+
+// albums.jsx
+const Albums = ({ artistId }) => {
+  const albums = use(fetchData(`/${artistId}/albums`))
+  return (
+    <ul>
+      {albums.map(album => (
+        <li key={album.id}>
+          {album.title} ({album.year})
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+export const SuspendedAlbums = withSuspense(Albums)
+
+// artist-page.jsx
+export const ArtistPage = ({ artist }) => {
+  return (
+    <>
+      <h1>{artist.name}</h1>
+      <SuspendedAlbums artistId={artist.id} />
+    </>
+  )
+}
+```
+
+### Renderizar componente cuando el usuario tiene el rol permitido
+
+En aplicaciones de tipo backoffice o paneles de administración por ejemplo, es muy común que tengamos diferentes tipos de usuarios con diferentes roles. En estos casos puede que tengamos que ocultar información si el usuario no tiene un rol específico.
+
+En este ejemplo vamos a crear un HOC donde mostramos el componente final si el usuario logado cumple los roles indicados.
+
+```tsx
+// with-authorization.jsx
+export const withAuthorization = (WrappedComponent, allowedRoles) => {
+  return (props) => {
+    const { user } = useLoggedUser()
+
+    if (allowedRoles.includes(user.role)) {
+      return <WrappedComponent {...props} />
+    }
+
+    return <div>No tienes permiso para ver este contenido.</div>
+  }
+}
+
+// reports-page.jsx
+const ProtectedReports = withAuthorization(ReportsComponent, ['admin', 'data-analyst']);
+
+export const ReportsPage = () => {
+	return (
+		<h1>Informes</h1>
+		<ProtectedReports />
+	)
+}
+```
+
+### Enmascarar información delicada como un número de tarjeta
+
+Imagina que estás trabajando en una aplicación con información sensible como una aplicación bancaria y, por lo que sea, llega información sensible en crudo que habría que mostrar de forma enmascarada.
+
+Obviamente esto no se debería hacer desde la capa de presentación pero si no tenemos otra opción podemos crear un HOC al que le digamos el componente y los nombres de las propiedades con información sensible para enmascararlas.
+
+```tsx
+// with-masked-info.jsx
+import { useMemo } from "react"
+
+export const withMaskedInfo = (WrappedComponent, sensitiveKeys) => {
+  return (props) => {
+    const maskedProps = useMemo(() => {
+      const maskedData = Object.values(props).reduce((acc, value, key) => {
+        acc[key] = value
+
+        const isSensitiveKey = sensitiveKeys.includes(key)
+        const isString = typeof value === 'string'
+
+        if (isSensitiveKey && isString) {
+          acc[key] = value.replace(/.(?=.{4})/g, "*")
+        }
+
+        return acc
+      }, {})
+
+      return maskedData
+    }, [props])
+
+    return <WrappedComponent {...maskedProps} />
+  }
+}
+
+// bank-account.jsx
+const BankAccount = ({ accountNumber, accountName, accountBalance }) => {
+  return (
+    <div>
+      <p>Account Number: {accountNumber}</p>
+      <p>Account Name: {accountName}</p>
+      <p>Account Balance: {accountBalance}€</p>
+    </div>
+  )
+}
+
+export const SensitiveBankAccount = withMaskedInfo(BankAccount, ['accountNumber'])
+
+// header.jsx
+const Header = () => {
+  return (
+    <SensitiveBankAccount accountNumber="1234 5678 9000 1234 5678 9010" accountName="John Doe" accountBalance={1000.00} />
+  )
+}
+
+// Output
+Account Number: *************************9010
+Account Name: John Doe
+Account Balance: 1000.00€
+```
+
+En este ejemplo, hemos creado un HOC llamado `withMaskedInfo` recibe un componente y el listado de propiedades sensibles para enmascarar. Haciendo uso de `useMemo` generamos una nueva versión de las propiedades con los valores enmascarados y usamos esas propiedades para crear el componente final.
+
+### Inyector de dependencias
+
+En desarrollo de software, una de las claves para disminuir el acoplamiento y facilitar la testabilidad de nuestros artefactos es la implementación del principio de inversión de dependencias (también conocido como inversión de control).
+
+Estas dependencias normalmente se «inyectan» por constructor para poder modificarse desde fuera dependiendo del escenario, pero nuestros componentes son funciones sin constructor. Una de las opciones que tenemos para realizar esa inyección de dependencias es a través de propiedades del componente y un Higher Order Component ¿a que no te lo imaginabas? 😋.
+
+```tsx
+// with-use-case.jsx
+const withUseCase = (WrappedComponent, useCaseFn, propName) => {
+  return props => {
+    const injectedProps = {
+      ...props,
+      [propName]: useCaseFn,
+    }
+
+    return <WrappedComponent {...injectedProps} />
+  }
+}
+
+// tasks.jsx
+export const Tasks = props => {
+  const { getTasks } = props
+  const [tasks, setTasks] = useState([])
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const data = await getTasks()
+      setTasks(data)
+    }
+
+    fetchTasks()
+  }, [getTasks])
+
+  return (
+    <div>
+      <h1>Task Details</h1>
+      {tasks.map(task => (
+        <Task task={task} />
+      ))}
+    </div>
+  )
+}
+
+// app.jsx
+const TasksWithUseCase = withUseCase(Tasks, getTasksUseCase, 'getTasks')
+
+const App = () => {
+  return (
+    <div>
+      <TasksWithUseCase />
+    </div>
+  )
+}
+```
+
+En este ejemplo, hemos creado el HOC llamado `withUseCase` que recibe el componente, la función que actúa como caso de uso y el nombre de la propiedad del componente donde setear esa función.
+
+Al separar el componente de sus dependencias (método `getTasks`) podremos testear el componente `Tasks` de manera aislada (unit test) si lo necesitamos pasando por props el caso de uso mockeado.
+
+He simplificado el ejemplo a modo ilustrativo pero imagina que `withUseCase` debería tener la lógica para resolver la dependencia, por ejemplo de un contenedor de dependencias, o recibir múltiples casos de uso, etc.
+
+## Conclusiones
+
+Es cierto que con la introducción de los custom hooks y la componentización de forma declarativa, el patrón de creación basado en Higher Order Components ha pasado a un segundo nivel.
+
+Aun así creo que siguen siendo una muy buena opción en cuanto a separación de responsabilidades (los custom hooks se utilizan directamente en los componentes aumentando el acoplamiento) y al boilerplate que se genera en nuestro JSX teniendo que, en ocasiones, envolver componentes entre ellos.
+
+---
+
+Muchas gracias por llegar hasta el final y, si quieres modificar algo de este artículo, puedes hacerlo enviándome una PR editando [este fichero](https://github.com/achamorro-dev/albertochamorro.dev/blob/main/src/content/blog/hoc-higher-order-components-en-react.mdx).
+
+¡Hasta la próxima 👋!
