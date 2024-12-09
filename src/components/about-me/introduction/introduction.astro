@@ -1,13 +1,54 @@
 ---
-import { Image } from 'astro:assets';
-import MeImage from '../../../assets/other-me.jpeg';
+import { Image } from 'astro:assets'
+import MeImage from '../../../assets/other-me.jpeg'
 ---
+
 <article class="introduction">
   <h1>Sobre mí</h1>
-  <Image src={MeImage} alt="Foto mía sonriendo en Valencia delante de la Ciudad de las Artes y las Ciencias" class="me-image" format="avif" quality={15} loading={'eager'} />
-  <p>¡Hola! Soy Alberto Chamorro y actualmente trabajo como Frontend Developer en <a href="https://autentia.com/" target="_blank" rel="nofollow noreferrer" aria-label="autentia">@autentia</a> principalmente con tecnologías JavaScript como Angular y React pero siempre con TypeScript. También a nivel personal investigo sobre Astro y utilizo Flutter para desarrollar aplicaciones multiplataforma para iOS y Android.</p>
-  <p>Me considero alguien abierto y siempre dispuesto a ayudar a quien lo necesite, sin ningún problema para trabajar en equipo. Con muchas ganas de aprender y de avanzar en mi carrera profesional como desarrollador probando nuevos avances o adoptando nuevas tecnologías siempre con sentido.</p>
-  <p>En mi blog escribo artículos para poder compartir lo que aprendo en mi día a día y que espero pueda servir a más gente.</p>
+  <Image
+    src={MeImage}
+    alt="Foto mía sonriendo en Valencia delante de la Ciudad de las Artes y las Ciencias"
+    class="me-image"
+    format="avif"
+    quality={15}
+    loading={'eager'}
+  />
+  <p>
+    ¡Hola! Soy Alberto Chamorro y actualmente trabajo como Flutter Developer en <a
+      href="https://calisteniapp.com/"
+      target="_blank"
+      rel="nofollow noreferrer"
+      aria-label="calisteniapp">@calisteniapp</a
+    >, desarollando y evolucionando la aplicación móvil principal tanto para iOS como Android.
+  </p>
+  <p>
+    Además tengo amplia experiencia en desarrollo web, habiendo trabajado con los 3 grandes frameworks Angular, React y
+    Vue pero siempre con el apoyo de TypeScript. A nivel personal investigo y trabajo además con Astro como fullstack
+    framework, utilizándolo en algunos de mis proyectos como por ejemplo mi web personal o <a
+      href="https://www.eventos.wiki"
+      target="_blank"
+      rel="nofollow noreferrer"
+      aria-label="eventos.wiki">@eventos.wiki</a
+    >.
+  </p>
+  <p>
+    Soy un apasionado del desarrollo de software de calidad, comprometido con la creación de soluciones sólidas,
+    escalables y mantenibles. En mi día a día, trabajo aplicando los principios de Clean Code, patrones de diseño y
+    buenas prácticas, asegurando que mi código sea legible, con responsabilidades claras y fácil de mantener. Con
+    conocimientos de Clean Architecture, he ayudado a estructurar aplicaciones robustas, favoreciendo la separación de
+    responsabilidades y la adaptabilidad a futuros cambios, gracias también a la modularidad por capas. Tengo
+    conocimientos de prácticas avanzadas en desarrollo de software como son SOLID, DDD, CQRS, Event Sourcing, TDD, etc.
+  </p>
+  <p>
+    Me considero alguien abierto y siempre dispuesto a ayudar a quien lo necesite, sin ningún problema para trabajar en
+    equipo y encantado de participar en el debate de ideas y soluciones. He participado en el proceso de incorporación
+    de compañeras y compañeros, desde las entrevistas técnicas hasta el proceso de onboarding mostrándoles cultura de
+    empresa, forma de trabajar y valores.
+  </p>
+  <p>
+    En mi blog escribo artículos para poder compartir lo que aprendo en mi día a día y que espero pueda servir a más
+    gente.
+  </p>
 </article>
 
 <style>
