@@ -42,7 +42,6 @@
     "pre-commit": "npx pretty-quick --staged"
   },
   "volta": {
-    "node": "18.17.1",
-    "npm": "9.6.7"
+    "node": "22.17.1"
   }
 }
